@@ -37,7 +37,6 @@ function SignIn() {
       }
     } catch (error) {
       const errorCode = error.code;
-      console.log(error)
       if (errorCode === 'auth/invalid-password') {
         toast.error('Password must be at least 6 characters')
       }

@@ -14,6 +14,11 @@
     font-size: 3rem;
 }
 
+.passwordRequest {
+    display: flex;
+    justify-content: flex-start;
+}
+
 hr {
     color: var(--primary-dark);
     width: 40%;
