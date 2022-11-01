@@ -82,12 +82,3 @@ hr {
     color: #fff;
 }
 
-
-.navbar {
-    background: var(--primary);
-    height: 10vh;
-    display: flex;
-    bottom: 0;
-    z-index: 1000;
-    justify-content: space-between;
-}
