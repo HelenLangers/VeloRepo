@@ -115,6 +115,7 @@ body {
   position: relative;
 }
 
+.nameInput,
 .emailInput, 
 .passwordInput {
   width: 100%;
@@ -146,6 +147,11 @@ body {
   background-color: var(--primary);
   height: 2rem;
   margin: 0.5rem;
+}
+
+.registerLink {
+  text-decoration: none;
+  color: #000;
 }
 
 .navbar {

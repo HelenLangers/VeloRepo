@@ -10,6 +10,7 @@ import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
 import ForgotPassword from './Pages/ForgotPassword';
 import HomePage from './Pages/HomePage';
+import Profile from './Pages/Profile';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage />}/>
           <Route path='/welcome' element={<HomePage />}/>
+          <Route path='/profile' element={<Profile />}/>
           <Route path='/sign-in' element={<SignIn/>}/>
           <Route path='/sign-up' element={<SignUp/>}/>
           <Route path='/forgot-password' element={<ForgotPassword/>}/>
