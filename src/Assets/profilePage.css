@@ -10,7 +10,7 @@
 }
 
 .accountTitle{
-    margin: 2rem;
+    margin: 2rem 5rem;
     font-size: 3rem;
 }
 
@@ -88,5 +88,6 @@ hr {
     height: 10vh;
     display: flex;
     bottom: 0;
+    z-index: 1000;
     justify-content: space-between;
 }

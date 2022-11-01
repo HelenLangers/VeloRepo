@@ -26,7 +26,7 @@ function ForgotPassword() {
   return (
     <>
     <header className='landingPageHeader'>
-      <img src={logo} alt="VeloRepo" className="logo"/>
+    <a href="/"><img src={logo} alt="VeloRepo" className="logo"/></a>
       <div className="navLinks">
         <Link className='landingPageLinks' to="/sign-up">Sign up</Link>
         

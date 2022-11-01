@@ -4,6 +4,7 @@ import { updateDoc, doc } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { toast } from "react-toastify";
 import NavBar from "../Components/NavBar";
+import darklogo from '../Assets/png/black-logo.png';
 import { ReactComponent as ArrowRightIcon } from "../Assets/svg/keyboardArrowRightIcon.svg";
 import "../Assets/profilePage.css";
 import { useNavigate } from "react-router-dom";
@@ -64,9 +65,12 @@ function Profile() {
   return (
     <>
       <div className="loggedInBackground">
+    <header className='landingPageHeader'>
+      <a href="/"><img src={darklogo} alt="VeloRepo" className="logo"/></a>
+      <h2 className="accountTitle">Account Details</h2>
+    </header>
+
         <div className="mainContainer">
-          <h2 className="accountTitle">Account Details</h2>
-          <hr></hr>
           <div className="personalDetailsHeader">
             <h3>Login Information</h3>
             <p

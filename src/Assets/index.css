@@ -10,7 +10,7 @@ body {
 
 :root {
   --primary: #2A9D8F;
-  --primary-light: #DFE3E3;
+  --primary-light: #ECEFEF;
   --primary-dark: #264653;
   --neutral-dark: #E76F51;
   --neutral-light: #E9C46A;
@@ -45,10 +45,11 @@ body {
 .landingPageHeader {
   display: flex;
   justify-content: space-between;
+  height: 15vh;
 }
 
 .logo {
-  margin-left: 1rem;
+  margin-left: 2rem;
   height: 6.5rem;
 }
 
