@@ -7,6 +7,7 @@ import "../Assets/index.css"
 import logo from '../Assets/png/logo.png';
 import visibilityIcon from '../Assets/svg/visibilityIcon.svg';
 import {ReactComponent as ArrowRightIcon} from '../Assets/svg/keyboardArrowRightIcon.svg';
+import { toast } from 'react-toastify';
 
 function SignUp() {
 
@@ -47,7 +48,7 @@ function SignUp() {
 
       navigate('/')
     } catch (error) {
-      console.log(error);
+      toast.error('Something went wrong with registration')
     }
   }
 

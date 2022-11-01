@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {getAuth} from 'firebase/auth';
+import NavBar from '../Components/NavBar';
+import '../Assets/loggedin.css';
 
 function Profile() {
 
@@ -11,7 +13,12 @@ function Profile() {
     }, [])
 
   return (
-    user ? <h1>{user.displayName}</h1> : 'Not logged in'
+    <>
+        <div className="loggedInBackground">
+        
+        </div>
+        <NavBar/>
+    </>
   )
 }
 

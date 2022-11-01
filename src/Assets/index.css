@@ -6,7 +6,6 @@ body {
   background-size: cover;
   margin: 0;
   font-family: 'Cagliostro', sans-serif;
-
 }
 
 :root {
@@ -152,13 +151,6 @@ body {
 .registerLink {
   text-decoration: none;
   color: #000;
-}
-
-.navbar {
-  background: var(--primary);
-  height: 5rem;
-  display: flex;
-  justify-content: space-between;
 }
 
 

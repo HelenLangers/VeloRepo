@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
+import {toast} from 'react-toastify';
 import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
 import "../Assets/index.css"
 import logo from '../Assets/png/logo.png';
@@ -32,10 +33,10 @@ function SignIn() {
       const userCredential = await signInWithEmailAndPassword(auth, email, password)
 
       if(userCredential.user) {
-        navigate('/')
+        navigate('/profile')
       }
     } catch (error) {
-      console.log(error)
+      toast.error('Bad user credentials')
     }
   }
 
