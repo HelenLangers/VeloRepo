@@ -65,10 +65,10 @@ function Profile() {
     <>
       <div className="loggedInBackground">
         <div className="mainContainer">
-          <h2 className="accountTitle">Account Settings</h2>
+          <h2 className="accountTitle">Account Details</h2>
           <hr></hr>
           <div className="personalDetailsHeader">
-            <h3>Personal Details</h3>
+            <h3>Login Information</h3>
             <p
               className="changePersonalDetails"
               onClick={() => {
@@ -116,7 +116,7 @@ function Profile() {
           <div className="itemsForLoan">
             <h3>Your Items For Loan</h3>
             <p>
-              Your items will appear here. If you don't have any, upload a thing
+              Your items will appear here. If you don't have any, upload a thing someone can borrow
             </p>
           </div>
           <hr></hr>
@@ -128,7 +128,7 @@ function Profile() {
           <hr></hr>
 
           <div className="logOutBlock">
-            <button type="button" onClick={onLogout} className="logOut">
+            <button type="button" className="logoutButton" onClick={onLogout}>
               Logout
             </button>
           </div>
