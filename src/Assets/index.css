@@ -54,7 +54,24 @@ body {
   font-size: 1.5rem;
 }
 
+.forgotPasswordLink {
+  text-decoration: none;
+  color: #000;
+  
+
+}
+
+.signInLinks {
+  text-decoration: none;
+
+}
 .landingPageLinks:hover {
+  color: var(--neutral-dark)
+}
+.signInLinks:hover {
+  color: var(--neutral-dark)
+}
+.forgotPasswordLink:hover {
   color: var(--neutral-dark)
 }
 
@@ -70,6 +87,67 @@ body {
   font-size: 2rem;
 }
 
+.signInBlock {
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.signInBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  height: fit-content;
+  width: 20rem;
+  background-color: var(--neutral-light);
+  border-style: solid;
+  border-width: 3px;
+  border-color: var(--primary-dark);
+  border-radius: 20px;
+}
+
+.passwordInputDiv {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.emailInput, 
+.passwordInput {
+  width: 100%;
+  margin-bottom: 1rem;
+  height: 3rem;
+  border-radius: 22px;
+  padding: 1rem;
+}
+
+.showPassword {
+  position: absolute;
+  right: 1rem;
+  bottom: 1.75rem;
+}
+
+.forgotPasswordLink {
+  text-decoration: none;
+}
+
+.signInBar {
+  display: flex;
+}
+
+.signInButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 22px;
+  background-color: var(--primary);
+  height: 2rem;
+  margin: 0.5rem;
+}
+
 .navbar {
   background: var(--primary);
   height: 5rem;
@@ -77,3 +155,14 @@ body {
   justify-content: space-between;
 }
 
+
+@media screen and (max-width: 768px) {
+  .landingPageHeader{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navLinks{
+    margin-right: 0;
+  }
+}
