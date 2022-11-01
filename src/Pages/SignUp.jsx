@@ -46,9 +46,15 @@ function SignUp() {
 
       await setDoc(doc(db, 'users', user.uid), formDataCopy)
 
-      navigate('/')
-    } catch (error) {
-      toast.error('Something went wrong with registration')
+      navigate('/profile')
+    } catch (error){
+      const errorCode = error.code;
+      if (errorCode === 'auth/email-already-in-use') {
+        toast.error('Sorry, email already in use')
+      }
+      else {
+        toast.error('Oops, something went wrong')
+      }
     }
   }
 

@@ -36,7 +36,21 @@ function SignIn() {
         navigate('/profile')
       }
     } catch (error) {
-      toast.error('Bad user credentials')
+      const errorCode = error.code;
+      console.log(error)
+      if (errorCode === 'auth/invalid-password') {
+        toast.error('Password must be at least 6 characters')
+      }
+      else if (errorCode === 'auth/user-not-found') {
+        toast.error('Either your email or password does not match our records')
+      }
+      else if (errorCode === 'auth/wrong-password') {
+        toast.error('Please check your password and try again')
+      }
+      else {
+        toast.error('Oops, something went wrong')
+      }
+      
     }
   }
 
