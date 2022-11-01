@@ -13,14 +13,13 @@ import HomePage from './Pages/HomePage';
 
 function App() {
 
-  useEffect(() => {
-    getTest()
-  }, [])
+  // useEffect(() => {
+  //   getTest()
+  // }, [])
 
   return (
     <>
       <Router>
-        <NavBar/>
         <Routes>
           <Route path='/' element={<LandingPage />}/>
           <Route path='/welcome' element={<HomePage />}/>
@@ -28,6 +27,7 @@ function App() {
           <Route path='/sign-up' element={<SignUp/>}/>
           <Route path='/forgot-password' element={<ForgotPassword/>}/>
         </Routes>
+        {/* <NavBar/> */}
       </Router>
       <ToastContainer 
     // default settings:

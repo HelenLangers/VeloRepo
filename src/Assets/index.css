@@ -1,20 +1,20 @@
 body {
-  background-color: rgb(211, 211, 200);
+  background: url('./jpg/backgroundlanding.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Cagliostro', sans-serif;
+
 }
 
 :root {
-  --primary: ;
-  --primary-light: ;
-  --primary-dark: ;
-  --neutral-dark: ;
-  --neutral-light: ;
-  --secondary: ;
+  --primary: #2A9D8F;
+  --primary-light: #C4D9D6;
+  --primary-dark: #264653;
+  --neutral-dark: #E76F51;
+  --neutral-light: #E9C46A;
   box-sizing: border-box;
 }
 
@@ -28,11 +28,52 @@ body {
   display: none;
 }
 
-.navbar {
-  background: #7B5C6E;
-  height: 5rem;
+.landingPageHeader {
   display: flex;
   justify-content: space-between;
 }
 
+.logo {
+  margin-left: 1rem;
+  height: 6.5rem;
+  /* filter: brightness(0) invert(1); */
+
+}
+
+.navLinks {
+  display: flex;
+  justify-content: space-between;
+  width: 15rem;
+  align-items: center;
+  margin-right: 4rem;
+}
+
+.landingPageLinks {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.5rem;
+}
+
+.landingPageLinks:hover {
+  color: var(--neutral-dark)
+}
+
+.tagLineBox {
+  display: flex;
+  height: 5rem;
+  justify-content: center;
+}
+
+.tagLine {
+  align-items: center;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.navbar {
+  background: var(--primary);
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+}
 
