@@ -1,0 +1,75 @@
+.loggedInBackground {
+    background-color: var(--primary-light);
+    height: 90vh;
+}
+
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.accountTitle{
+    margin: 2rem;
+    font-size: 3rem;
+}
+
+hr {
+    color: var(--primary-dark);
+    width: 40%;
+    border: 1px solid;
+}
+
+.personalDetailsHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.changePersonalDetails{
+    margin-left: 2rem;
+    cursor: pointer;
+}
+
+.profileCard {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin-bottom: 1rem;
+}
+
+.profileName,
+.profileEmail,
+.profileEmailActive,
+.profileNameActive {
+    all: unset;
+    margin: 0.3rem 0;
+    font-weight: 600;
+    width: 100%;
+    height: 2rem;
+}
+
+.profileNameActive,
+.profileEmailActive {
+    background-color: rgba(44, 44, 44, 0.1);
+}
+
+.itemsForLoan,
+.borrowedItems {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+
+.navbar {
+    background: var(--primary);
+    height: 10vh;
+    display: flex;
+    bottom: 0;
+    justify-content: space-between;
+}

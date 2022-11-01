@@ -53,25 +53,30 @@ function SignIn() {
 
     <div className="signInBlock">
       <div className="signInBox">
+      <div className="flexAlignCenter">
         <h2>Welcome Back!</h2>
+        </div>
         <form onSubmit={onSubmit}>
           <input type="email" className="emailInput" placeholder="Email" id="email" value={email} onChange={onChange}/>
           <div className="passwordInputDiv">
             <input type={showPassword ? 'text' : 'password'} className='passwordInput' placeholder="Password" id="password" value={password} onChange={onChange}/>
             <img src={visibilityIcon} alt="show password" className="showPassword" onClick={() => setShowPassword((prevState) => !prevState)}/>
         </div>
+        <div className='forgotPasswordBlock'>
         <Link to='/forgot-password' className='forgotPasswordLink'>Forgot Password</Link>
-        <div className="signInBar">
+        </div>
+        <div className="flexAlignCenter">
           <p className="signInText">Sign In</p>
-            <button className="signInButton">
-            <ArrowRightIcon fill='#ffffff' width='34px' height='34px'/>
-           </button>
+          <button className="signInButton">
+              <ArrowRightIcon fill='#ffffff' width='34px' height='34px'/>
+          </button>
         </div>
         </form>
 
         {/* Google OAuth component */}
-
-        <Link to='/sign-up' className="registerLink">Sign Up Instead</Link>
+        <div className="flexAlignCenter">
+          <Link to='/sign-up' className="registerLink">No account? Sign up instead</Link>
+        </div>
       </div>
     </div>
 </>

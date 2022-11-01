@@ -10,7 +10,7 @@ body {
 
 :root {
   --primary: #2A9D8F;
-  --primary-light: #C4D9D6;
+  --primary-light: #DFE3E3;
   --primary-dark: #264653;
   --neutral-dark: #E76F51;
   --neutral-light: #E9C46A;
@@ -27,6 +27,21 @@ body {
   display: none;
 }
 
+.flexAlignCentreColumn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flexAlignCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.textAlignCentre {
+  text-align: center;
+}
+
 .landingPageHeader {
   display: flex;
   justify-content: space-between;
@@ -35,8 +50,6 @@ body {
 .logo {
   margin-left: 1rem;
   height: 6.5rem;
-  /* filter: brightness(0) invert(1); */
-
 }
 
 .navLinks {
@@ -49,27 +62,34 @@ body {
 
 .landingPageLinks {
   text-decoration: none;
-  color: #000;
+  color: #fff;
   font-size: 1.5rem;
+}
+
+.forgotPasswordBlock {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .forgotPasswordLink {
   text-decoration: none;
   color: #000;
-  
-
+  font-size: 0.75rem;
+  margin-right: 0.5rem;
 }
 
 .signInLinks {
   text-decoration: none;
-
 }
+
 .landingPageLinks:hover {
   color: var(--neutral-dark)
 }
+
 .signInLinks:hover {
   color: var(--neutral-dark)
 }
+
 .forgotPasswordLink:hover {
   color: var(--neutral-dark)
 }
@@ -91,7 +111,6 @@ body {
   height: 80vh;
   justify-content: center;
   align-items: center;
-  
 }
 
 .signInBox {
@@ -130,14 +149,6 @@ body {
   bottom: 1.75rem;
 }
 
-.forgotPasswordLink {
-  text-decoration: none;
-}
-
-.signInBar {
-  display: flex;
-}
-
 .signInButton {
   display: flex;
   justify-content: center;
@@ -152,7 +163,6 @@ body {
   text-decoration: none;
   color: #000;
 }
-
 
 @media screen and (max-width: 768px) {
   .landingPageHeader{

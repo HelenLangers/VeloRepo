@@ -65,8 +65,10 @@ function SignUp() {
 
     <div className="signInBlock">
       <div className="signInBox">
-        <h2>Welcome to VeloRepo</h2>
-        <h3>Please enter your details to sign up</h3>
+        <div className="flexAlignCentreColumn">
+          <h2 className='textAlignCentre'>Welcome to VeloRepo</h2>
+          <h3 className='textAlignCentre'>Please enter your details to sign up</h3>
+        </div>
         <form onSubmit={onSubmit}>
         <input type="text" className="nameInput" placeholder="Name" id="name" value={name} onChange={onChange}/>
         <input type="email" className="emailInput" placeholder="Email" id="email" value={email} onChange={onChange}/>
@@ -75,7 +77,7 @@ function SignUp() {
             <img src={visibilityIcon} alt="show password" className="showPassword" onClick={() => setShowPassword((prevState) => !prevState)}/>
         </div>
         
-        <div className="signInBar">
+        <div className="flexAlignCenter">
           <p className="signInText">Sign Up</p>
             <button className="signInButton">
             <ArrowRightIcon fill='#ffffff' width='34px' height='34px'/>
@@ -85,7 +87,7 @@ function SignUp() {
 
                 {/* Google OAuth component */}
 
-                <Link to='/sign-in' className="registerLink">Sign In Instead</Link>
+                <Link to='/sign-in' className="registerLink">Already signed up? Log in instead</Link>
       </div>
     </div>
 </>

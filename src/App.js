@@ -1,16 +1,16 @@
 import {useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {ToastContainer} from 'react-toastify';
+import { Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import getTest from "./Repositories/testRepository";
-import NavBar from './Components/NavBar';
 import LandingPage from './Pages/LandingPage';
 import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
 import ForgotPassword from './Pages/ForgotPassword';
 import HomePage from './Pages/HomePage';
 import Profile from './Pages/Profile';
+import PrivateRoute from './Components/PrivateRoute';
 
 function App() {
 
@@ -35,14 +35,15 @@ function App() {
     // default settings:
       position="top-right"
       autoClose={5000}
+      transition={Flip}
       hideProgressBar={false}
-      newestOnTop={true}
+      newestOnTop
       closeOnClick
       rtl={false}
       pauseOnFocusLoss
       draggable
       pauseOnHover
-      theme="light"
+      theme="dark"
     />
     </>
   );
