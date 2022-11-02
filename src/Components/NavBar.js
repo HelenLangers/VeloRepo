@@ -1,18 +1,21 @@
 import React from 'react'
 import '../Assets/navBar.css';
-import {useLocation} from 'react-router-dom';
+import {Outlet} from 'react-router-dom';
+import { FaBeer } from 'react-icons/fa';
 
 function NavBar() {
-  // const location = useLocation()
 
-  // if(location.pathname === '/' || '/sign-in' || '/sign-up' || '/forgot-password') {
-  //   return null
-  // }
 
   return (
-    <nav className='navbar'>
-        <p>Navbar is going to be here!</p>
-    </nav>
+    <>
+      <div>
+        <Outlet />
+      </div>
+      <nav className='navbar'>
+          <p>Navbar is going to be here!</p>
+      </nav>
+
+    </>
   )
 }
 

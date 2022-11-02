@@ -24,17 +24,20 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<LandingPage />}/>
-          <Route path='/welcome' element={<HomePage />}/>
-          <Route path='/profile' element={<PrivateRoute/>}>
-            <Route path='/profile' element={<Profile />}/>
-          </Route>
           <Route path='/sign-in' element={<SignIn/>}/>
           <Route path='/sign-up' element={<SignUp/>}/>
           <Route path='/forgot-password' element={<ForgotPassword/>}/>
+
+          <Route element={<NavBar/>}>
+          <Route element={<PrivateRoute/>}>
+            <Route path='/welcome' element={<HomePage />}/>
+            <Route path='/profile' element={<Profile />}/>
+          {/* all routes that are only for logged in view with a nav bar go here */}
+          </Route>
+          </Route>
         </Routes>
       </Router>
-      <NavBar />
-
+      
       <ToastContainer 
     // default settings:
       position="top-right"
