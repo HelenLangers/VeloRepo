@@ -52,6 +52,11 @@ body {
   text-align: center;
 }
 
+.welcomeText {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
 .landingPageHeader {
   display: flex;
   justify-content: space-between;
@@ -175,10 +180,40 @@ body {
   color: #000;
 }
 
+.socialLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.googleSignUp {
+  margin-bottom: 0;
+}
+
+.socialIconDiv {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  margin: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.socialIconImg {
+  width: 100%;
+}
+
 @media screen and (max-width: 768px) {
   .landingPageHeader{
     flex-direction: column;
     align-items: center;
+    height: fit-content;
   }
 
   .navLinks{
