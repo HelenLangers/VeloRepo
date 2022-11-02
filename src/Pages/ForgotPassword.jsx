@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {getAuth, sendPasswordResetEmail} from 'firebase/auth'
 import {toast} from 'react-toastify'
 import {ReactComponent as ArrowRightIcon} from '../Assets/svg/keyboardArrowRightIcon.svg';
-import logo from '../Assets/png/logo.png';
+import whitelogo from '../Assets/png/white-logo.png';
 
 
 function ForgotPassword() {
@@ -24,9 +24,9 @@ function ForgotPassword() {
   }
 
   return (
-    <>
+    <div className="imageBackground">
     <header className='landingPageHeader'>
-    <a href="/"><img src={logo} alt="VeloRepo" className="logo"/></a>
+    <a href="/"><img src={whitelogo} alt="VeloRepo" className="logo"/></a>
       <div className="navLinks">
         <Link className='landingPageLinks' to="/sign-up">Sign up</Link>
         
@@ -51,7 +51,7 @@ function ForgotPassword() {
         </form>
       </div>
     </div>
-    </>
+    </div>
   )
 }
 

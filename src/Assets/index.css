@@ -1,10 +1,5 @@
 body {
-  background: url('./jpg/backgroundlanding.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  margin: 0;
+  background: var(--primary-light);
   font-family: 'Cagliostro', sans-serif;
 }
 
@@ -40,6 +35,20 @@ body {
 
 .textAlignCentre {
   text-align: center;
+}
+
+.imageBackground{
+  display: block;
+  background: url('./jpg/backgroundlanding.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
 }
 
 .landingPageHeader {

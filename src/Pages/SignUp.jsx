@@ -4,7 +4,7 @@ import {getAuth, createUserWithEmailAndPassword, updateProfile} from 'firebase/a
 import {doc, setDoc, serverTimestamp} from 'firebase/firestore';
 import {db} from '../firebase.config';
 import "../Assets/index.css"
-import logo from '../Assets/png/logo.png';
+import whitelogo from '../Assets/png/white-logo.png';
 import visibilityIcon from '../Assets/svg/visibilityIcon.svg';
 import {ReactComponent as ArrowRightIcon} from '../Assets/svg/keyboardArrowRightIcon.svg';
 import { toast } from 'react-toastify';
@@ -52,6 +52,9 @@ function SignUp() {
       if (errorCode === 'auth/email-already-in-use') {
         toast.error('Sorry, email already in use')
       }
+      else if (errorCode === 'auth/invalid-password') {
+        toast.error('Password must be at least 6 characters')
+      }
       else {
         toast.error('Oops, something went wrong')
       }
@@ -59,9 +62,9 @@ function SignUp() {
   }
 
   return (    
-  <>
+  <div className='imageBackground'>
     <header className='landingPageHeader'>
-    <a href="/"><img src={logo} alt="VeloRepo" className="logo"/></a>
+    <a href="/"><img src={whitelogo} alt="VeloRepo" className="logo"/></a>
       <div className="navLinks">
         <Link className='landingPageLinks' to="/sign-up">Sign up</Link>
         
@@ -96,7 +99,7 @@ function SignUp() {
                 <Link to='/sign-in' className="registerLink">Already signed up? Log in instead</Link>
       </div>
     </div>
-</>
+    </div>
   )
 }
 export default SignUp

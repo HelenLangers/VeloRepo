@@ -3,7 +3,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import {toast} from 'react-toastify';
 import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
 import "../Assets/index.css"
-import logo from '../Assets/png/logo.png';
+import whitelogo from '../Assets/png/white-logo.png';
 import visibilityIcon from '../Assets/svg/visibilityIcon.svg';
 import {ReactComponent as ArrowRightIcon} from '../Assets/svg/keyboardArrowRightIcon.svg';
 
@@ -54,9 +54,9 @@ function SignIn() {
   }
 
   return (    
-  <>
+  <div className='imageBackground'>
     <header className='landingPageHeader'>
-      <a href="/"><img src={logo} alt="VeloRepo" className="logo"/></a>
+      <a href="/"><img src={whitelogo} alt="VeloRepo" className="logo"/></a>
       <div className="navLinks">
         <Link className='landingPageLinks' to="/sign-up">Sign up</Link>
         
@@ -92,7 +92,7 @@ function SignIn() {
         </div>
       </div>
     </div>
-</>
+    </div>
   )
 }
 

@@ -24,7 +24,9 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage />}/>
           <Route path='/welcome' element={<HomePage />}/>
-          <Route path='/profile' element={<Profile />}/>
+          <Route path='/profile' element={<PrivateRoute/>}>
+            <Route path='/profile' element={<Profile />}/>
+          </Route>
           <Route path='/sign-in' element={<SignIn/>}/>
           <Route path='/sign-up' element={<SignUp/>}/>
           <Route path='/forgot-password' element={<ForgotPassword/>}/>
