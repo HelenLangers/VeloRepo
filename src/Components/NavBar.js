@@ -5,6 +5,7 @@ import { FaRegPlusSquare } from 'react-icons/fa';
 import { FaRegUser } from 'react-icons/fa';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { FaFolderOpen } from 'react-icons/fa';
+import { FaHome } from 'react-icons/fa';
 
 function NavBar() {
 
@@ -15,6 +16,9 @@ function NavBar() {
         <Outlet />
       </div>
       <nav className='navbar'>
+      <div className="navOptionBlock">
+            <Link to='/welcome'><FaHome className='navIcon'/></Link>
+          </div>
           <div className="navOptionBlock">
             <Link to='/add-item'><FaRegPlusSquare className='navIcon'/></Link>
           </div>
