@@ -96,7 +96,7 @@ function SignUp() {
 
                 {/* Google OAuth component */}
 
-                <Link to='/sign-in' className="registerLink">Already signed up? Log in instead</Link>
+        <Link to='/sign-in' className="registerLink">Already signed up? Log in instead</Link>
       </div>
     </div>
     </div>

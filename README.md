@@ -1,13 +1,3 @@
-Manzi is cool
-Adam is stinky
-Bruce is cool also
-Helen is smarterer
-what the frick
-extra change
-oh hey
-
-
-
 ## Available Scripts
 
 In the project directory, you can run:
