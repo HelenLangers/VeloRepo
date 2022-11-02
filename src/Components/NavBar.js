@@ -1,7 +1,10 @@
 import React from 'react'
 import '../Assets/navBar.css';
-import {Outlet} from 'react-router-dom';
-import { FaBeer } from 'react-icons/fa';
+import {Outlet, Link} from 'react-router-dom';
+import { FaRegPlusSquare } from 'react-icons/fa';
+import { FaRegUser } from 'react-icons/fa';
+import { FaCalendarAlt } from 'react-icons/fa';
+import { FaFolderOpen } from 'react-icons/fa';
 
 function NavBar() {
 
@@ -12,7 +15,18 @@ function NavBar() {
         <Outlet />
       </div>
       <nav className='navbar'>
-          <p>Navbar is going to be here!</p>
+          <div className="navOptionBlock">
+            <Link to='/add-item'><FaRegPlusSquare className='navIcon'/></Link>
+          </div>
+          <div className="navOptionBlock">
+            <Link to=''><FaCalendarAlt className='navIcon'/></Link>
+          </div>
+          <div className="navOptionBlock">
+            <Link to=''><FaFolderOpen className='navIcon'/></Link>
+          </div>
+          <div className="navOptionBlock">
+            <Link to='/profile'><FaRegUser className='navIcon'/></Link>
+          </div>
       </nav>
 
     </>

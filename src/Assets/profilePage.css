@@ -1,6 +1,8 @@
 .loggedInBackground {
     background-color: var(--primary-light);
-    height: 100%
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .mainContainer{
@@ -83,3 +85,6 @@ hr {
     color: #fff;
 }
 
+@media screen and (max-width: 768px) {
+
+}

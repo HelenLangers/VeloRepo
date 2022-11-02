@@ -12,6 +12,7 @@ import HomePage from './Pages/HomePage';
 import Profile from './Pages/Profile';
 import PrivateRoute from './Components/PrivateRoute';
 import NavBar from './Components/NavBar';
+import AddItem from './Pages/AddItem';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
           <Route element={<PrivateRoute/>}>
             <Route path='/welcome' element={<HomePage />}/>
             <Route path='/profile' element={<Profile />}/>
+            <Route path='/add-item' element={<AddItem />}/>
           {/* all routes that are only for logged in view with a nav bar go here */}
           </Route>
           </Route>
