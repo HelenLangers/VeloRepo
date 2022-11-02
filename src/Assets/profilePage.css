@@ -1,12 +1,13 @@
 .loggedInBackground {
     background-color: var(--primary-light);
-    height: 90vh;
+    height: 100%
 }
 
 .mainContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 10vh;
 }
 
 .accountTitle{

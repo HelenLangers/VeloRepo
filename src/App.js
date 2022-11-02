@@ -11,6 +11,7 @@ import ForgotPassword from './Pages/ForgotPassword';
 import HomePage from './Pages/HomePage';
 import Profile from './Pages/Profile';
 import PrivateRoute from './Components/PrivateRoute';
+import NavBar from './Components/NavBar';
 
 function App() {
 
@@ -31,8 +32,9 @@ function App() {
           <Route path='/sign-up' element={<SignUp/>}/>
           <Route path='/forgot-password' element={<ForgotPassword/>}/>
         </Routes>
-        {/* <NavBar/> */}
       </Router>
+      <NavBar />
+
       <ToastContainer 
     // default settings:
       position="top-right"

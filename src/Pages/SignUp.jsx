@@ -4,6 +4,7 @@ import {getAuth, createUserWithEmailAndPassword, updateProfile} from 'firebase/a
 import {doc, setDoc, serverTimestamp} from 'firebase/firestore';
 import {db} from '../firebase.config';
 import "../Assets/index.css"
+import OAuth from "../Components/OAuth"
 import whitelogo from '../Assets/png/white-logo.png';
 import visibilityIcon from '../Assets/svg/visibilityIcon.svg';
 import {ReactComponent as ArrowRightIcon} from '../Assets/svg/keyboardArrowRightIcon.svg';
@@ -94,7 +95,7 @@ function SignUp() {
         </div>
         </form>
 
-                {/* Google OAuth component */}
+                <OAuth />
 
         <Link to='/sign-in' className="registerLink">Already signed up? Log in instead</Link>
       </div>

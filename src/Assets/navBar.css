@@ -1,8 +1,11 @@
 .navbar {
     background: var(--primary-dark);
+    position: fixed;
+    margin-top: 15px;
     height: 10vh;
-    display: flex;
+    width: 100%;
     bottom: 0;
-    z-index: 1000;
+    left: 0;
+    display: flex;
     justify-content: space-between;
 }
