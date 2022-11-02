@@ -67,8 +67,8 @@ function SignIn() {
 
     <div className="signInBlock">
       <div className="signInBox">
-      <div className="flexAlignCenter">
-        <h2>Welcome Back!</h2>
+      <div className="flexAlignCentreColumn">
+          <h2 className='welcomeText textAlignCentre'>Welcome back!</h2>
         </div>
         <form onSubmit={onSubmit}>
           <input type="email" className="emailInput" placeholder="Email" id="email" value={email} onChange={onChange}/>
