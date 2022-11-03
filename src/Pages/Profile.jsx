@@ -3,10 +3,11 @@ import { getAuth, updateProfile, sendPasswordResetEmail } from "firebase/auth";
 import { updateDoc, doc } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { toast } from "react-toastify";
-import darklogo from '../Assets/png/black-logo.png';
+import blacklogo from '../Assets/png/black-logo.png';
 import { ReactComponent as ArrowRightIcon } from "../Assets/svg/keyboardArrowRightIcon.svg";
 import "../Assets/profilePage.css";
 import { useNavigate } from "react-router-dom";
+import BackEndHeader from "../Components/BackEndHeader";
 
 function Profile() {
   const auth = getAuth();
@@ -61,13 +62,14 @@ function Profile() {
     }
   };
 
+  const pageInformation = {
+    pageTitle: "Account Details"
+  }
+
   return (
     <>
       <div className="loggedInBackground">
-        <header className='landingPageHeader'>
-          <a href="/"><img src={darklogo} alt="VeloRepo" className="logo"/></a>
-          <h2 className="accountTitle">Account Details</h2>
-        </header>
+        <BackEndHeader pageInformation={pageInformation}/>
 
         <main className="mainContainer">
           <div className="personalDetailsHeader">
