@@ -3,6 +3,7 @@ import {getAuth, onAuthStateChanged} from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import Spinner from '../Components/Spinner';
 import BackEndHeader from '../Components/BackEndHeader'
+import '../Assets/addItem.css';
 
 
 function CreateItem() {
@@ -13,7 +14,6 @@ function CreateItem() {
 
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
-    
   })
 
   const auth = getAuth()
@@ -41,11 +41,41 @@ function CreateItem() {
     return <Spinner/>
   }
 
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState, 
+      [e.target.id]: e.target.value
+    }))
+  }
+
+
   return (
     <>
       <BackEndHeader pageInformation={pageInformation}/>
       
-      
+      <main className="mainContainer">
+        <div className="entryFormBlock">
+          <form method="post" className='entryForm'>
+          <div className='options'>
+            <label htmlFor="mainCategory">Select a category:</label>
+            <select name="mainCategory" id="mainCategory" onChange={onChange}>
+              <option value="">Please choose a category</option>
+              <option value="Camping">Camping</option>
+              <option value="Bikes">Bikes</option>
+            </select>
+          </div>
+
+
+          <div className="options">
+            <label htmlFor="subCategory">Select a subCategory</label>
+            <select name="subCategory" id="subCategory" onChange={onChange}>
+              <option value="">Please choose a category</option>
+              <option value="Sleeping Bag">Sleeping Bag</option>
+            </select>
+          </div>
+          </form>
+        </div>
+      </main>
     </>
   )
 }

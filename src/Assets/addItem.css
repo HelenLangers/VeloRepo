@@ -1,0 +1,22 @@
+.entryFormBlock {
+    background-color: #fff;
+    border-radius: 22px;
+    padding: 1rem;
+    max-width: 500px;
+    width: 40%;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+.entryForm{
+    margin-left: 3rem;
+    margin-right: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
