@@ -66,6 +66,11 @@ body {
   height: 15vh;
 }
 
+.pageTitle{
+  margin: 2rem 5rem;
+  font-size: 3rem;
+}
+
 .logo {
   margin-left: 2rem;
   height: 6.5rem;
