@@ -40,7 +40,7 @@ hr {
 }
 
 .profileCard {
-    background-color: #ffffff;
+    background-color: #fff;
     border-radius: 1rem;
     padding: 1rem;
     max-width: 500px;
@@ -91,5 +91,7 @@ hr {
 }
 
 @media screen and (max-width: 768px) {
-
+    .profileCard {
+        width: 60%;
+    }
 }

@@ -68,12 +68,12 @@ body {
 
 .pageTitle{
   margin: 2rem 5rem;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .logo {
   margin-left: 2rem;
-  height: 6.5rem;
+  height: auto;
 }
 
 .navLinks {
@@ -243,13 +243,26 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .landingPageHeader{
+  .landingPageHeader, 
+  .backEndHeader {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: fit-content;
+  }
+
+  .logo {
+    width: 80%;
+    margin-left: 0;
   }
 
   .navLinks{
     margin-right: 0;
   }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+
+
 }
