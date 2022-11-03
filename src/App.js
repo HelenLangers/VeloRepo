@@ -12,7 +12,7 @@ import BrowserPage from './Pages/BrowserPage';
 import Profile from './Pages/Profile';
 import PrivateRoute from './Components/PrivateRoute';
 import NavBar from './Components/NavBar';
-import AddItem from './Pages/AddItem';
+import CreateItem from './Pages/CreateItem';
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
 import NotFound from './Pages/NotFound';
@@ -37,7 +37,7 @@ function App() {
             <Route element={<PrivateRoute />}>
               <Route path='/welcome' element={<HomePage />} />
               <Route path='/profile' element={<Profile />} />
-              <Route path='/add-item' element={<AddItem />} />
+              <Route path='/create-item' element={<CreateItem />} />
               <Route path='/browser' element={<BrowserPage />} />
               {/* all routes that are only for logged in view with a nav bar go here */}
             </Route>
