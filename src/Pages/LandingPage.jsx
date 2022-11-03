@@ -28,6 +28,7 @@ function LandingPage() {
       <div className='tagLineBox'>
         <p className='tagLine'>Borrow.Adventure.Return.Repeat</p>
       </div>
+      <p className='attributedText'>Photo by <a href="https://unsplash.com/@vaccinium?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dmitrii Vaccinium</a> on <a href="https://unsplash.com/@vaccinium?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
     </div>
   )
 }

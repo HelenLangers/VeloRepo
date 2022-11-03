@@ -26,11 +26,8 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
   height: 100vh;
+  margin:-10px;
 }
 
 .hide {
@@ -207,6 +204,31 @@ body {
 
 .socialIconImg {
   width: 100%;
+}
+
+.notFoundImage{
+  display: block;
+  background: url('./jpg/PageNotFound.jpg') no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100% 100%;
+  height: 100vh;
+  margin: -10px;
+}
+
+.attributedText{
+  position: absolute;
+  text-align: right;
+  font-size: 0.5rem;
+  margin: 1rem;
+  color: rgb(176, 176, 176);
+  bottom: 0;
+}
+
+.attributedText > a {
+  text-decoration: none;
+  color: rgb(176, 176, 176);
 }
 
 @media screen and (max-width: 768px) {
