@@ -52,11 +52,7 @@ function SignUp() {
       const errorCode = error.code;
       if (errorCode === 'auth/email-already-in-use') {
         toast.error('Sorry, email already in use')
-      }
-      else if (errorCode === 'auth/invalid-password') {
-        toast.error('Password must be at least 6 characters')
-      }
-      else {
+      } else {
         toast.error('Oops, something went wrong')
       }
     }
@@ -83,7 +79,7 @@ function SignUp() {
         <input type="text" className="nameInput" placeholder="Name" id="name" value={name} onChange={onChange}/>
         <input type="email" className="emailInput" placeholder="Email" id="email" value={email} onChange={onChange}/>
           <div className="passwordInputDiv">
-            <input type={showPassword ? 'text' : 'password'} className='passwordInput' placeholder="Password" id="password" value={password} onChange={onChange}/>
+            <input type={showPassword ? 'text' : 'password'} className='passwordInput' placeholder="Password" id="password" value={password} onChange={onChange} minlength="6"/>
             <img src={visibilityIcon} alt="show password" className="showPassword" onClick={() => setShowPassword((prevState) => !prevState)}/>
         </div>
         
