@@ -41,14 +41,37 @@ function CreateItem() {
     return <Spinner/>
   }
 
-  const onChange = (e) => {
-    setFormData((prevState) => ({
-      ...prevState, 
-      [e.target.id]: e.target.value
-    }))
+  const onSubmit = (e) => {
+    e.preventDefault()
+    console.log(formData)
   }
 
-  const onMutate = () => {}
+
+  const onMutate = (e) => {
+    let boolean = null
+
+    // boolean fields
+    if(e.target.value === 'true') {
+      boolean = true
+    }
+    if(e.target.value === 'false') {
+      boolean = false
+    }
+    // files
+    if(e.target.files) {
+      setFormData((prevState) => ({
+        ...prevState,
+        images: e.target.files
+      }))
+    }
+    // text/numbers/boolean
+    if(!e.target.files) {
+      setFormData((prevState) => ({
+        ...prevState,
+        [e.target.id]: e.target.boolean ?? e.target.value
+      }))
+    }
+  }
 
   return (
     <>
@@ -56,10 +79,11 @@ function CreateItem() {
       
       <main className="mainContainer">
         <div className="entryFormBlock">
-          <form method="post" className='entryForm'>
+
+          <form method="post" className='entryForm' onSubmit={onSubmit}>
           <div className='options'>
             <label htmlFor="mainCategory">Select a category:</label>
-            <select name="mainCategory" id="mainCategory" onChange={onChange}>
+            <select name="mainCategory" id="mainCategory" onChange={onMutate}>
               <option value="">Please choose a category</option>
               <option value="Camping">Camping</option>
               <option value="Bikes">Bikes</option>
@@ -69,7 +93,7 @@ function CreateItem() {
 
           <div className="options">
             <label htmlFor="subCategory">Select a subCategory</label>
-            <select name="subCategory" id="subCategory" onChange={onChange}>
+            <select name="subCategory" id="subCategory" onChange={onMutate}>
               <option value="">Please choose a category</option>
               <option value="Sleeping Bag">Sleeping Bag</option>
             </select>
