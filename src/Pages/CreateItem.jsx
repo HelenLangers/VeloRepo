@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Spinner from '../Components/Spinner';
 import BackEndHeader from '../Components/BackEndHeader'
 import '../Assets/addItem.css';
+import { toast } from 'react-toastify';
 
 
 function CreateItem() {
@@ -43,7 +44,17 @@ function CreateItem() {
 
   const onSubmit = (e) => {
     e.preventDefault()
+    setLoading(true)
     console.log(formData)
+
+    // eslint-disable-next-line
+    if(images.length > 6) {
+      setLoading(false)
+      toast.error('Canno upload more than 6 images')
+      return
+    }
+
+
   }
 
 
@@ -55,6 +66,7 @@ function CreateItem() {
       boolean = true
     }
     if(e.target.value === 'false') {
+      // eslint-disable-next-line
       boolean = false
     }
     // files
@@ -101,7 +113,7 @@ function CreateItem() {
 
           <div className="options">
             <label htmlFor="images">Select Images:</label>
-            <input type="file" id="images" max="6" accept=".jpg,.jpeg" onChange={onMutate} className="fileInput"/>
+            <input type="file" id="images" accept=".jpg,.jpeg" onChange={onMutate} multiple required max='6' className="fileInput"/>
           </div>
 
           <div className='flexAlignCenter'>
