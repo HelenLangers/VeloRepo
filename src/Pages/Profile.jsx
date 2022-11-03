@@ -3,7 +3,6 @@ import { getAuth, updateProfile, sendPasswordResetEmail } from "firebase/auth";
 import { updateDoc, doc } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { toast } from "react-toastify";
-
 import darklogo from '../Assets/png/black-logo.png';
 import { ReactComponent as ArrowRightIcon } from "../Assets/svg/keyboardArrowRightIcon.svg";
 import "../Assets/profilePage.css";
