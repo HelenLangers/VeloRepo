@@ -1,15 +1,19 @@
 import React from 'react'
+import BrowserItem from './BrowserItem'
 
 
-function BrowserCard() {
+function BrowserCard({user , item}) {
+    
 
     return (
     <>
-      <div>BrowserCard</div>
-      <h1>2</h1>
+ <BrowserItem
+    item={item} />
     </>
 
     )
 }
+
+
 
 export default BrowserCard
