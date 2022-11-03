@@ -26,11 +26,8 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
   height: 100vh;
+  margin:-10px;
 }
 
 .hide {
@@ -52,10 +49,26 @@ body {
   text-align: center;
 }
 
+.welcomeText {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
 .landingPageHeader {
   display: flex;
   justify-content: space-between;
   height: 15vh;
+}
+
+.backEndHeader {
+  display: flex;
+  justify-content: space-between;
+  height: 15vh;
+}
+
+.pageTitle{
+  margin: 2rem 5rem;
+  font-size: 3rem;
 }
 
 .logo {
@@ -175,10 +188,65 @@ body {
   color: #000;
 }
 
+.socialLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.googleSignUp {
+  margin-bottom: 0;
+}
+
+.socialIconDiv {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  margin: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.socialIconImg {
+  width: 100%;
+}
+
+.notFoundImage{
+  display: block;
+  background: url('./jpg/PageNotFound.jpg') no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100% 100%;
+  height: 100vh;
+  margin: -10px;
+}
+
+.attributedText{
+  position: absolute;
+  text-align: right;
+  font-size: 0.5rem;
+  margin: 1rem;
+  color: rgb(176, 176, 176);
+  bottom: 0;
+}
+
+.attributedText > a {
+  text-decoration: none;
+  color: rgb(176, 176, 176);
+}
+
 @media screen and (max-width: 768px) {
   .landingPageHeader{
     flex-direction: column;
     align-items: center;
+    height: fit-content;
   }
 
   .navLinks{

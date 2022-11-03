@@ -1,15 +1,18 @@
 import React from 'react'
 import ReactDatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+import BackEndHeader from '../Components/BackEndHeader'
 
 function HomePage() {
+
+  const pageInformation = {
+    pageTitle: "Home"
+  }
+
   return (
     <>
-    <header className='HomePageHeader'>
-    <h1 className='logo'>VeloRepo Home</h1>
-    <span>The bikepacking kit sharing library platform</span>
-    </header>
-
+      <BackEndHeader pageInformation={pageInformation}/>
+      
     </>
   )
 }

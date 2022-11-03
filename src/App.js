@@ -1,7 +1,6 @@
 import {useEffect} from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import {ToastContainer} from 'react-toastify';
-import { Flip } from 'react-toastify';
+import {Routes, Route} from 'react-router-dom';
+import {ToastContainer, Flip} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import getTest from "./Repositories/testRepository";
 import LandingPage from './Pages/LandingPage';
@@ -16,6 +15,7 @@ import NavBar from './Components/NavBar';
 import AddItem from './Pages/AddItem';
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'
+import NotFound from './Pages/NotFound';
 
 function App() {
 
@@ -25,12 +25,13 @@ function App() {
 
   return (
     <>
-      <Router>
         <Routes>
-          <Route path='/' element={<LandingPage />} />
-          <Route path='/sign-in' element={<SignIn />} />
-          <Route path='/sign-up' element={<SignUp />} />
-          <Route path='/forgot-password' element={<ForgotPassword />} />
+          <Route path='/' element={<LandingPage />}/>
+          <Route path='/sign-in' element={<SignIn/>}/>
+          <Route path='/sign-up' element={<SignUp/>}/>
+          <Route path='/forgot-password' element={<ForgotPassword/>}/>
+          <Route path="*" element={<NotFound/>}/>
+
 
           <Route element={<NavBar />}>
             <Route element={<PrivateRoute />}>
@@ -42,7 +43,6 @@ function App() {
             </Route>
           </Route>
         </Routes>
-      </Router>
 
       <ToastContainer
         // default settings:

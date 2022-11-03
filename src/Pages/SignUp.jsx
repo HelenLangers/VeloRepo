@@ -76,8 +76,8 @@ function SignUp() {
     <div className="signInBlock">
       <div className="signInBox">
         <div className="flexAlignCentreColumn">
-          <h2 className='textAlignCentre'>Welcome to VeloRepo</h2>
-          <h3 className='textAlignCentre'>Please enter your details to sign up</h3>
+          <h2 className='textAlignCentre welcomeText'>Welcome to VeloRepo</h2>
+          <h3 className='textAlignCentre welcomeText'>Please enter your details to sign up</h3>
         </div>
         <form onSubmit={onSubmit}>
         <input type="text" className="nameInput" placeholder="Name" id="name" value={name} onChange={onChange}/>
@@ -91,7 +91,7 @@ function SignUp() {
           <p className="signInText">Sign Up</p>
             <button className="signInButton">
             <ArrowRightIcon fill='#ffffff' width='34px' height='34px'/>
-           </button>
+            </button>
         </div>
         </form>
 
