@@ -1,5 +1,5 @@
 import {useEffect} from 'react';
-import {Router, Routes, Route} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import {ToastContainer, Flip} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import getTest from "./Repositories/testRepository";

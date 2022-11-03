@@ -60,6 +60,12 @@ body {
   height: 15vh;
 }
 
+.backEndHeader {
+  display: flex;
+  justify-content: space-between;
+  height: 15vh;
+}
+
 .logo {
   margin-left: 2rem;
   height: 6.5rem;
