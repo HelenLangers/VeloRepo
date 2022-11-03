@@ -9,6 +9,8 @@ import SignUp from './Pages/SignUp';
 import ForgotPassword from './Pages/ForgotPassword';
 import HomePage from './Pages/HomePage';
 import BrowserPage from './Pages/BrowserPage';
+import BrowserGrid from './Components/BrowserComponents/BrowserGrid';
+import BrowserCard from './Components/BrowserComponents/BrowserCard';
 import Profile from './Pages/Profile';
 import PrivateRoute from './Components/PrivateRoute';
 import NavBar from './Components/NavBar';

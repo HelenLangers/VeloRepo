@@ -18,15 +18,17 @@ function BrowserPage() {
             <h1 className='logo'>VeloRepo Browser</h1>
             <h2>From</h2>
 
-            <ReactDatePicker />
+            <ReactDatePicker className='DateTo'/>
 
             <h2>To</h2>
-            <ReactDatePicker />
+            <ReactDatePicker className='DateFrom' />
           </div>
           <br></br>
-          <div>
+          <div className='SearchBar'>
             <SearchBar />
           </div>
+            <BrowserGrid className='BrowserGrid'/>
+          
         </header>
       </body>
     </>
