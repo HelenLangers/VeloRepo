@@ -22,7 +22,7 @@ function NavBar() {
           <Link to='/create-item'><FaRegPlusSquare className='navIcon'/></Link>
         </div>
         <div className="navOptionBlock">
-          <Link to='/'><FaSearch className='navIcon'/></Link>
+          <Link to='/browser'><FaSearch className='navIcon'/></Link>
         </div>
         <div className="navOptionBlock">
           <Link to='/profile'><FaRegUser className='navIcon'/></Link>
