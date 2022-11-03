@@ -43,13 +43,14 @@ hr {
     background-color: #ffffff;
     border-radius: 1rem;
     padding: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.2);
     max-width: 500px;
+    width: 20%;
     margin-bottom: 1rem;
 }
 
 .profileName,
 .profileEmail,
+.profileAddress,
 .profileEmailActive,
 .profileNameActive {
     all: unset;
@@ -64,13 +65,17 @@ hr {
     background-color: rgba(44, 44, 44, 0.1);
 }
 
-.itemsForLoan,
-.borrowedItems {
+.locationHeader {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.addressParagraph {
+    margin-top: 0;
     width: 80%;
+    text-align: center;
 }
 
 .logoutButton {
