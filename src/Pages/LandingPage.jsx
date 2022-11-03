@@ -6,6 +6,7 @@ import Spinner from '../Components/Spinner';
 import whitelogo from '../Assets/png/white-logo.png';
 
 
+
 function LandingPage() {
 
   const { loggedIn, checkingStatus} = useAuthStatus()
