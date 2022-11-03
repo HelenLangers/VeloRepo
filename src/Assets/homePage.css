@@ -1,3 +1,8 @@
+.welcomeName {
+    font-size: 1.5rem;
+    margin-top: 3rem;
+}
+
 .itemsForLoan,
 .borrowedItems {
     display: flex;
@@ -6,3 +11,4 @@
     align-items: center;
     width: 80%;
 }
+
