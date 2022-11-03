@@ -21,12 +21,21 @@ import NotFound from './Pages/NotFound';
 
 function App() {
 
-  // useEffect(() => {
-  //   getTest()
-  // }, [])
+  useEffect(() => {
+    const results = fetch('http://localhost:8080/items')
+    .then((res) => res.json())
+    .then(result => console.log(result))
+    
+  }, [])
+
+
+
 
   return (
     <>
+
+    
+
         <Routes>
           <Route path='/' element={<LandingPage />}/>
           <Route path='/sign-in' element={<SignIn/>}/>
