@@ -1,7 +1,6 @@
 import {useEffect} from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import {ToastContainer} from 'react-toastify';
-import { Flip } from 'react-toastify';
+import {Router, Routes, Route} from 'react-router-dom';
+import {ToastContainer, Flip} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import getTest from "./Repositories/testRepository";
 import LandingPage from './Pages/LandingPage';
@@ -22,7 +21,6 @@ function App() {
 
   return (
     <>
-      <Router>
         <Routes>
           <Route path='/' element={<LandingPage />}/>
           <Route path='/sign-in' element={<SignIn/>}/>
@@ -38,7 +36,6 @@ function App() {
           </Route>
           </Route>
         </Routes>
-      </Router>
       
       <ToastContainer 
     // default settings:
