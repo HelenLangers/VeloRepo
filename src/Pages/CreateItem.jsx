@@ -1,7 +1,7 @@
 import React from 'react'
 import BackEndHeader from '../Components/BackEndHeader'
 
-function AddItem() {
+function CreateItem() {
 
   const pageInformation = {
     pageTitle: "Add An Item For Loan"
@@ -11,8 +11,9 @@ function AddItem() {
     <>
       <BackEndHeader pageInformation={pageInformation}/>
       
+      
     </>
   )
 }
 
-export default AddItem
+export default CreateItem
