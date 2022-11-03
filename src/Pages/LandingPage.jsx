@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import whitelogo from '../Assets/png/white-logo.png';
 
 
+
 function LandingPage() {
   return (
     <div className="imageBackground">
