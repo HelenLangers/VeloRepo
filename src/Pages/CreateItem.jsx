@@ -13,8 +13,7 @@ function CreateItem() {
   }
 
   const [loading, setLoading] = useState(false)
-  const [formData, setFormData] = useState({
-  })
+  const [formData, setFormData] = useState({})
 
   const auth = getAuth()
   const navigate = useNavigate()
@@ -35,6 +34,7 @@ function CreateItem() {
     return () => {
       isMounted.current = false
     }
+    // eslint-disable-next-line
   }, [isMounted])
 
   if(loading){
@@ -48,6 +48,7 @@ function CreateItem() {
     }))
   }
 
+  const onMutate = () => {}
 
   return (
     <>
@@ -72,6 +73,15 @@ function CreateItem() {
               <option value="">Please choose a category</option>
               <option value="Sleeping Bag">Sleeping Bag</option>
             </select>
+          </div>
+
+          <div className="options">
+            <label htmlFor="images">Select Images:</label>
+            <input type="file" id="images" max="6" accept=".jpg,.jpeg" onChange={onMutate} className="fileInput"/>
+          </div>
+
+          <div className='flexAlignCenter'>
+            <button type="submit" className='submitButton'>Create Item</button>
           </div>
           </form>
         </div>

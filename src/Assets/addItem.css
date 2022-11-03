@@ -20,3 +20,22 @@
     justify-content: space-between;
     margin-bottom: 0.5rem;
 }
+
+.fileInput {
+    font-family: 'Cagliostro', sans-serif;
+    width: 200px;
+}
+
+.submitButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 22px;
+    background-color: var(--primary);
+    height: 3rem;
+    width: fit-content;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0.5rem;
+    color: #fff;
+}
