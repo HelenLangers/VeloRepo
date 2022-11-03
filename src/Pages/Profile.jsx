@@ -116,22 +116,21 @@ function Profile() {
               </button>
             </div>
           </div>
-          <hr></hr>
+          <hr/>
 
-          <div className="itemsForLoan">
-            <h3>Your Items For Loan</h3>
-            <p>
-              Your items will appear here. If you don't have any, upload a thing someone can borrow
-            </p>
+          <div className="locationHeader">
+            <h3>Your Address</h3>
+            <p className="addressParagraph">Your address will only be used to determine your distance from other users.</p>
           </div>
-          <hr></hr>
-
-          <div className="borrowedItems">
-            <h3>Items you are borrowing</h3>
-            <p>You're all set to borrow the following items:</p>
+            <div className="profileCard">
+              <form>
+                <input type="text" className="profileAddress" placeholder="Please enter your address"/>
+              </form>
           </div>
-          <hr></hr>
 
+
+
+          <hr/>
           <div className="logOutBlock">
             <button type="button" className="logoutButton" onClick={onLogout}>
               Logout
