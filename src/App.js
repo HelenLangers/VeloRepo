@@ -9,6 +9,8 @@ import SignUp from './Pages/SignUp';
 import ForgotPassword from './Pages/ForgotPassword';
 import HomePage from './Pages/HomePage';
 import BrowserPage from './Pages/BrowserPage';
+import BrowserGrid from './Components/BrowserComponents/BrowserGrid';
+import BrowserCard from './Components/BrowserComponents/BrowserCard';
 import Profile from './Pages/Profile';
 import PrivateRoute from './Components/PrivateRoute';
 import NavBar from './Components/NavBar';
@@ -19,12 +21,21 @@ import NotFound from './Pages/NotFound';
 
 function App() {
 
-  // useEffect(() => {
-  //   getTest()
-  // }, [])
+  useEffect(() => {
+    const results = fetch('http://localhost:8080/items')
+    .then((res) => res.json())
+    .then(result => console.log(result))
+    
+  }, [])
+
+
+
 
   return (
     <>
+
+    
+
         <Routes>
           <Route path='/' element={<LandingPage />}/>
           <Route path='/sign-in' element={<SignIn/>}/>

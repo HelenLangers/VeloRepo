@@ -1,8 +1,10 @@
 
-function getTest() {
+const testRepo ={
+  async getTest() {
 
-  fetch('http://localhost:8080/test')
-  .then(res => console.log(res.json()))
+    const results= fetch('http://localhost:8080/items')
+    .then(res => res.json())
+    return results
+   }
   }
-
-export default getTest
+export default testRepo
