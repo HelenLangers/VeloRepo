@@ -9,7 +9,7 @@ function BackEndHeader({pageInformation}) {
 
   return (
     <header className='backEndHeader'>
-      <a href="/welcome"><img src={blacklogo} alt="VeloRepo" className="logo"/></a>
+      <a href="/welcome" className='flexAlignCenter'><img src={blacklogo} alt="VeloRepo" className="logo"/></a>
       <h2 className="pageTitle">{pageTitle}</h2>
     </header>
   )

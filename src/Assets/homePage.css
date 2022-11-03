@@ -12,3 +12,16 @@
     width: 80%;
 }
 
+.explainerText{
+    width: 40%;
+}
+
+@media screen and (max-width: 768px) {
+    .welcomeName {
+        margin-top: 1rem;
+    }
+    
+    .explainerText{
+        width: 80%;
+    }
+}
