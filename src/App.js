@@ -12,6 +12,7 @@ import Profile from './Pages/Profile';
 import PrivateRoute from './Components/PrivateRoute';
 import NavBar from './Components/NavBar';
 import AddItem from './Pages/AddItem';
+import NotFound from './Pages/NotFound';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route path='/sign-in' element={<SignIn/>}/>
           <Route path='/sign-up' element={<SignUp/>}/>
           <Route path='/forgot-password' element={<ForgotPassword/>}/>
+          <Route path="*" element={<NotFound/>}/>
 
           <Route element={<NavBar/>}>
           <Route element={<PrivateRoute/>}>
