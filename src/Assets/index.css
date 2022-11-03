@@ -54,16 +54,15 @@ body {
   margin-bottom: 1rem;
 }
 
-.landingPageHeader {
+.landingPageHeader,
+.backEndHeader {
   display: flex;
   justify-content: space-between;
   height: 15vh;
 }
 
 .backEndHeader {
-  display: flex;
-  justify-content: space-between;
-  height: 15vh;
+  margin: -10px;
 }
 
 .pageTitle{
@@ -74,6 +73,7 @@ body {
 .logo {
   margin-left: 2rem;
   height: auto;
+  max-width: 722px;
 }
 
 .navLinks {
