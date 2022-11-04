@@ -188,25 +188,46 @@ function CreateItem() {
             </div>
 
             <div className="options">
-              <label htmlFor="subCategory">Select a subCategory</label>
-              <select name="subCategory" id="subCategory" onChange={onMutate}>
+              <label htmlFor="subcategory">Select a subCategory</label>
+              <select name="subcategory" id="subcategory" onChange={onMutate}>
                 <option value="">Please choose a category</option>
-                {(category === "Camping") &&
-                  <><option value="Sleeping Bag">Sleeping Bag</option><option value="Sleeping Mat">Sleeping Mat</option><option value="Tent">Tent</option><option value="Bivvy">Bivvy</option></>}
-                {(category === "Bikes") &&
-                <><option value="Off Road">Off Road</option>
-                  <option value="Road">Road</option></>}
-                {(category === "Cooking") &&
-                <><option value="Stove">Stove</option>
-                  <option value="Crockery">Pans, Bowls etc</option></>}
-                {(category === "Electronics") &&
-                <><option value="Lighting">Lighting</option>
-                    <option value="PowerBank">PowerBank</option></>}
-                {(category === "Clothing") &&
-                <><option value="Insulated">Insulated Items</option>
-                  <option value="Waterproof">Waterproof Items</option></>}
-                {(category === "Bags") &&
-                <><option value="">No subcategories needed</option></>}
+                {category === "Camping" && (
+                  <>
+                    <option value="Sleeping Bag">Sleeping Bag</option>
+                    <option value="Sleeping Mat">Sleeping Mat</option>
+                    <option value="Tent">Tent</option>
+                    <option value="Bivvy">Bivvy</option>
+                  </>
+                )}
+                {category === "Bikes" && (
+                  <>
+                    <option value="Off Road">Off Road</option>
+                    <option value="Road">Road</option>
+                  </>
+                )}
+                {category === "Cooking" && (
+                  <>
+                    <option value="Stove">Stove</option>
+                    <option value="Crockery">Pans, Bowls etc</option>
+                  </>
+                )}
+                {category === "Electronics" && (
+                  <>
+                    <option value="Lighting">Lighting</option>
+                    <option value="PowerBank">PowerBank</option>
+                  </>
+                )}
+                {category === "Clothing" && (
+                  <>
+                    <option value="Insulated">Insulated Items</option>
+                    <option value="Waterproof">Waterproof Items</option>
+                  </>
+                )}
+                {category === "Bags" && (
+                  <>
+                    <option value="">No subcategories needed</option>
+                  </>
+                )}
               </select>
             </div>
 
@@ -232,15 +253,377 @@ function CreateItem() {
               />
             </div>
 
+            {subcategory === "Bivvy" && (
+              <>
+                <div className="options">
+                  <label htmlFor="packSize">Packed Size:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 10 x 15 x 20 cm"
+                    id="packSize"
+                    onChange={onMutate}
+                  />
+                </div>
 
+                <div className="options">
+                  <label htmlFor="hooped">Hooped?</label>
+                  <select name="hooped" id="hooped" onChange={onMutate}>
+                    <option value="True">True</option>
+                    <option value="False">False</option>
+                  </select>
+                </div>
 
+                <div className="options">
+                  <label htmlFor="weight">Weight:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 500g"
+                    id="weight"
+                    onChange={onMutate}
+                  />
+                </div>
+              </>
+            )}
 
+            {subcategory === "Tent" && (
+              <>
+                <div className="options">
+                  <label htmlFor="weight">Weight:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 500g"
+                    id="weight"
+                    onChange={onMutate}
+                  />
+                </div>
 
+                <div className="options">
+                  <label htmlFor="packSize">Packed Size:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 10 x 15 x 20 cm"
+                    id="packSize"
+                    onChange={onMutate}
+                  />
+                </div>
 
+                <div className="options">
+                  <label htmlFor="capacity">Capacity:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 1 person tent"
+                    id="capacity"
+                    onChange={onMutate}
+                  />
+                </div>
 
+                <div className="options">
+                  <label htmlFor="footprint">Footprint Included?</label>
+                  <select name="footprint" id="footprint" onChange={onMutate}>
+                    <option value="True">True</option>
+                    <option value="False">False</option>
+                  </select>
+                </div>
 
+                {/* add pole type here */}
+              </>
+            )}
 
+            {subcategory === "Sleeping Bag" && (
+              <>
+                <div className="options">
+                  <label htmlFor="weight">Weight:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 500g"
+                    id="weight"
+                    onChange={onMutate}
+                  />
+                </div>
 
+                <div className="options">
+                  <label htmlFor="packSize">Packed Size:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 10 x 15 x 20 cm"
+                    id="packSize"
+                    onChange={onMutate}
+                  />
+                </div>
+
+                <div className="options">
+                  <label htmlFor="comfortRating">Comfort Rating:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 3 degrees C"
+                    id="comfortRating"
+                    onChange={onMutate}
+                  />
+                </div>
+
+                {/* add insulation type and season rating here */}
+              </>
+            )}
+
+            {subcategory === "Sleeping Mat" && (
+              <>
+                <div className="options">
+                  <label htmlFor="weight">Weight:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 500g"
+                    id="weight"
+                    onChange={onMutate}
+                  />
+                </div>
+
+                <div className="options">
+                  <label htmlFor="packSize">Packed Size:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 10 x 15 x 20 cm"
+                    id="packSize"
+                    onChange={onMutate}
+                  />
+                </div>
+
+                <div className="options">
+                  <label htmlFor="thickness">Thickness (cm):</label>
+                  <input
+                    type="number"
+                    placeholder="e.g. 6"
+                    id="thickness"
+                    onChange={onMutate}
+                  />
+                </div>
+
+                {/* add season rating here */}
+              </>
+            )}
+
+            {subcategory === "Off Road" && (
+              <>
+                <div className="options">
+                  <label htmlFor="size">Size:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 58cm"
+                    id="size"
+                    onChange={onMutate}
+                  />
+                </div>
+                {/* add suspension type here */}
+              </>
+            )}
+
+            {subcategory === "Road" && (
+              <>
+                <div className="options">
+                  <label htmlFor="size">Size:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 58cm"
+                    id="size"
+                    onChange={onMutate}
+                  />
+                </div>
+                {/* add brake type here */}
+              </>
+            )}
+
+            {subcategory === "Bags" && (
+              <>
+                {/* add bag location here */}
+
+                <div className="options">
+                  <label htmlFor="capacity">Capacity:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 15L"
+                    id="capacity"
+                    onChange={onMutate}
+                  />
+                </div>
+              </>
+            )}
+
+            {subcategory === "Stove" && (
+              <>
+                {/* add fuel type here */}
+
+                <div className="options">
+                  <label htmlFor="weight">Weight:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 500g"
+                    id="weight"
+                    onChange={onMutate}
+                  />
+                </div>
+
+                <div className="options">
+                  <label htmlFor="diameter">Diameter:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 20cm"
+                    id="diameter"
+                    onChange={onMutate}
+                  />
+                </div>
+
+                <div className="options">
+                  <label htmlFor="allInOne">All In One Set?</label>
+                  <select name="allInOne" id="allInOne" onChange={onMutate}>
+                    <option value="True">True</option>
+                    <option value="False">False</option>
+                  </select>
+                </div>
+              </>
+            )}
+
+            {subcategory === "Crockery" && (
+              <>
+                <div className="options">
+                  <label htmlFor="weight">Weight:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 500g"
+                    id="weight"
+                    onChange={onMutate}
+                  />
+                </div>
+
+                <div className="options">
+                  <label htmlFor="diameter">Diameter:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 20cm"
+                    id="diameter"
+                    onChange={onMutate}
+                  />
+                </div>
+
+                <div className="options">
+                  <label htmlFor="capacity">Capacity:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 5L"
+                    id="capacity"
+                    onChange={onMutate}
+                  />
+                </div>
+              </>
+            )}
+
+            {subcategory === "Lighting" && (
+              <>
+                {/* add lighting type here */}
+
+                <div className="options">
+                  <label htmlFor="lumens">Lumens:</label>
+                  <input
+                    type="number"
+                    placeholder="e.g. 500"
+                    id="lumens"
+                    onChange={onMutate}
+                  />
+                </div>
+
+                <div className="options">
+                  <label htmlFor="rechargeable">Rechargeable?</label>
+                  <select
+                    name="rechargeable"
+                    id="rechargeable"
+                    onChange={onMutate}
+                  >
+                    <option value="True">True</option>
+                    <option value="False">False</option>
+                  </select>
+                </div>
+              </>
+            )}
+
+            {subcategory === "PowerBank" && (
+              <>
+                <div className="options">
+                  <label htmlFor="capacity">Capacity (mAh):</label>
+                  <input
+                    type="number"
+                    placeholder="e.g. 10000"
+                    id="capacity"
+                    onChange={onMutate}
+                  />
+                </div>
+
+                <div className="options">
+                  <label htmlFor="size">Physical Size:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 10 x 15 x 2 cm"
+                    id="size"
+                    onChange={onMutate}
+                  />
+                </div>
+
+                <div className="options">
+                  <label htmlFor="rechargeable">Rechargeable?</label>
+                  <select
+                    name="rechargeable"
+                    id="rechargeable"
+                    onChange={onMutate}
+                  >
+                    <option value="True">Yes</option>
+                    <option value="False">No</option>
+                  </select>
+                </div>
+              </>
+            )}
+
+            {subcategory === "Navigation" && (
+              <>
+                <div className="options">
+                  <label htmlFor="rechargeable">Rechargeable?</label>
+                  <select
+                    name="rechargeable"
+                    id="rechargeable"
+                    onChange={onMutate}
+                  >
+                    <option value="True">Yes</option>
+                    <option value="False">No</option>
+                  </select>
+                </div>
+              </>
+            )}
+
+            {subcategory === "Insulated" && (
+              <>
+                <div className="options">
+                  <label htmlFor="size">Size:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Size 12"
+                    id="size"
+                    onChange={onMutate}
+                  />
+                </div>
+                {/* insulation type here */}
+              </>
+            )}
+
+            {subcategory === "Waterproof" && (
+              <>
+                <div className="options">
+                  <label htmlFor="size">Size:</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Size 12"
+                    id="size"
+                    onChange={onMutate}
+                  />
+                </div>
+                {/* add waterproof rating here */}
+              </>
+            )}
 
             <div className="options">
               <label htmlFor="images">Select Images:</label>
