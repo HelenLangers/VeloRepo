@@ -7,7 +7,7 @@ import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
 import ForgotPassword from './Pages/ForgotPassword';
 import HomePage from './Pages/HomePage';
-import BrowserPage from './Pages/BrowserPage';
+import BrowsePage from './Pages/BrowsePage';
 import Profile from './Pages/Profile';
 import PrivateRoute from './Components/PrivateRoute';
 import NavBar from './Components/NavBar';
@@ -20,7 +20,6 @@ function App() {
     const results = fetch('http://localhost:8080/items')
     .then((res) => res.json())
     .then(result => console.log(result))
-    
   }, [])
 
   return (
@@ -38,7 +37,7 @@ function App() {
               <Route path='/welcome' element={<HomePage />} />
               <Route path='/profile' element={<Profile />} />
               <Route path='/create-item' element={<CreateItem />} />
-              <Route path='/browser' element={<BrowserPage />} />
+              <Route path='/browser' element={<BrowsePage />} />
               {/* all routes that are only for logged in view with a nav bar go here */}
             </Route>
           </Route>
