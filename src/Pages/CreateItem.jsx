@@ -22,10 +22,14 @@ function CreateItem() {
 
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
+    category: "",
+    subcategory: "",
+    brand: "",
+    name: "",
     images: {},
   });
 
-  const { images } = formData;
+  const { category, subcategory, images, brand, name } = formData;
 
   const auth = getAuth();
   const navigate = useNavigate();
@@ -45,7 +49,6 @@ function CreateItem() {
     return () => {
       isMounted.current = false;
     };
-    // eslint-disable-next-line
   }, [isMounted]);
 
   if (loading) {
@@ -69,7 +72,7 @@ function CreateItem() {
         // Create a root reference
         const storage = getStorage();
         // create dynamic filename
-        const fileName = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`;
+        const fileName = `${image.name}-${uuidv4()}`;
 
         // Create a storage reference
         const storageRef = ref(storage, "images/" + fileName);
@@ -100,19 +103,19 @@ function CreateItem() {
           },
           (error) => {
             switch (error.code) {
-              case 'storage/unauthorized':
+              case "storage/unauthorized":
                 // User doesn't have permission to access the object
                 break;
-              case 'storage/canceled':
+              case "storage/canceled":
                 // User canceled the upload
                 break;
-        
+
               // ...
-        
-              case 'storage/unknown':
+
+              case "storage/unknown":
                 // Unknown error occurred, inspect error.serverResponse
-                break;}
-        
+                break;
+            }
           },
           () => {
             // Handle successful uploads on complete
@@ -172,11 +175,15 @@ function CreateItem() {
         <div className="entryFormBlock">
           <form method="post" className="entryForm" onSubmit={onSubmit}>
             <div className="options">
-              <label htmlFor="mainCategory">Select a category:</label>
-              <select name="mainCategory" id="mainCategory" onChange={onMutate}>
+              <label htmlFor="category">Select a category:</label>
+              <select name="category" id="category" onChange={onMutate}>
                 <option value="">Please choose a category</option>
                 <option value="Camping">Camping</option>
                 <option value="Bikes">Bikes</option>
+                <option value="Bags">Bags</option>
+                <option value="Cooking">Cooking</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Clothing">Clothing</option>
               </select>
             </div>
 
@@ -184,9 +191,56 @@ function CreateItem() {
               <label htmlFor="subCategory">Select a subCategory</label>
               <select name="subCategory" id="subCategory" onChange={onMutate}>
                 <option value="">Please choose a category</option>
-                <option value="Sleeping Bag">Sleeping Bag</option>
+                {(category === "Camping") &&
+                  <><option value="Sleeping Bag">Sleeping Bag</option><option value="Sleeping Mat">Sleeping Mat</option><option value="Tent">Tent</option><option value="Bivvy">Bivvy</option></>}
+                {(category === "Bikes") &&
+                <><option value="Off Road">Off Road</option>
+                  <option value="Road">Road</option></>}
+                {(category === "Cooking") &&
+                <><option value="Stove">Stove</option>
+                  <option value="Crockery">Pans, Bowls etc</option></>}
+                {(category === "Electronics") &&
+                <><option value="Lighting">Lighting</option>
+                    <option value="PowerBank">PowerBank</option></>}
+                {(category === "Clothing") &&
+                <><option value="Insulated">Insulated Items</option>
+                  <option value="Waterproof">Waterproof Items</option></>}
+                {(category === "Bags") &&
+                <><option value="">No subcategories needed</option></>}
               </select>
             </div>
+
+            <div className="options">
+              <label htmlFor="brand">Brand:</label>
+              <input
+                type="text"
+                placeholder="e.g. Apidura"
+                id="brand"
+                onChange={onMutate}
+                value={brand}
+              />
+            </div>
+
+            <div className="options">
+              <label htmlFor="name">Name of item:</label>
+              <input
+                type="text"
+                placeholder="e.g. SeatPack"
+                id="name"
+                onChange={onMutate}
+                value={name}
+              />
+            </div>
+
+
+
+
+
+
+
+
+
+
 
             <div className="options">
               <label htmlFor="images">Select Images:</label>
