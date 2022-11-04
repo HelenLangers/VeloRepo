@@ -1,10 +1,9 @@
-import React from 'react'
-import { useState } from 'react'
+import React, {useState} from 'react'
 import ReactDatePicker from 'react-datepicker'
 import SearchBar from '../Components/BrowserComponents/SearchBar'
 import testRepo from '../Repositories/testRepository'
 import 'react-datepicker/dist/react-datepicker.css'
-import '../Assets/browser.css'
+import '../Assets/browse.css'
 import BrowserGrid from '../Components/BrowserComponents/BrowserGrid'
 
 
@@ -31,8 +30,7 @@ function BrowserPage() {
           <div className='SearchBar'>
             <SearchBar />
           </div>
-            <BrowserGrid
-             className='BrowserGrid'/>
+            <BrowserGrid className='BrowserGrid'/>
           
         </header>
       </body>
