@@ -53,6 +53,7 @@ function SignUp() {
       delete formDataCopy.password;
       formDataCopy.timestamp = serverTimestamp();
 
+      
       // await setDoc(doc(db, "organisations", user.uid), formDataCopy)
       await setDoc(doc(db, "users", user.uid), formDataCopy);
 
@@ -92,13 +93,13 @@ function SignUp() {
             <h2 className="textAlignCentre welcomeText">Welcome to VeloRepo</h2>
           </div>
           <form onSubmit={onSubmit}>
-          <div>
+          {/* <div>
             <select name="orgId" id="orgId" onChange={onChange} className="orgInput">
               <option value="">Please select your community</option>
               <option value="Queens of Pain">Queens of Pain</option>
               <option value="Lakes Gravel Gang">Lakes Gravel Gang</option>
             </select>
-          </div>
+          </div> */}
 
             <input
               type="text"
