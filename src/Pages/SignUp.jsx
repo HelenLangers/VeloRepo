@@ -20,9 +20,10 @@ function SignUp() {
     name: "",
     email: "",
     password: "",
+    orgId: "",
   });
 
-  const { name, email, password } = formData;
+  const { name, email, password, orgId } = formData;
   const navigate = useNavigate();
 
   const onChange = (e) => {
@@ -40,7 +41,7 @@ function SignUp() {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
       const user = userCredential.user;
 
@@ -52,6 +53,7 @@ function SignUp() {
       delete formDataCopy.password;
       formDataCopy.timestamp = serverTimestamp();
 
+      // await setDoc(doc(db, "organisations", user.uid), formDataCopy)
       await setDoc(doc(db, "users", user.uid), formDataCopy);
 
       navigate("/profile");
@@ -63,6 +65,7 @@ function SignUp() {
         toast.error("Oops, something went wrong");
       }
     }
+    console.log("form data", formData)
   };
 
   return (
@@ -81,7 +84,8 @@ function SignUp() {
           </Link>
         </div>
       </header>
-      <div className=".mainContainer">
+
+      <div className="mainContainer">
       <div className="signInBlock">
         <div className="signInBox">
           <div className="flexAlignCentreColumn">
@@ -89,7 +93,7 @@ function SignUp() {
           </div>
           <form onSubmit={onSubmit}>
           <div>
-            <select name="organisation" id="organisation" onChange={onChange} className="orgInput">
+            <select name="orgId" id="orgId" onChange={onChange} className="orgInput">
               <option value="">Please select your community</option>
               <option value="Queens of Pain">Queens of Pain</option>
               <option value="Lakes Gravel Gang">Lakes Gravel Gang</option>
@@ -120,7 +124,7 @@ function SignUp() {
                 id="password"
                 value={password}
                 onChange={onChange}
-                minlength="6"
+                minLength="6"
               />
               <img
                 src={visibilityIcon}

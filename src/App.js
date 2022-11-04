@@ -16,11 +16,11 @@ import NotFound from './Pages/NotFound';
 
 function App() {
 
-  useEffect(() => {
-    const results = fetch('http://localhost:8080/items')
-    .then((res) => res.json())
-    .then(result => console.log(result))
-  }, [])
+  // useEffect(() => {
+  //   const results = fetch('http://localhost:8080/items')
+  //   .then((res) => res.json())
+  //   .then(result => console.log(result))
+  // }, [])
 
   return (
     <>
