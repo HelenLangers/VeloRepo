@@ -4,10 +4,8 @@ import {
   getStorage,
   ref,
   uploadBytesResumable,
-  getDownloadURL,
-  uploadBytes,
+  getDownloadURL
 } from "firebase/storage";
-import { db } from "../firebase.config";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../Components/Spinner";
@@ -49,6 +47,7 @@ function CreateItem() {
     return () => {
       isMounted.current = false;
     };
+    // eslint-disable-next-line
   }, [isMounted]);
 
   if (loading) {
