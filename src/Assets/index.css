@@ -58,7 +58,7 @@ body {
 .backEndHeader {
   display: flex;
   justify-content: space-between;
-  height: 15vh;
+  height: 20vh;
 }
 
 .backEndHeader {
@@ -157,6 +157,7 @@ body {
   position: relative;
 }
 
+.orgInput,
 .nameInput,
 .emailInput, 
 .passwordInput {
