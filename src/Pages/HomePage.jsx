@@ -10,7 +10,6 @@ function HomePage() {
   const auth = getAuth();
   const userName = auth.currentUser.displayName
   const firstName = userName.split(" ").shift()
-  console.log(firstName)
 
   const pageInformation = {
     pageTitle: "Home"

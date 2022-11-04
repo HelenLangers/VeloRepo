@@ -38,3 +38,13 @@
     margin: 0.5rem;
     color: #fff;
 }
+
+@media screen and (max-width: 768px) {
+    .entryFormBlock{
+        width: 80%;
+    }
+
+    .options{
+        flex-direction: column;
+    }
+}
