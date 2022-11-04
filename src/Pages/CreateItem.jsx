@@ -26,7 +26,8 @@ function CreateItem() {
     if(isMounted){
       onAuthStateChanged(auth, (user) => {
         if(user){
-          setFormData({...formData, userRef: user.uid})
+          setFormData({...formData, 
+            userRef: user.uid})
         } else {
           navigate('/sign-in')
         }
@@ -50,11 +51,9 @@ function CreateItem() {
     // eslint-disable-next-line
     if(images.length > 6) {
       setLoading(false)
-      toast.error('Canno upload more than 6 images')
+      toast.error('Cannot upload more than 6 images')
       return
     }
-
-
   }
 
 
@@ -110,6 +109,9 @@ function CreateItem() {
               <option value="Sleeping Bag">Sleeping Bag</option>
             </select>
           </div>
+
+
+          
 
           <div className="options">
             <label htmlFor="images">Select Images:</label>

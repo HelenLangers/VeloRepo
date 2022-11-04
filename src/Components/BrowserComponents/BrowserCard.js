@@ -1,5 +1,4 @@
 import React from 'react'
-import BrowserItem from './BrowserItem'
 
 
 function BrowserCard({user , item}) {
@@ -7,10 +6,8 @@ function BrowserCard({user , item}) {
 
     return (
     <>
- <BrowserItem
-    item={item} />
+    <p>This is the browser card</p>
     </>
-
     )
 }
 

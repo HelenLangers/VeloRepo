@@ -3,7 +3,8 @@ import BrowserCard from './BrowserCard'
 
 function BrowserGrid() {
   return (
-<BrowserCard />)
+    <BrowserCard />
+  )
 }
 
 export default BrowserGrid

@@ -2,21 +2,16 @@ import {useEffect} from 'react';
 import {Routes, Route} from 'react-router-dom';
 import {ToastContainer, Flip} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import getTest from "./Repositories/testRepository";
 import LandingPage from './Pages/LandingPage';
 import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
 import ForgotPassword from './Pages/ForgotPassword';
 import HomePage from './Pages/HomePage';
 import BrowserPage from './Pages/BrowserPage';
-import BrowserGrid from './Components/BrowserComponents/BrowserGrid';
-import BrowserCard from './Components/BrowserComponents/BrowserCard';
 import Profile from './Pages/Profile';
 import PrivateRoute from './Components/PrivateRoute';
 import NavBar from './Components/NavBar';
 import CreateItem from './Pages/CreateItem';
-import ReactDatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css'
 import NotFound from './Pages/NotFound';
 
 function App() {
@@ -28,14 +23,8 @@ function App() {
     
   }, [])
 
-
-
-
   return (
     <>
-
-    
-
         <Routes>
           <Route path='/' element={<LandingPage />}/>
           <Route path='/sign-in' element={<SignIn/>}/>
