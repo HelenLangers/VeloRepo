@@ -3,7 +3,7 @@ import '../Assets/index.css';
 import {Link} from 'react-router-dom'
 import {useAuthStatus} from '../Hooks/useAuthStatus';
 import Spinner from '../Components/Spinner';
-import whitelogo from '../Assets/png/white-logo.png';
+import whitelogo from '../Assets/png/white-logo-small.png';
 
 
 
@@ -18,7 +18,7 @@ function LandingPage() {
   return (
     <div className="imageBackground">
       <header className='landingPageHeader'>
-        <img src={whitelogo} alt="VeloRepo" className="logo"/>
+        <a href="/"><img src={whitelogo} alt="VeloRepo" className="logo"/></a>
         <div className="navLinks">
         {loggedIn ? <><Link className='landingPageLinks' to="/welcome">Home</Link>
           <Link className='landingPageLinks' to="/profile">Profile</Link></> : <><Link className='landingPageLinks' to="/sign-up">Sign up</Link>
@@ -26,6 +26,7 @@ function LandingPage() {
           <Link className='landingPageLinks' to="/sign-in">Log in</Link></>}
         </div>
       </header>
+
       <div className='tagLineBox'>
         <p className='tagLine'>Borrow.Adventure.Return.Repeat</p>
       </div>

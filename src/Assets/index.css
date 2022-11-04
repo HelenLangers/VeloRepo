@@ -72,6 +72,7 @@ body {
 
 .logo {
   margin-left: 2rem;
+  width: 100%;
   height: auto;
 }
 
@@ -242,7 +243,7 @@ body {
   color: rgb(176, 176, 176);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .landingPageHeader, 
   .backEndHeader {
     flex-direction: column;
@@ -252,7 +253,7 @@ body {
   }
 
   .logo {
-    width: 80%;
+    width: 90%;
     margin-left: 0;
   }
 

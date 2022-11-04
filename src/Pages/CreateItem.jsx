@@ -187,7 +187,7 @@ function CreateItem() {
             </div>
 
             <div className="options">
-              <label htmlFor="subcategory">Select a subCategory</label>
+              <label htmlFor="subcategory">Select a subcategory</label>
               <select name="subcategory" id="subcategory" onChange={onMutate}>
                 <option value="">Please choose a category</option>
                 {category === "Camping" && (
@@ -625,7 +625,7 @@ function CreateItem() {
             )}
 
             <div className="options">
-              <label htmlFor="images">Select Images:</label>
+              <label htmlFor="images">Select Images (max 6):</label>
               <input
                 type="file"
                 id="images"
