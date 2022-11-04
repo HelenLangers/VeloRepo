@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 
 function CreateItem() {
   const pageInformation = {
-    pageTitle: "Add An Item For Loan",
+    pageTitle: "Add Item To The Repo",
   };
 
   const [loading, setLoading] = useState(false);
