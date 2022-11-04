@@ -259,11 +259,21 @@ body {
 
   .navLinks{
     margin-right: 0;
+    flex-direction: row;
   }
 
   .pageTitle {
     font-size: 2rem;
   }
+}
 
+@media (min-width: 1024px) and (max-width: 1178px) {
+  .navLinks{
+    flex-direction: column;
+    margin: 2rem;
+  }
 
+  .landingPageLinks{
+    margin-top: 1rem;
+  }
 }

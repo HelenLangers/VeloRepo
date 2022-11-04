@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 
 function CreateItem() {
   const pageInformation = {
-    pageTitle: "Add Item To The Repo",
+    pageTitle: "Add To The Repo",
   };
 
   const [loading, setLoading] = useState(false);
@@ -135,8 +135,12 @@ function CreateItem() {
       toast.error("Images could not be uploaded");
       return;
     });
-    console.log(imgUrls);
-    setLoading(false);
+
+    const formDataCopy = {...formData, imgUrls}
+    delete formDataCopy.images;
+    console.log(formDataCopy)
+    
+    // STILL NEED TO ADD ITEM (formDataCopy) TO DATABASE HERE!!
   };
 
   const onMutate = (e) => {

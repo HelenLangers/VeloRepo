@@ -5,6 +5,7 @@ import { FaRegPlusSquare } from 'react-icons/fa';
 import { FaRegUser } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
 import { FaHome } from 'react-icons/fa';
+import { BiInfoCircle } from 'react-icons/bi';
 
 function NavBar() {
 
@@ -19,13 +20,16 @@ function NavBar() {
           <Link to='/welcome'><FaHome className='navIcon'/></Link>
         </div>
         <div className="navOptionBlock">
-          <Link to='/create-item'><FaRegPlusSquare className='navIcon'/></Link>
+          <Link to='/create-item'><FaRegPlusSquare className='navIcon' /></Link>
         </div>
         <div className="navOptionBlock">
-          <Link to='/browser'><FaSearch className='navIcon'/></Link>
+          <Link to='/browser'><FaSearch className='navIcon' /></Link>
         </div>
         <div className="navOptionBlock">
           <Link to='/profile'><FaRegUser className='navIcon'/></Link>
+        </div>
+        <div className="navOptionBlock">
+          <Link to='/information'><BiInfoCircle className='navIcon' /></Link>
         </div>
       </nav>
     </>
