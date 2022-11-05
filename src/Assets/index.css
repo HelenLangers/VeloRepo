@@ -27,7 +27,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   height: 100vh;
-  margin:-10px;
+  margin: -10px;
 }
 
 .hide {
