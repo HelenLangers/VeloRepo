@@ -33,7 +33,7 @@
     border-radius: 22px;
     padding: 1rem;
     width: 30%;
-    height: fit-content;
+    height: 150px;
     margin-bottom: 1rem;
     border: solid 2px var(--neutral-light)
 }

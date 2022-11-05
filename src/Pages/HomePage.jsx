@@ -42,7 +42,7 @@ function HomePage({dbUserInfo}) {
     <>
       <BackEndHeader pageInformation={pageInformation}/>
       <main className="mainContainer">
-      <h3 className="welcomeName">Hey {firstName}!</h3>
+      <h3 className="welcomeName">Hey {firstName}! Here's your kit:</h3>
         <div className="itemsForLoan">
           <h3>Your Items For Loan</h3>
           <div className='itemGrid'>
