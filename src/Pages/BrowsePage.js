@@ -5,11 +5,38 @@ import testRepo from '../Repositories/testRepository'
 import 'react-datepicker/dist/react-datepicker.css'
 import '../Assets/browse.css'
 import BrowserGrid from '../Components/BrowserComponents/BrowserGrid'
+import BackEndHeader from '../Components/BackEndHeader'
 
 
-function BrowserPage() {
+function BrowserPage ({items}){
+
+  console.log(items)
+  
+//   items,
+  
+
+// }) =>{
+//   const [searchTerm, setSearchTerm] = useState('')
+
+//   const filteredItems = items.map((item) => {
+//     const nextFilteredItems = items.name.filter((item))
     
 
+//     return {
+//       ...item,
+//       userItems: nextFilteredItems,
+//     }
+//     })
+
+//     const updateSearchTerm= (searchTerm) => {
+//       setSearchTerm(searchTerm.toLowerCase())
+//     }
+  
+
+    
+const pageInformation = {
+  pageTitle: "Browse"
+}
 
   
   return (
@@ -17,34 +44,29 @@ function BrowserPage() {
 
     
     <>
-      <body className='BrowserPage'>
-        <header>
-          
-          
+    <BackEndHeader pageInformation={pageInformation}/>
+      <main className='BrowserPage'>
           <div>
-            
-          
-            <h1 className='logo'>VeloRepo Browser</h1>
-            <p>Welcome to the VeloRepo, please select your criteria to search for an item</p>
-            <h2>From</h2>
-            
-
             <ReactDatePicker className='DateTo'/>
 
             <h2>To</h2>
             <ReactDatePicker className='DateFrom' />
           </div>
+
           <br></br>
           <div className='SearchBar'>
-            <SearchBar />
+            {/* <SearchBar handleChange={updateSearchTerm} /> */}
           </div>
-            <BrowserGrid className='BrowserGrid'/>
           
-        </header>
+            <BrowserGrid
+            items={items}
+            // nextFilteredItems={filteredItems}
+            className='BrowserGrid'/>
         
-      </body>
+      </main>
     </>
   )
 }
+
 
 export default BrowserPage
