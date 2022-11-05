@@ -23,14 +23,14 @@ function HomePage() {
         <div className="itemsForLoan">
           <h3>Your Items For Loan</h3>
           <p className='explainerText'>
-            The items you're loaning out to others will appear here. If you don't have any, click on the <FaRegPlusSquare/> at the bottom of the page to add an item. It'll only be available to people in your community group.
+            The items you're loaning out to others will appear here. If you don't have any, click on the <FaRegPlusSquare/> to add kit. It'll only be available to people in your community group.
           </p>
         </div>
         <hr></hr>
 
         <div className="borrowedItems">
           <h3>Items you are borrowing</h3>
-          <p className='explainerText'>Do you need to borrow something for your next adventure? Click on the <FaSearch/> at the bottom of the page to search your community's shared library for what you need.</p>
+          <p className='explainerText'>Do you need to borrow something for your next adventure? Click on the <FaSearch/> to search your community's shared library for what you need.</p>
         </div>
         <hr></hr>
       </main>

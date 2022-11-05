@@ -2,6 +2,7 @@ html,
 body {
   background: var(--primary-light);
   font-family: 'Cagliostro', sans-serif;
+  margin: 0;
 }
 
 :root {
@@ -27,7 +28,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   height: 100vh;
-  margin:-10px;
+  margin: -10px;
 }
 
 .hide {
@@ -49,25 +50,34 @@ body {
   text-align: center;
 }
 
+.mainContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 15%;
+  height: 100vh;
+}
+
 .welcomeText {
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
-.landingPageHeader,
-.backEndHeader {
+.landingPageHeader{
   display: flex;
   justify-content: space-between;
-  height: 20vh;
+  height: fit-content;
 }
 
 .backEndHeader {
-  margin: -10px;
+  display: flex;
+  justify-content: flex-end;
+  height: fit-content;
 }
 
 .pageTitle{
-  margin: 2rem 5rem;
-  font-size: 2.5rem;
+  margin: 2rem 2rem;
+  font-size: 2rem;
 }
 
 .logo {
@@ -244,12 +254,24 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
+  .mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    height: 100vh;
+  }
+
   .landingPageHeader, 
   .backEndHeader {
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: fit-content;
+  }
+
+  .backEndHeader{
+    margin-top: 15vh;
   }
 
   .logo {
@@ -275,5 +297,19 @@ body {
 
   .landingPageLinks{
     margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .landingPageHeader, 
+  .backEndHeader {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+  }
+
+  .backEndHeader{
+    margin-top: 15vh;
   }
 }

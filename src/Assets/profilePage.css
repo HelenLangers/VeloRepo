@@ -3,13 +3,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-}
-
-.mainContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10%;
+    margin: -10px;
 }
 
 .accountTitle{
@@ -91,7 +85,7 @@ hr {
     color: #fff;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1178px) {
     .profileCard {
         width: 60%;
     }

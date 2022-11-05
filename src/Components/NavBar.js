@@ -7,12 +7,10 @@ import { FaSearch } from 'react-icons/fa';
 import { FaHome } from 'react-icons/fa';
 import { BiInfoCircle } from 'react-icons/bi';
 import { FaLightbulb} from 'react-icons/fa';
+import colorinitial from '../Assets/png/colour-logo-initial.png'
 import Darkmode from 'darkmode-js'
 
 function NavBar() {
-
-
-
   const options = {
     bottom: '700px', // default: '32px'
     right: 'unset', // default: '32px'
@@ -26,12 +24,9 @@ function NavBar() {
     label: '🌓', // default: ''
     autoMatchOsTheme: true // default: true
   }
-  
 
-  
   const darkmode = new Darkmode(options);
   
-
   return (
     <>
       <div>
@@ -39,27 +34,34 @@ function NavBar() {
         />
       </div>
       <nav className='navbar'>
-
+      <div className="logoBlock">
+          <Link to='/'><img src={colorinitial} alt="logo" className='initialLogo'/></Link>
+        </div>
+        
+        
+        <div className="navOptionBlock">
+          <Link to='/welcome' className='navOptionBlock'><FaHome className='navIcon'/><p className='navText'>Home</p></Link>
+          
+        </div>
+        <div className="navOptionBlock">
+          <Link to='/create-item' className='navOptionBlock'><FaRegPlusSquare className='navIcon' /><p className='navText'>Add Kit</p></Link>
+          
+        </div>
+        <div className="navOptionBlock">
+          <Link to='/browser' className='navOptionBlock'><FaSearch className='navIcon' /><p className='navText'>Browse Kit</p></Link>
+          
+        </div>
+        <div className="navOptionBlock">
+          <Link to='/profile' className='navOptionBlock'><FaRegUser className='navIcon'/><p className='navText'>Your Profile</p></Link>
+          
+        </div>
+        <div className="navOptionBlock">
+          <Link to='/information' className='navOptionBlock'><BiInfoCircle className='navIcon' /><p className='navText'>Info</p></Link>
+        </div>
         <div className="navOptionBlock">
           <button className="navButton"  onClick={
             () => {darkmode.toggle()}
           } ><FaLightbulb className='navIcon'/></button>
-        </div>
-        
-        <div className="navOptionBlock">
-          <Link to='/welcome'><FaHome className='navIcon'/></Link>
-        </div>
-        <div className="navOptionBlock">
-          <Link to='/create-item'><FaRegPlusSquare className='navIcon' /></Link>
-        </div>
-        <div className="navOptionBlock">
-          <Link to='/browser'><FaSearch className='navIcon' /></Link>
-        </div>
-        <div className="navOptionBlock">
-          <Link to='/profile'><FaRegUser className='navIcon'/></Link>
-        </div>
-        <div className="navOptionBlock">
-          <Link to='/information'><BiInfoCircle className='navIcon' /></Link>
         </div>
         
       </nav>

@@ -1,6 +1,6 @@
 .welcomeName {
     font-size: 1.5rem;
-    margin-top: 3rem;
+    margin-top: 0;
 }
 
 .itemsForLoan,
@@ -17,12 +17,22 @@
     text-align: justify;
 }
 
-@media screen and (max-width: 768px) {
+.infoText {
+    margin: 0 5rem 1rem 5rem;
+    text-align: justify;
+}
+
+@media screen and (max-width: 1024px) {
     .welcomeName {
         margin-top: 1rem;
     }
     
     .explainerText{
+        width: 100%;
+    }
+
+    .itemsForLoan,
+    .borrowedItems {
         width: 80%;
     }
 }

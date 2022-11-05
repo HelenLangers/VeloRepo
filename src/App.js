@@ -13,8 +13,8 @@ import PrivateRoute from './Components/PrivateRoute';
 import NavBar from './Components/NavBar';
 import CreateItem from './Pages/CreateItem';
 import NotFound from './Pages/NotFound';
+import Information from './Pages/Information';
 import Darkmode from 'darkmode-js';
-
 
 function App() {
 
@@ -26,8 +26,6 @@ function App() {
     .then(results => setItems(results))
     
   }, [])
-
-  
 
 
   return (
@@ -45,7 +43,12 @@ function App() {
               <Route path='/welcome' element={<HomePage />} />
               <Route path='/profile' element={<Profile />} />
               <Route path='/create-item' element={<CreateItem />} />
+
               <Route path='/browser' element={<BrowsePage items={items}/>} />
+
+             
+              <Route path='/information' element={<Information />}/>
+
               {/* all routes that are only for logged in view with a nav bar go here */}
             </Route>
           </Route>
