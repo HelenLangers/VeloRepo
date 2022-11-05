@@ -24,7 +24,7 @@ import UserContext from './Context/userContext';
 
 function App() {
 
-  const { loggedIn, checkingStatus} = useAuthStatus()
+  const {loggedIn, checkingStatus} = useAuthStatus()
   const [userPostgresId, setUserPostgresId] = useState(3)
   const [userPostgresData, setUserPostgresData] = useState({})
   const [items, setItems] = useState([])
@@ -73,9 +73,9 @@ function App() {
           <Route element={<NavBar />}>
             <Route element={<PrivateRoute />}>
             
-              <Route path='/welcome' element={<HomePage user={userPostgresData}/>} />
+              <Route path='/welcome' element={<HomePage dbUserInfo={userPostgresData}/>} />
               <Route path='/profile' element={<Profile />} />
-              <Route path='/create-item' element={<CreateItem />} />
+              <Route path='/create-item' element={<CreateItem dbUserInfo={userPostgresData}/>} />
               <Route path='/browser' element={<BrowsePage items={items}/>} />
               <Route path='/information' element={<Information />}/>
               {/* // all routes that need user information go here */}

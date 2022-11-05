@@ -13,14 +13,15 @@ import BackEndHeader from "../Components/BackEndHeader";
 import "../Assets/addItem.css";
 import { toast } from "react-toastify";
 
-function CreateItem() {
+function CreateItem({dbUserInfo}) {
   const pageInformation = {
     pageTitle: "Add Kit",
   };
 
+
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    category: "",
+    category_id: 1,
     subcategory: "",
     brand: "",
     name: "",
@@ -38,7 +39,7 @@ function CreateItem() {
     if (isMounted) {
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          setFormData({ ...formData, userRef: user.uid });
+          setFormData({ ...formData, owner_id: dbUserInfo.id });
         } else {
           navigate("/sign-in");
         }
@@ -57,7 +58,6 @@ function CreateItem() {
   const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    console.log(formData);
 
     if (images.length > 6) {
       setLoading(false);
@@ -140,6 +140,15 @@ function CreateItem() {
     delete formDataCopy.images;
     console.log(formDataCopy)
     
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+      body:JSON.stringify(formDataCopy)
+    }
+
     // STILL NEED TO ADD ITEM (formDataCopy) TO DATABASE HERE!!
   };
 
