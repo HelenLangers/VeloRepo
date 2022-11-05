@@ -17,6 +17,11 @@
     text-align: justify;
 }
 
+.infoText {
+    margin: 0 5rem 1rem 5rem;
+    text-align: justify;
+}
+
 @media screen and (max-width: 1024px) {
     .welcomeName {
         margin-top: 1rem;
