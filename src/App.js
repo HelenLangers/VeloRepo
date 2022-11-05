@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import {Routes, Route} from 'react-router-dom';
 import {ToastContainer, Flip} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,10 +18,12 @@ import Darkmode from 'darkmode-js';
 
 function App() {
 
+  const [items, setItems] = useState([])
+
   useEffect(() => {
-    const results = fetch('http://localhost:8080/items')
+    fetch('http://localhost:8080/items')
     .then((res) => res.json())
-    .then(result => console.log(result))
+    .then(results => setItems(results))
     
   }, [])
 
@@ -43,7 +45,7 @@ function App() {
               <Route path='/welcome' element={<HomePage />} />
               <Route path='/profile' element={<Profile />} />
               <Route path='/create-item' element={<CreateItem />} />
-              <Route path='/browser' element={<BrowsePage />} />
+              <Route path='/browser' element={<BrowsePage items={items}/>} />
               {/* all routes that are only for logged in view with a nav bar go here */}
             </Route>
           </Route>

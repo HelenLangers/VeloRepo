@@ -1,10 +1,25 @@
 import React from 'react'
 import BrowserCard from './BrowserCard'
 
-function BrowserGrid() {
+const BrowserGrid = ({items})=> {
+  const mappedItems = items.map((item, index) => {
   return (
-    <BrowserCard />
+    <BrowserCard
+    item = {item}
+    key = {index}
+     />
   )
+})
+
+return(
+  <>
+    <h2>Items:</h2>
+  <div className='itemGrid'>
+    {mappedItems}
+  </div>
+</>
+)
+
 }
 
 export default BrowserGrid

@@ -1,14 +1,38 @@
 import React from 'react'
+import Item from './Item'
 
 
-function BrowserCard({user , item}) {
+const BrowserCard = ({item})=> {
+    // const listOfItems = item.name.map((item, indexOfItem) => {
+    //     return (
+    //         <Item
+    //         key={indexOfItem}
+    //         item={item}
+    //         />
+    //     )
+    // })
     
 
     return (
-    <>
-    <p>This is the browser card</p>
-    </>
-    )
+
+
+        <>
+        <div className='itemCard'>
+            <p>{item.name}</p>
+        </div>
+        </>
+    // <>
+    // {listOfItems.length ? (
+    //     <>
+    //     <div>
+    //         <ul>
+    //             {listOfItems}
+    //         </ul>
+    //     </div>
+    //     </>
+    // ) : null}
+    // </>
+)
 }
 
 

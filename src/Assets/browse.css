@@ -9,3 +9,19 @@
 .SearchBar{
     
 }
+
+.itemGrid{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 3em;
+}
+
+.itemCard{
+    background-color: #fff;
+    border-radius: 22px;
+    padding: 1rem;
+    max-width: 500px;
+    width: 30%;
+    margin-bottom: 1rem;
+}
