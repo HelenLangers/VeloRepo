@@ -15,6 +15,7 @@ import CreateItem from './Pages/CreateItem';
 import NotFound from './Pages/NotFound';
 import Information from './Pages/Information';
 import Darkmode from 'darkmode-js';
+import UserContext from './Context/userContext';
 
 function App() {
 
@@ -24,9 +25,9 @@ function App() {
     fetch('http://localhost:8080/items')
     .then((res) => res.json())
     .then(results => setItems(results))
-    
   }, [])
 
+  
 
   return (
     <>
@@ -40,16 +41,13 @@ function App() {
 
           <Route element={<NavBar />}>
             <Route element={<PrivateRoute />}>
-              <Route path='/welcome' element={<HomePage />} />
+              <Route path='/welcome' element={<HomePage/>} />
               <Route path='/profile' element={<Profile />} />
               <Route path='/create-item' element={<CreateItem />} />
-
               <Route path='/browser' element={<BrowsePage items={items}/>} />
-
-             
               <Route path='/information' element={<Information />}/>
-
               {/* all routes that are only for logged in view with a nav bar go here */}
+
             </Route>
           </Route>
         </Routes>

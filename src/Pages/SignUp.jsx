@@ -5,8 +5,8 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
-import { db } from "../firebase.config";
+import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
+import { db } from '../firebase.config'
 import "../Assets/index.css";
 import OAuth from "../Components/OAuth";
 import whitelogo from "../Assets/png/white-logo.png";
@@ -21,6 +21,7 @@ function SignUp() {
     email: "",
     password: "",
   });
+  const [userDbId, setUserDbId] = useState({})
 
   const { name, email, password } = formData;
   const navigate = useNavigate();
@@ -44,14 +45,8 @@ function SignUp() {
       );
       const user = userCredential.user;
 
-      // updateProfile(auth.currentUser, {
-      //   displayName: name,
-      // });
-
-      // const formDataCopy = { ...formData };
-      // delete formDataCopy.password;
-
-      await fetch("http://localhost:8080/users", {
+      // Send user information to user database table and get the id back
+      const requestOptions = {
         method: 'POST',
         headers: {
           "Accept": "application/json",
@@ -59,8 +54,24 @@ function SignUp() {
         },
         body: JSON.stringify({
           "name": name,
-          "email": email})
+          "email": email,
+          "firebaseId": user.uid})
+      }
+
+      const response = await fetch("http://localhost:8080/users", requestOptions);
+      const userObject = await response.json()
+      const userObjectId = userObject.id
+      setUserDbId(userObjectId)
+
+      // make a document(table) in firebase to cross reference postgres id and firebase id
+      updateProfile(auth.currentUser, {
+        displayName: name,
       })
+      const formDataCopy = { ...formData }
+      delete formDataCopy.password
+      formDataCopy.postgresId = userObjectId
+      formDataCopy.timestamp = serverTimestamp()
+      await setDoc(doc(db, 'users', user.uid), formDataCopy)
 
       navigate("/profile");
     } catch (error) {
