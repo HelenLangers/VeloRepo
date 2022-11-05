@@ -7,10 +7,13 @@ import { ReactComponent as ArrowRightIcon } from "../Assets/svg/keyboardArrowRig
 import "../Assets/profilePage.css";
 import { useNavigate } from "react-router-dom";
 import BackEndHeader from "../Components/BackEndHeader";
+import { useAuthStatus } from "../Hooks/useAuthStatus";
+import Spinner from "../Components/Spinner";
 
 function Profile() {
   const auth = getAuth();
   const navigate = useNavigate();
+  const {loggedIn, checkingStatus} = useAuthStatus()
 
   const [changeDetails, setChangeDetails] = useState(false);
   const [formData, setFormData] = useState({
@@ -63,6 +66,10 @@ function Profile() {
 
   const pageInformation = {
     pageTitle: "Account Details"
+  }
+
+  if(checkingStatus) {
+    return <Spinner/>
   }
 
   return (

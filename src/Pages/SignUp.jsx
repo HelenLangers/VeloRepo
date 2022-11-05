@@ -5,8 +5,8 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
-import { db } from "../firebase.config";
+import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
+import { db } from '../firebase.config'
 import "../Assets/index.css";
 import OAuth from "../Components/OAuth";
 import whitelogo from "../Assets/png/white-logo.png";
@@ -20,10 +20,9 @@ function SignUp() {
     name: "",
     email: "",
     password: "",
-    orgId: "",
   });
 
-  const { name, email, password, orgId } = formData;
+  const { name, email, password } = formData;
   const navigate = useNavigate();
 
   const onChange = (e) => {
@@ -37,7 +36,7 @@ function SignUp() {
     e.preventDefault();
     try {
       const auth = getAuth();
-
+      // wait for firebase to do it's auth thing
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -45,18 +44,34 @@ function SignUp() {
       );
       const user = userCredential.user;
 
+      // Send user information to postgres database table and get the id back
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          "name": name,
+          "email": email,
+          "firebaseId": user.uid})
+      }
+
+      const response = await fetch("http://localhost:8080/users", requestOptions);
+      const userObject = await response.json()
+      const userObjectId = userObject.id
+
+      // make a document(table) in firebase to cross reference postgres id and firebase id
       updateProfile(auth.currentUser, {
         displayName: name,
-      });
-
-      const formDataCopy = { ...formData };
-      delete formDataCopy.password;
-      formDataCopy.timestamp = serverTimestamp();
-
+      })
+      const formDataCopy = { ...formData }
+      delete formDataCopy.password
+      formDataCopy.postgresId = userObjectId
+      formDataCopy.timestamp = serverTimestamp()
+      await setDoc(doc(db, 'users', user.uid), formDataCopy)
       
-      // await setDoc(doc(db, "organisations", user.uid), formDataCopy)
-      await setDoc(doc(db, "users", user.uid), formDataCopy);
-
+      // redirect to the profile page 
       navigate("/profile");
     } catch (error) {
       const errorCode = error.code;
@@ -66,7 +81,6 @@ function SignUp() {
         toast.error("Oops, something went wrong");
       }
     }
-    console.log("form data", formData)
   };
 
   return (
