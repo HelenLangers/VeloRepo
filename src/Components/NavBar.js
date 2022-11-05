@@ -26,9 +26,7 @@ function NavBar() {
     label: '🌓', // default: ''
     autoMatchOsTheme: true // default: true
   }
-  
 
-  
   const darkmode = new Darkmode(options);
   
 
