@@ -20,10 +20,9 @@ function SignUp() {
     name: "",
     email: "",
     password: "",
-    orgId: "",
   });
 
-  const { name, email, password, orgId } = formData;
+  const { name, email, password } = formData;
   const navigate = useNavigate();
 
   const onChange = (e) => {
@@ -45,17 +44,23 @@ function SignUp() {
       );
       const user = userCredential.user;
 
-      updateProfile(auth.currentUser, {
-        displayName: name,
-      });
+      // updateProfile(auth.currentUser, {
+      //   displayName: name,
+      // });
 
-      const formDataCopy = { ...formData };
-      delete formDataCopy.password;
-      formDataCopy.timestamp = serverTimestamp();
+      // const formDataCopy = { ...formData };
+      // delete formDataCopy.password;
 
-      
-      // await setDoc(doc(db, "organisations", user.uid), formDataCopy)
-      await setDoc(doc(db, "users", user.uid), formDataCopy);
+      await fetch("http://localhost:8080/users", {
+        method: 'POST',
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          "name": name,
+          "email": email})
+      })
 
       navigate("/profile");
     } catch (error) {
@@ -66,7 +71,6 @@ function SignUp() {
         toast.error("Oops, something went wrong");
       }
     }
-    console.log("form data", formData)
   };
 
   return (

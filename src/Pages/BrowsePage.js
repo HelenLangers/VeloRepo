@@ -10,42 +10,15 @@ import BackEndHeader from '../Components/BackEndHeader'
 
 function BrowserPage ({items}){
 
-  console.log(items)
-  
-//   items,
-  
-
-// }) =>{
-//   const [searchTerm, setSearchTerm] = useState('')
-
-//   const filteredItems = items.map((item) => {
-//     const nextFilteredItems = items.name.filter((item))
-    
-
-//     return {
-//       ...item,
-//       userItems: nextFilteredItems,
-//     }
-//     })
-
-//     const updateSearchTerm= (searchTerm) => {
-//       setSearchTerm(searchTerm.toLowerCase())
-//     }
-  
-
-    
-const pageInformation = {
-  pageTitle: "Browse"
-}
+  const pageInformation = {
+    pageTitle: "Browse"
+  }
 
   
   return (
-    
-
-    
     <>
     <BackEndHeader pageInformation={pageInformation}/>
-      <main className='BrowserPage'>
+      <main className='mainContainer'>
           <div>
             <ReactDatePicker className='DateTo'/>
 
