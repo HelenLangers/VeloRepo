@@ -20,6 +20,7 @@ function BrowserPage() {
             <h1 className='logo'>VeloRepo Browser</h1>
             <p>Welcome to the VeloRepo, please select your criteria to search for an item</p>
             <h2>From</h2>
+            
 
             <ReactDatePicker className='DateTo'/>
 

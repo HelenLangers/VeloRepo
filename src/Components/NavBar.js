@@ -6,9 +6,13 @@ import { FaRegUser } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
 import { FaHome } from 'react-icons/fa';
 import { BiInfoCircle } from 'react-icons/bi';
+import Darkmode from 'darkmode-js'
 
 function NavBar() {
 
+
+
+new Darkmode().showWidget();
 
   return (
     <>
