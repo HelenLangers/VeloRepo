@@ -14,14 +14,19 @@ import NavBar from './Components/NavBar';
 import CreateItem from './Pages/CreateItem';
 import NotFound from './Pages/NotFound';
 import Information from './Pages/Information';
+import Darkmode from 'darkmode-js';
 
 function App() {
 
-  // useEffect(() => {
-  //   const results = fetch('http://localhost:8080/items')
-  //   .then((res) => res.json())
-  //   .then(result => console.log(result))
-  // }, [])
+  useEffect(() => {
+    const results = fetch('http://localhost:8080/items')
+    .then((res) => res.json())
+    .then(result => console.log(result))
+    
+  }, [])
+
+  
+
 
   return (
     <>

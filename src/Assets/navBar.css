@@ -19,6 +19,8 @@
     width: fit-content;
     justify-content: center;
     align-items: center;
+
+
 }
 
 .navIcon {
@@ -48,6 +50,14 @@
 
 .initialLogo {
     width: 100%;
+}
+
+
+.navButton {
+    background: transparent;
+    outline: none;
+    border: none;
+
 }
 
 
