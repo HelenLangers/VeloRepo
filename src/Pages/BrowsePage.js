@@ -8,29 +8,33 @@ import BrowserGrid from '../Components/BrowserComponents/BrowserGrid'
 import BackEndHeader from '../Components/BackEndHeader'
 
 
-function BrowserPage ({items}){
+const  BrowserPage =({
+  items
+ })=>{
 
-  console.log(items)
   
-//   items,
+  
+  
   
 
-// }) =>{
-//   const [searchTerm, setSearchTerm] = useState('')
 
-//   const filteredItems = items.map((item) => {
-//     const nextFilteredItems = items.name.filter((item))
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const filteredItems = items.map((item) => {
+    const nextFilteredItems = Array.from(item.name).filter((name) =>
+    name.toLowerCase().includes(searchTerm)
+    )
     
 
-//     return {
-//       ...item,
-//       userItems: nextFilteredItems,
-//     }
-//     })
+    return {
+      ...item,
+       name: nextFilteredItems,
+    }
+    })
 
-//     const updateSearchTerm= (searchTerm) => {
-//       setSearchTerm(searchTerm.toLowerCase())
-//     }
+    const updateSearchTerm= (searchTerm) => {
+      setSearchTerm(searchTerm.toLowerCase())
+    }
   
 
     
@@ -55,12 +59,12 @@ const pageInformation = {
 
           <br></br>
           <div className='SearchBar'>
-            {/* <SearchBar handleChange={updateSearchTerm} /> */}
+            <SearchBar handleChange={updateSearchTerm} />
           </div>
           
             <BrowserGrid
             items={items}
-            // nextFilteredItems={filteredItems}
+            nextFilteredItems={filteredItems}
             className='BrowserGrid'/>
         
       </main>
