@@ -7,9 +7,9 @@ import "../Assets/browse.css";
 import BrowserGrid from "../Components/BrowserComponents/BrowserGrid";
 import BackEndHeader from "../Components/BackEndHeader";
 
-function BrowserPage({ items }) {
+function BrowsePage({ items }) {
   const pageInformation = {
-    pageTitle: "Browse",
+    pageTitle: "Browse Kit",
   };
 
   return (
@@ -37,4 +37,4 @@ function BrowserPage({ items }) {
   );
 }
 
-export default BrowserPage;
+export default BrowsePage;

@@ -72,11 +72,11 @@ function App() {
 
           <Route element={<NavBar />}>
             <Route element={<PrivateRoute />}>
-            
               <Route path='/welcome' element={<HomePage dbUserInfo={userPostgresData}/>} />
               <Route path='/profile' element={<Profile />} />
               <Route path='/create-item' element={<CreateItem dbUserInfo={userPostgresData}/>} />
-              <Route path='/browser' element={<BrowsePage items={items}/>} />
+              <Route path='/browse' element={<BrowsePage items={items}/>} />
+              
               <Route path='/information' element={<Information />}/>
               {/* // all routes that need user information go here */}
             </Route>

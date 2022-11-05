@@ -48,7 +48,7 @@ function NavBar() {
           
         </div>
         <div className="navOptionBlock">
-          <Link to='/browser' className='navOptionBlock'><FaSearch className='navIcon' /><p className='navText'>Browse Kit</p></Link>
+          <Link to='/browse' className='navOptionBlock'><FaSearch className='navIcon' /><p className='navText'>Browse Kit</p></Link>
           
         </div>
         <div className="navOptionBlock">
