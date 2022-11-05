@@ -6,7 +6,7 @@ import '../Assets/homePage.css';
 import { FaRegPlusSquare } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
 
-function HomePage() {
+function HomePage({user}) {
   const auth = getAuth();
   const userName = auth.currentUser.displayName
   const firstName = userName.split(" ").shift()
@@ -15,6 +15,7 @@ function HomePage() {
     pageTitle: "Home"
   }
 
+  console.log(user)
   return (
     <>
       <BackEndHeader pageInformation={pageInformation}/>

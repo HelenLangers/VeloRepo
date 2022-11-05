@@ -21,7 +21,6 @@ function SignUp() {
     email: "",
     password: "",
   });
-  const [userDbId, setUserDbId] = useState({})
 
   const { name, email, password } = formData;
   const navigate = useNavigate();
@@ -37,7 +36,7 @@ function SignUp() {
     e.preventDefault();
     try {
       const auth = getAuth();
-
+      // wait for firebase to do it's auth thing
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -45,7 +44,7 @@ function SignUp() {
       );
       const user = userCredential.user;
 
-      // Send user information to user database table and get the id back
+      // Send user information to postgres database table and get the id back
       const requestOptions = {
         method: 'POST',
         headers: {
@@ -61,7 +60,6 @@ function SignUp() {
       const response = await fetch("http://localhost:8080/users", requestOptions);
       const userObject = await response.json()
       const userObjectId = userObject.id
-      setUserDbId(userObjectId)
 
       // make a document(table) in firebase to cross reference postgres id and firebase id
       updateProfile(auth.currentUser, {
@@ -72,7 +70,8 @@ function SignUp() {
       formDataCopy.postgresId = userObjectId
       formDataCopy.timestamp = serverTimestamp()
       await setDoc(doc(db, 'users', user.uid), formDataCopy)
-
+      
+      // redirect to the profile page 
       navigate("/profile");
     } catch (error) {
       const errorCode = error.code;
