@@ -9,11 +9,18 @@ import BrowserGrid from '../Components/BrowserComponents/BrowserGrid'
 
 function BrowserPage() {
     
+
+
+  
   return (
+    
+
     
     <>
       <body className='BrowserPage'>
         <header>
+          
+          
           <div>
             
           
@@ -34,6 +41,7 @@ function BrowserPage() {
             <BrowserGrid className='BrowserGrid'/>
           
         </header>
+        
       </body>
     </>
   )
