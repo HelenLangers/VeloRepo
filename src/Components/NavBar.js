@@ -41,7 +41,7 @@ function NavBar() {
       <nav className='navbar'>
 
         <div className="navOptionBlock">
-          <button  onClick={
+          <button className="navButton"  onClick={
             () => {darkmode.toggle()}
           } ><FaLightbulb className='navIcon'/></button>
         </div>

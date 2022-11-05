@@ -17,11 +17,21 @@
     width: 25%;
     justify-content: center;
     align-items: center;
+
+
 }
 
 .navIcon {
     color: #fff;
     font-size: 2.5rem;
+}
+
+
+.navButton {
+    background: transparent;
+    outline: none;
+    border: none;
+
 }
 
 
