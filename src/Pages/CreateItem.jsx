@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 
 function CreateItem() {
   const pageInformation = {
-    pageTitle: "Add To The Repo",
+    pageTitle: "Add Kit",
   };
 
   const [loading, setLoading] = useState(false);
