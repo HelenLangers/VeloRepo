@@ -124,9 +124,6 @@ function Profile({userData}) {
                 <input type="text" className="profileAddress" placeholder="Please enter your address"/>
               </form>
           </div>
-
-
-
           <hr/>
           <div className="logOutBlock">
             <button type="button" className="logoutButton" onClick={onLogout}>

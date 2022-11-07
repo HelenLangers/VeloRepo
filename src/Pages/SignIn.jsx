@@ -4,7 +4,7 @@ import {toast} from 'react-toastify';
 import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
 import "../Assets/index.css"
 import OAuth from "../Components/OAuth"
-import whitelogo from '../Assets/png/white-logo.png';
+import whitelogo from '../Assets/png/white-logo-small.png';
 import visibilityIcon from '../Assets/svg/visibilityIcon.svg';
 import {ReactComponent as ArrowRightIcon} from '../Assets/svg/keyboardArrowRightIcon.svg';
 
@@ -34,7 +34,7 @@ function SignIn() {
       const userCredential = await signInWithEmailAndPassword(auth, email, password)
 
       if(userCredential.user) {
-        navigate('/profile')
+        navigate('/kit')
       }
     } catch (error) {
       const errorCode = error.code;

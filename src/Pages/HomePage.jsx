@@ -8,7 +8,6 @@ import { FaSearch } from 'react-icons/fa';
 import { useAuthStatus } from '../Hooks/useAuthStatus';
 import Spinner from '../Components/Spinner';
 import OwnItemBlock from '../Components/OwnItemBlock';
-import BorrowedItemBlock from '../Components/BorrowedItemBlock';
 
 function HomePage({userData}) {
 
@@ -31,7 +30,7 @@ function HomePage({userData}) {
   })
 
   const borrowedStuff = borrowedItems.map((item, id) => {
-    return (<BorrowedItemBlock key={id} item={item}/>)
+    return (<OwnItemBlock key={id} item={item}/>)
   })
 
 

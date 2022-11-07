@@ -40,15 +40,15 @@ function NavBar() {
         
         
         <div className="navOptionBlock">
-          <Link to='/welcome' className='navOptionBlock'><FaHome className='navIcon'/><p className='navText'>Home</p></Link>
+          <Link to='/kit' className='navOptionBlock'><FaHome className='navIcon'/><p className='navText'>Home</p></Link>
           
         </div>
         <div className="navOptionBlock">
-          <Link to='/create-item' className='navOptionBlock'><FaRegPlusSquare className='navIcon' /><p className='navText'>Add Kit</p></Link>
+          <Link to='/kit/new' className='navOptionBlock'><FaRegPlusSquare className='navIcon' /><p className='navText'>Add Kit</p></Link>
           
         </div>
         <div className="navOptionBlock">
-          <Link to='/browse' className='navOptionBlock'><FaSearch className='navIcon' /><p className='navText'>Browse Kit</p></Link>
+          <Link to='/kit/browse' className='navOptionBlock'><FaSearch className='navIcon' /><p className='navText'>Browse Kit</p></Link>
           
         </div>
         <div className="navOptionBlock">

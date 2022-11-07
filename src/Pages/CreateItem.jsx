@@ -20,6 +20,9 @@ function CreateItem({userData}) {
 
 
   const [loading, setLoading] = useState(false);
+  const [categoriesFromDB, setCategoriesFromDB] = useState([])
+  const [chosenCategoryId, setChosenCategoryId] = useState(1)
+  const [subCategories, setSubCategories] = useState([])
   const [formData, setFormData] = useState({
     category_id: "",
     sub_category_id: "",
@@ -40,6 +43,7 @@ function CreateItem({userData}) {
     if (isMounted) {
       onAuthStateChanged(auth, (user) => {
         if (user) {
+          fetchCategoriesFromDB()
           setFormData({ ...formData, owner_id: userData.fireBaseId});
         } else {
           navigate("/sign-in");
@@ -52,6 +56,33 @@ function CreateItem({userData}) {
     // eslint-disable-next-line
   }, [isMounted]);
 
+  const fetchCategoriesFromDB = async() => {
+    try {
+      const requestOptions = {
+        method: 'GET',
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        }
+      }
+
+      const response = await fetch('http://localhost:8080/categories', requestOptions)
+      const data = await response.json()
+      setCategoriesFromDB(data)
+    } catch (error) {
+      console.log('Error', error)}
+    }
+  
+  const onCategorySelect = (e) => {
+    setChosenCategoryId(e.target.value)
+
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+    const findSubcategories = categoriesFromDB.find((category) => category.id == +chosenCategoryId)
+    setSubCategories(findSubcategories.subCategorys)
+  }
 
 
   const onSubmit = async (e) => {
@@ -150,7 +181,7 @@ function CreateItem({userData}) {
 
     const response = await fetch("http://localhost:8080/items", requestOptions);
     if (response.ok) {
-      navigate("/welcome");
+      navigate("/kit");
     }
   };
 
@@ -195,14 +226,11 @@ function CreateItem({userData}) {
           <form method="post" className="entryForm" onSubmit={onSubmit}>
             <div className="options">
               <label htmlFor="category_id">Select a category:</label>
-              <select name="category_id" id="category_id" onChange={onMutate}>
-                <option value="">Please choose a category</option>
-                <option value="1">Camping</option>
-                <option value="3">Bike</option>
-                <option value="2">Bag</option>
-                <option value="5">Cooking</option>
-                <option value="6">Electronic</option>
-                <option value="4">Clothing</option>
+              <select name="category_id" id="category_id" onChange={onCategorySelect}>
+              <option value="">Please choose a category</option>
+              {categoriesFromDB.map((category, index) => (
+                <option key={index} value={category.id}>{category.categoryName}</option>
+              ))}
               </select>
             </div>
 
@@ -212,10 +240,10 @@ function CreateItem({userData}) {
                 <option value="">Please choose a category</option>
                 {category_id === "1" && (
                   <>
-                    <option value="3">SleepingBag</option>
-                    <option value="4">SleepingMat</option>
+                    <option value="3">Sleeping Bag</option>
+                    <option value="4">Sleeping Mat</option>
                     <option value="1">Tent</option>
-                    <option value="2">Bivvybag</option>
+                    <option value="2">Bivvy</option>
                   </>
                 )}
                 {category_id === "3" && (

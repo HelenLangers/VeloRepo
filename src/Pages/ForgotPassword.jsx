@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {getAuth, sendPasswordResetEmail} from 'firebase/auth'
 import {toast} from 'react-toastify'
 import {ReactComponent as ArrowRightIcon} from '../Assets/svg/keyboardArrowRightIcon.svg';
-import whitelogo from '../Assets/png/white-logo.png';
+import whitelogo from '../Assets/png/white-logo-small.png';
 
 
 function ForgotPassword() {
@@ -33,6 +33,7 @@ function ForgotPassword() {
         <Link className='landingPageLinks' to="/sign-in">Log in</Link>
       </div>
     </header>
+    
     <div className="signInBlock">
       <div className="signInBox">
       <div className='flexAlignCenterColumn'>
