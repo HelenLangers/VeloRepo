@@ -1,11 +1,12 @@
-import React, {useState} from 'react'
-import ReactDatePicker from 'react-datepicker'
-import SearchBar from '../Components/BrowserComponents/SearchBar'
-import testRepo from '../Repositories/testRepository'
-import 'react-datepicker/dist/react-datepicker.css'
-import '../Assets/browse.css'
-import BrowserGrid from '../Components/BrowserComponents/BrowserGrid'
-import BackEndHeader from '../Components/BackEndHeader'
+import React, { useState } from "react";
+import ReactDatePicker from "react-datepicker";
+import SearchBar from "../Components/BrowserComponents/SearchBar";
+import testRepo from "../Repositories/testRepository";
+import "react-datepicker/dist/react-datepicker.css";
+import "../Assets/browse.css";
+import BrowserGrid from "../Components/BrowserComponents/BrowserGrid";
+import BackEndHeader from "../Components/BackEndHeader";
+
 
 
 const  BrowserPage =({
@@ -46,29 +47,28 @@ const pageInformation = {
 }
 
   
+
   return (
-    
-
-    
     <>
-    <BackEndHeader pageInformation={pageInformation}/>
-      <main className='BrowserPage'>
-          <div>
-            <ReactDatePicker className='DateTo'/>
-
+      <BackEndHeader pageInformation={pageInformation} />
+      <main className="mainContainer">
+        <div className="browseSearchBar">
+          <div className="datePicker">
+            <ReactDatePicker className="DateTo" />
             <h2>To</h2>
-            <ReactDatePicker className='DateFrom' />
+            <ReactDatePicker className="DateFrom" />
           </div>
+
 
           <br></br>
           <div className='SearchBar'>
             <SearchBar handleChange={updateSearchTerm} searchTerm={searchTerm} />
           </div>
           {searchTerm ? browserGridWithFilteredItems : browserGridWithAllItems}
+
       </main>
     </>
-  )
+  );
 }
 
-
-export default BrowserPage
+export default BrowserPage;

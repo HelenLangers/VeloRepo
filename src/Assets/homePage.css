@@ -22,6 +22,22 @@
     text-align: justify;
 }
 
+.itemGrid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+.itemBlock{
+    background-color: #fff;
+    border-radius: 22px;
+    padding: 1rem;
+    width: 30%;
+    height: 150px;
+    margin-bottom: 1rem;
+    border: solid 2px var(--neutral-light)
+}
+
 @media screen and (max-width: 1024px) {
     .welcomeName {
         margin-top: 1rem;
