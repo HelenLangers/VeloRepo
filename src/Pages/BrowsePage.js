@@ -7,10 +7,46 @@ import "../Assets/browse.css";
 import BrowserGrid from "../Components/BrowserComponents/BrowserGrid";
 import BackEndHeader from "../Components/BackEndHeader";
 
-function BrowserPage({ items }) {
-  const pageInformation = {
-    pageTitle: "Browse",
-  };
+
+
+const  BrowserPage =({
+  items
+ })=>{
+
+
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const filteredItems = items.filter((item) => {
+    //take the item
+    //true or false if item meets filter criteria
+
+    
+    return item.name.toLowerCase().includes(searchTerm)
+
+
+
+    })
+
+    const updateSearchTerm= (searchTerm) => {
+      setSearchTerm(searchTerm.toLowerCase())
+    }
+  
+
+    const browserGridWithAllItems = <BrowserGrid
+            items={items}
+            className='BrowserGrid'
+            />
+
+    const browserGridWithFilteredItems = <BrowserGrid
+            items={filteredItems}
+            className='BrowserGrid'
+          />
+    
+const pageInformation = {
+  pageTitle: "Browse"
+}
+
+  
 
   return (
     <>
@@ -23,15 +59,13 @@ function BrowserPage({ items }) {
             <ReactDatePicker className="DateFrom" />
           </div>
 
-          <div className="SearchBar">
-            {/* <SearchBar handleChange={updateSearchTerm} /> */}
+
+          <br></br>
+          <div className='SearchBar'>
+            <SearchBar handleChange={updateSearchTerm} searchTerm={searchTerm} />
           </div>
-        </div>
-        <BrowserGrid
-          items={items}
-          // nextFilteredItems={filteredItems}
-          className="BrowserGrid"
-        />
+          {searchTerm ? browserGridWithFilteredItems : browserGridWithAllItems}
+
       </main>
     </>
   );
