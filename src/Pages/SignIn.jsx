@@ -59,9 +59,11 @@ function SignIn() {
     <header className='landingPageHeader'>
       <a href="/"><img src={whitelogo} alt="VeloRepo" className="logo"/></a>
       <div className="navLinks">
+      <Link className='landingPageLinks' to="/about">About</Link>
         <Link className='landingPageLinks' to="/sign-up">Sign up</Link>
         
         <Link className='landingPageLinks' to="/sign-in">Log in</Link>
+        
       </div>
     </header>
 

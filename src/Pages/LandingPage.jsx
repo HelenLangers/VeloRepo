@@ -21,7 +21,7 @@ function LandingPage() {
         <a href="/"><img src={whitelogo} alt="VeloRepo" className="logo"/></a>
         <div className="navLinks">
         {loggedIn ? <><Link className='landingPageLinks' to="/welcome">Home</Link>
-          <Link className='landingPageLinks' to="/profile">Profile</Link></> : <><Link className='landingPageLinks' to="/sign-up">Sign up</Link>
+          <Link className='landingPageLinks' to="/profile">Profile</Link><Link className='landingPageLinks' to="/about">About</Link></> : <><Link className='landingPageLinks' to="/about">About</Link><Link className='landingPageLinks' to="/sign-up">Sign up</Link>
           
           <Link className='landingPageLinks' to="/sign-in">Log in</Link></>}
         </div>

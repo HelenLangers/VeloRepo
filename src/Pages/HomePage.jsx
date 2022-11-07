@@ -13,10 +13,9 @@ import BorrowedItemBlock from '../Components/BorrowedItemBlock';
 function HomePage({userData}) {
 
   const {loggedIn, checkingStatus} = useAuthStatus()
+  const {name, myItems, borrowedItems} = userData
 
-  const {name, fire_base, email, myItems, borrowedItems} = userData
-
-  const userName = userData.name
+  const userName = name
   const firstName = userName.split(" ").shift()
 
   const pageInformation = {
@@ -47,7 +46,7 @@ function HomePage({userData}) {
           {myStuff.length !== 0 ? (
             <>{myStuff}</>
           )
-:
+          :
           <p className='explainerText'>
             The items you're loaning out to others will appear here. If you don't have any, click on the <FaRegPlusSquare/> to add kit. It'll only be available to people in your community group.
           </p>}
