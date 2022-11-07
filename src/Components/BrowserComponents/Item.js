@@ -7,6 +7,7 @@ const Item = ({item}) => {
         <>
         <li className="user-item">
             <b>{item.name}</b>
+          
         </li>
         
         </>

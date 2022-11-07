@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "../Assets/browse.css";
 import BrowserGrid from "../Components/BrowserComponents/BrowserGrid";
 import BackEndHeader from "../Components/BackEndHeader";
+import DatePicker from "react-datepicker";
 
 
 
@@ -13,24 +14,35 @@ const  BrowserPage =({
   items
  })=>{
 
-
   const [searchTerm, setSearchTerm] = useState('')
+  const [searchStartDate, setSearchStartDate] = useState('')
+  const [endDate, setEndDate] = useState('')
+
 
   const filteredItems = items.filter((item) => {
-    //take the item
-    //true or false if item meets filter criteria
-
-    
+    // if (item.bookings.startDate >= searchStartDate)
     return item.name.toLowerCase().includes(searchTerm)
-
-
-
+    // return item.booking.startDate
     })
+
+const filteredDates = filteredItems.filter((item) => {
+console.log(item.bookings[0].startDate)
+console.log(searchStartDate)
+  return  item.bookings.startDate >= searchStartDate.getTime()
+})
+
+
+
+
+
 
     const updateSearchTerm= (searchTerm) => {
       setSearchTerm(searchTerm.toLowerCase())
     }
+
+
   
+    
 
     const browserGridWithAllItems = <BrowserGrid
             items={items}
@@ -38,9 +50,16 @@ const  BrowserPage =({
             />
 
     const browserGridWithFilteredItems = <BrowserGrid
+            
             items={filteredItems}
             className='BrowserGrid'
           />
+
+    const browserGridWithFilteredDates = <BrowserGrid
+            
+          items={filteredDates}
+          className='BrowserGrid'
+        />
     
 const pageInformation = {
   pageTitle: "Browse"
@@ -54,9 +73,13 @@ const pageInformation = {
       <main className="mainContainer">
         <div className="browseSearchBar">
           <div className="datePicker">
-            <ReactDatePicker className="DateTo" />
+            <h2>From</h2>
+            <DatePicker selected={searchStartDate} onChange={(date) => setSearchStartDate(date)} />
             <h2>To</h2>
-            <ReactDatePicker className="DateFrom" />
+            <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
+          </div>
+          <div>
+            {searchStartDate ? browserGridWithFilteredDates : browserGridWithAllItems}
           </div>
 
 
@@ -64,8 +87,8 @@ const pageInformation = {
           <div className='SearchBar'>
             <SearchBar handleChange={updateSearchTerm} searchTerm={searchTerm} />
           </div>
-          {searchTerm ? browserGridWithFilteredItems : browserGridWithAllItems}
-
+          {searchTerm ? browserGridWithFilteredItems  : browserGridWithAllItems}
+        </div>
       </main>
     </>
   );

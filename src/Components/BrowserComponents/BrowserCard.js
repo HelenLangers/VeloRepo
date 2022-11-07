@@ -1,3 +1,4 @@
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import React from 'react'
 import Item from './Item'
 
@@ -12,6 +13,7 @@ const BrowserCard = ({item})=> {
     //     )
     // })
     
+    console.log(item)
 
     return (
 
@@ -19,6 +21,10 @@ const BrowserCard = ({item})=> {
         <>
         <div className='itemCard'>
             <p>{item.name}</p>
+            
+            <p>{item.bookings[0].startDate}</p>
+            <p>{item.bookings[0].endDate}</p>
+            
             
         </div>
         </>
