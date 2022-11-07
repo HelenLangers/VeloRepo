@@ -12,23 +12,18 @@ const  BrowserPage =({
   items
  })=>{
 
-  
-  
-  
-  
-
 
   const [searchTerm, setSearchTerm] = useState('')
 
   const filteredItems = items.map((item) => {
-    const nextFilteredItems = Array.from(item.name).filter((name) =>
+    const nextFilteredNames = Array.from(item.name).filter((name) =>
     name.toLowerCase().includes(searchTerm)
     )
     
 
     return {
       ...item,
-       name: nextFilteredItems,
+      userNames: nextFilteredNames,
     }
     })
 
