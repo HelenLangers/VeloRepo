@@ -1,21 +1,19 @@
 import React from 'react'
 import { useState } from 'react'
 
-const SearchBar = ({ handleChange }) => {
+const SearchBar = ({ handleChange , searchTerm }) => {
   const changeSearchTerm = (e) => {
     handleChange(e.target.value)
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    handleChange(e.target.value)
-  }
+
 
   return (
     <div className='search-bar'>
-      <form onSubmit={handleSubmit}>
+      <form >
         <input
           onChange={changeSearchTerm}
+          value={searchTerm}
           type='text'
           name='searchTerm'
           placeholder='Filter items'

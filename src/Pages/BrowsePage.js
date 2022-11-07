@@ -15,16 +15,15 @@ const  BrowserPage =({
 
   const [searchTerm, setSearchTerm] = useState('')
 
-  const filteredItems = items.map((item) => {
-    const nextFilteredNames = Array.from(item.name).filter((name) =>
-    name.toLowerCase().includes(searchTerm)
-    )
-    
+  const filteredItems = items.filter((item) => {
+    //take the item
+    //true or false if item meets filter criteria
 
-    return {
-      ...item,
-      userNames: nextFilteredNames,
-    }
+    
+    return item.name.toLowerCase().includes(searchTerm)
+
+
+
     })
 
     const updateSearchTerm= (searchTerm) => {
@@ -32,6 +31,15 @@ const  BrowserPage =({
     }
   
 
+    const browserGridWithAllItems = <BrowserGrid
+            items={items}
+            className='BrowserGrid'
+            />
+
+    const browserGridWithFilteredItems = <BrowserGrid
+            items={filteredItems}
+            className='BrowserGrid'
+          />
     
 const pageInformation = {
   pageTitle: "Browse"
@@ -54,14 +62,9 @@ const pageInformation = {
 
           <br></br>
           <div className='SearchBar'>
-            <SearchBar handleChange={updateSearchTerm} />
+            <SearchBar handleChange={updateSearchTerm} searchTerm={searchTerm} />
           </div>
-          
-            <BrowserGrid
-            items={items}
-            nextFilteredItems={filteredItems}
-            className='BrowserGrid'/>
-        
+          {searchTerm ? browserGridWithFilteredItems : browserGridWithAllItems}
       </main>
     </>
   )
