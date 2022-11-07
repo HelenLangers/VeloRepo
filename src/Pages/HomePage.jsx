@@ -10,8 +10,16 @@ import Spinner from '../Components/Spinner';
 import OwnItemBlock from '../Components/OwnItemBlock';
 
 function HomePage({userData}) {
-
   const {loggedIn, checkingStatus} = useAuthStatus()
+
+  if(!userData){
+    return <Spinner/>
+  }
+
+  if(checkingStatus) {
+    return <Spinner/>
+  }
+
   const {name, myItems, borrowedItems} = userData
 
   const userName = name
@@ -20,11 +28,7 @@ function HomePage({userData}) {
   const pageInformation = {
     pageTitle: "Home"
   }
-
-  if(checkingStatus) {
-    return <Spinner/>
-  }
-
+  
   const myStuff = myItems.map((item, id) => {
     return (<OwnItemBlock key={id} item={item}/>)
   })

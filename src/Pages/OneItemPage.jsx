@@ -17,9 +17,9 @@ function OneItemPage() {
     <>
       <BackEndHeader pageInformation={pageInformation}/>
       <div className='mainContainer'>
-        <h1>{item.name}</h1>
-        <div>
-          
+        <h1>The {item.brand} {item.name}</h1>
+        <div className='imageCarousel'>
+
         </div>
       </div>
     </>
