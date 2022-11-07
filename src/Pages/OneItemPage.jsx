@@ -2,7 +2,9 @@ import React from 'react'
 
 function OneItemPage() {
   return (
-    <div>OneItemPage</div>
+    <div>
+      OneItemPage
+    </div>
   )
 }
 

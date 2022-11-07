@@ -21,6 +21,7 @@ import Darkmode from 'darkmode-js';
 import Spinner from './Components/Spinner';
 import {useAuthStatus} from './Hooks/useAuthStatus';
 import UserContext from './Context/userContext';
+import About from './Pages/About';
 
 function App() {
 
@@ -68,6 +69,7 @@ function App() {
           <Route path='/sign-in' element={<SignIn/>}/>
           <Route path='/sign-up' element={<SignUp/>}/>
           <Route path='/forgot-password' element={<ForgotPassword/>}/>
+          <Route path="/about" element={<About/>}/>
           <Route path="*" element={<NotFound/>}/>
 
           <Route element={<NavBar />}>

@@ -59,6 +59,34 @@ body {
   height: fit-content;
 }
 
+.aboutContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutBlock{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  padding: 2rem;
+  height: fit-content;
+  width: fit-content;
+  max-width: 50%;
+  background-color: var(--primary-light);
+  border-style: solid;
+  border-width: 3px;
+  border-color: var(--neutral-light);
+  border-radius: 20px;
+}
+
+.instructionImages{
+  width: 600px;
+  height: auto;
+}
+
 .welcomeText {
   margin-top: 0;
   margin-bottom: 1rem;
@@ -255,6 +283,10 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
+  .aboutContainer{
+    flex-direction: column;
+  }
+
   .mainContainer{
     display: flex;
     flex-direction: column;
@@ -291,6 +323,10 @@ body {
 }
 
 @media (min-width: 1024px) and (max-width: 1178px) {
+  .aboutContainer{
+    flex-direction: column;
+  }
+
   .navLinks{
     flex-direction: column;
     margin: 2rem;
