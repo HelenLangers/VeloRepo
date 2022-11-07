@@ -62,6 +62,12 @@ function App() {
     return <Spinner/>
   }
 
+// const findItembyID = function(itemID) {
+//   const itemByID = items.filter((item) => item._id == itemID)
+//   return itemByID
+// }
+
+
   return (
     <>
         <Routes>

@@ -19,6 +19,7 @@ const BrowserCard = ({item})=> {
         <>
         <div className='itemCard'>
             <p>{item.name}</p>
+            
         </div>
         </>
     // <>

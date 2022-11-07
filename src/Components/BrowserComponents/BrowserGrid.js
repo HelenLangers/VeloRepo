@@ -1,7 +1,7 @@
 import React from 'react'
 import BrowserCard from './BrowserCard'
 
-const BrowserGrid = ({items})=> {
+const BrowserGrid = ({items , filteredItems})=> {
   const mappedItems = items.map((item, index) => {
   return (
     <BrowserCard
