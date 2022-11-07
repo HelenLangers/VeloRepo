@@ -8,6 +8,12 @@ import BrowserGrid from "../Components/BrowserComponents/BrowserGrid";
 import BackEndHeader from "../Components/BackEndHeader";
 
 
+function BrowsePage({ items }) {
+  const pageInformation = {
+    pageTitle: "Browse Kit",
+  };
+
+
 
 const  BrowserPage =({
   items
@@ -46,8 +52,6 @@ const pageInformation = {
   pageTitle: "Browse"
 }
 
-  
-
   return (
     <>
       <BackEndHeader pageInformation={pageInformation} />
@@ -71,4 +75,4 @@ const pageInformation = {
   );
 }
 
-export default BrowserPage;
+export default BrowsePage;

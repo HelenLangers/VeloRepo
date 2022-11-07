@@ -40,6 +40,7 @@ function Profile() {
         await updateDoc(userRef, {
           name: name,
         });
+        // need to also update in db with a 'put' once the http request route is made
       }
     } catch (error) {
       toast.error("Could not update profile details");
