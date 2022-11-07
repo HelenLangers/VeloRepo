@@ -31,6 +31,7 @@ body {
   margin: -10px;
 }
 
+
 .hide {
   display: none;
 }
@@ -57,34 +58,6 @@ body {
   margin-left: 15%;
   min-height: 100vh;
   height: fit-content;
-}
-
-.aboutContainer{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.aboutBlock{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem;
-  padding: 2rem;
-  height: fit-content;
-  width: fit-content;
-  max-width: 50%;
-  background-color: var(--primary-light);
-  border-style: solid;
-  border-width: 3px;
-  border-color: var(--neutral-light);
-  border-radius: 20px;
-}
-
-.instructionImages{
-  width: 600px;
-  height: auto;
 }
 
 .welcomeText {
@@ -126,6 +99,12 @@ body {
 .landingPageLinks {
   text-decoration: none;
   color: #fff;
+  font-size: 1.5rem;
+}
+
+.landingPageLinksBlack{
+  text-decoration: none;
+  color: #000;
   font-size: 1.5rem;
 }
 
@@ -282,10 +261,13 @@ body {
   color: rgb(176, 176, 176);
 }
 
+.footer{
+  height: 10vh;
+  background-color: #E76F51;
+}
+
 @media screen and (max-width: 1024px) {
-  .aboutContainer{
-    flex-direction: column;
-  }
+
 
   .mainContainer{
     display: flex;
