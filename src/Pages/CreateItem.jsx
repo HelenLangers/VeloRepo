@@ -13,7 +13,7 @@ import BackEndHeader from "../Components/BackEndHeader";
 import "../Assets/addItem.css";
 import { toast } from "react-toastify";
 
-function CreateItem({dbUserInfo}) {
+function CreateItem({userData}) {
   const pageInformation = {
     pageTitle: "Add Kit",
   };
@@ -39,7 +39,7 @@ function CreateItem({dbUserInfo}) {
     if (isMounted) {
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          setFormData({ ...formData, owner_id: dbUserInfo.id });
+          setFormData({ ...formData, owner_id: userData.fire_base});
         } else {
           navigate("/sign-in");
         }

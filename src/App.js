@@ -3,8 +3,6 @@ import {Routes, Route} from 'react-router-dom';
 import {ToastContainer, Flip} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getAuth } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "./firebase.config";
 import LandingPage from './Pages/LandingPage';
 import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
@@ -26,8 +24,7 @@ import About from './Pages/About';
 function App() {
 
   const {loggedIn, checkingStatus} = useAuthStatus()
-  const [userPostgresId, setUserPostgresId] = useState(3)
-  const [userPostgresData, setUserPostgresData] = useState({})
+  const [userData, setUserData] = useState({})
   const [items, setItems] = useState([])
 
   useEffect(() => {
@@ -36,26 +33,28 @@ function App() {
     .then(results => setItems(results))
   }, [])
 
-  const fetchUser = async() => {
+  const fetchUserData = async() => {
     try {
-      const auth = getAuth();
-      const docRef = doc(db, "users", auth.currentUser.uid)
-      const docSnap = await getDoc(docRef)
-  
-      if (docSnap.exists()) {
-        const userFromFirebase = docSnap.data()
-        const postgresId = userFromFirebase.postgresId
-        setUserPostgresId(postgresId)
+      const auth = getAuth()
+      const id = auth.currentUser.uid
+
+      const requestOptions = {
+        method: 'GET',
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
       }
-      const response = await fetch('http://localhost:8080/users/' + userPostgresId)
+
+      const response = await fetch('http://localhost:8080/users/' + id, requestOptions)
       const data = await response.json()
-      setUserPostgresData(data)
+      setUserData(data)
     } catch (error) {
       console.log('Error', error)}
     } 
 
   useEffect(() => {
-    fetchUser()
+    fetchUserData()
   }, [loggedIn])
 
   if(checkingStatus) {
@@ -80,9 +79,9 @@ function App() {
 
           <Route element={<NavBar />}>
             <Route element={<PrivateRoute />}>
-              <Route path='/welcome' element={<HomePage dbUserInfo={userPostgresData}/>} />
-              <Route path='/profile' element={<Profile />} />
-              <Route path='/create-item' element={<CreateItem dbUserInfo={userPostgresData}/>} />
+              <Route path='/welcome' element={<HomePage userData={userData}/>} />
+              <Route path='/profile' element={<Profile userData={userData}/>} />
+              <Route path='/create-item' element={<CreateItem userData={userData}/>} />
               <Route path='/browse' element={<BrowsePage items={items}/>} />
               
               <Route path='/information' element={<Information />}/>

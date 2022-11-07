@@ -8,17 +8,11 @@ import BrowserGrid from "../Components/BrowserComponents/BrowserGrid";
 import BackEndHeader from "../Components/BackEndHeader";
 
 
-function BrowsePage({ items }) {
-  const pageInformation = {
-    pageTitle: "Browse Kit",
-  };
+const BrowsePage =({items})=>{
 
-
-
-const  BrowserPage =({
-  items
- })=>{
-
+  const pageInformation ={
+    pageTitle: "Browse Kit"
+  }
 
   const [searchTerm, setSearchTerm] = useState('')
 
@@ -47,10 +41,7 @@ const  BrowserPage =({
             items={filteredItems}
             className='BrowserGrid'
           />
-    
-const pageInformation = {
-  pageTitle: "Browse"
-}
+  
 
   return (
     <>
@@ -69,7 +60,7 @@ const pageInformation = {
             <SearchBar handleChange={updateSearchTerm} searchTerm={searchTerm} />
           </div>
           {searchTerm ? browserGridWithFilteredItems : browserGridWithAllItems}
-
+      </div>
       </main>
     </>
   );

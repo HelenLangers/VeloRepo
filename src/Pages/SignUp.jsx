@@ -3,10 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  updateProfile,
 } from "firebase/auth";
-import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
-import { db } from '../firebase.config'
 import "../Assets/index.css";
 import OAuth from "../Components/OAuth";
 import whitelogo from "../Assets/png/white-logo.png";
@@ -44,7 +41,7 @@ function SignUp() {
       );
       const user = userCredential.user;
 
-      // Send user information to postgres database table and get the id back
+      // Send user information to postgres database table
       const requestOptions = {
         method: 'POST',
         headers: {
@@ -54,25 +51,16 @@ function SignUp() {
         body: JSON.stringify({
           "name": name,
           "email": email,
-          "firebaseId": user.uid})
+          "fireBaseId": user.uid})
       }
 
       const response = await fetch("http://localhost:8080/users", requestOptions);
-      const userObject = await response.json()
-      const userObjectId = userObject.id
 
-      // make a document(table) in firebase to cross reference postgres id and firebase id
-      updateProfile(auth.currentUser, {
-        displayName: name,
-      })
-      const formDataCopy = { ...formData }
-      delete formDataCopy.password
-      formDataCopy.postgresId = userObjectId
-      formDataCopy.timestamp = serverTimestamp()
-      await setDoc(doc(db, 'users', user.uid), formDataCopy)
-      
       // redirect to the profile page 
-      navigate("/profile");
+      if (response.ok) {
+        navigate("/profile");
+      }
+
     } catch (error) {
       const errorCode = error.code;
       if (errorCode === "auth/email-already-in-use") {
