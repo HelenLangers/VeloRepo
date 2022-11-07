@@ -10,14 +10,13 @@ import Spinner from '../Components/Spinner';
 import OwnItemBlock from '../Components/OwnItemBlock';
 import BorrowedItemBlock from '../Components/BorrowedItemBlock';
 
-function HomePage({dbUserInfo}) {
+function HomePage({userData}) {
 
   const {loggedIn, checkingStatus} = useAuthStatus()
-  const [dbUser, setDbUser] = useState(dbUserInfo)
 
-  const {name, id, firebaseId, email, myItems, borrowedItems} = dbUserInfo
+  const {name, fire_base, email, myItems, borrowedItems} = userData
 
-  const userName = dbUserInfo.name
+  const userName = userData.name
   const firstName = userName.split(" ").shift()
 
   const pageInformation = {
@@ -36,7 +35,6 @@ function HomePage({dbUserInfo}) {
     return (<BorrowedItemBlock key={id} item={item}/>)
   })
 
-  // console.log(myItems[0])
 
   return (
     <>

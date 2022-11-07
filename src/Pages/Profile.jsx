@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { getAuth, updateProfile, sendPasswordResetEmail } from "firebase/auth";
-import { updateDoc, doc } from "firebase/firestore";
-import { db } from "../firebase.config";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { toast } from "react-toastify";
 import { ReactComponent as ArrowRightIcon } from "../Assets/svg/keyboardArrowRightIcon.svg";
 import "../Assets/profilePage.css";
@@ -10,15 +8,16 @@ import BackEndHeader from "../Components/BackEndHeader";
 import { useAuthStatus } from "../Hooks/useAuthStatus";
 import Spinner from "../Components/Spinner";
 
-function Profile() {
-  const auth = getAuth();
+function Profile({userData}) {
+
+  const auth = getAuth()
   const navigate = useNavigate();
   const {loggedIn, checkingStatus} = useAuthStatus()
 
   const [changeDetails, setChangeDetails] = useState(false);
   const [formData, setFormData] = useState({
-    name: auth.currentUser.displayName,
-    email: auth.currentUser.email,
+    name: userData.name,
+    email: userData.email,
   });
   const { name, email } = formData;
 
@@ -28,23 +27,14 @@ function Profile() {
   };
 
   const onSubmit = async () => {
-    try {
-      if (auth.currentUser.displayName !== name) {
-        // Update display name in firebase
-        await updateProfile(auth.currentUser, {
-          displayName: name,
-        });
+    // try {
+    //   if (userData.name !== name) 
 
-        // Update in firestore
-        const userRef = doc(db, "users", auth.currentUser.uid);
-        await updateDoc(userRef, {
-          name: name,
-        });
-        // need to also update in db with a 'put' once the http request route is made
-      }
-    } catch (error) {
-      toast.error("Could not update profile details");
-    }
+    //     // need to also update in db with a 'put' once the http request route is made
+    //   }
+    // } catch (error) {
+    //   toast.error("Could not update profile details");
+    // }
   };
 
   const onChange = (e) => {
