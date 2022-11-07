@@ -149,7 +149,11 @@ function CreateItem({userData}) {
       body:JSON.stringify(formDataCopy)
     }
 
-    // STILL NEED TO ADD ITEM (formDataCopy) TO DATABASE HERE!!
+    const response = await fetch("http://localhost:8080/items", requestOptions);
+    if (response.ok) {
+      navigate("/welcome");
+    }
+
   };
 
   const onMutate = (e) => {

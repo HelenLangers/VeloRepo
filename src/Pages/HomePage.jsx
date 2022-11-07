@@ -44,7 +44,7 @@ function HomePage({userData}) {
         <div className="itemsForLoan">
           <h3>Your Items For Loan</h3>
           <div className='itemGrid'>
-          {myStuff.length != 0 ? (
+          {myStuff.length !== 0 ? (
             <>{myStuff}</>
           )
 :
@@ -58,7 +58,7 @@ function HomePage({userData}) {
         <div className="borrowedItems">
           <h3>Items you are borrowing</h3>
           <div className='itemGrid'>
-          {borrowedStuff.length != 0 ? (
+          {borrowedStuff.length !== 0 ? (
             <>{borrowedStuff}</>
           )
           :
