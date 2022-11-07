@@ -23,7 +23,7 @@ function About() {
         <div className="navLinks">
           {loggedIn ? (
             <>
-              <Link className="landingPageLinks" to="/welcome">
+              <Link className="landingPageLinks" to="/kit">
                 Home
               </Link>
               <Link className="landingPageLinks" to="/profile">

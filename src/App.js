@@ -81,11 +81,13 @@ function App() {
           <Route element={<NavBar />}>
             <Route element={<PrivateRoute />}>
             <Route path='/profile' element={<Profile userData={userData}/>} />
-              <Route path='/kit' element={<HomePage userData={userData}/>} />
-              <Route path='/kit/new' element={<CreateItem userData={userData}/>} />
-              <Route path='/kit/browse' element={<BrowsePage items={items}/>} />
-              <Route path='/kit/browse/:id' element={<OneItemPage/>}/>
-              <Route path='/information' element={<Information />}/>
+            <Route path='/information' element={<Information />}/>
+
+            <Route path='/kit' element={<HomePage userData={userData}/>} />
+            <Route path='/kit/new' element={<CreateItem userData={userData}/>} />
+            <Route path='/kit/browse' element={<BrowsePage items={items}/>} />
+            <Route path='/kit/browse/:id' element={<OneItemPage/>}/>
+
               {/* // all routes that need user information go here */}
             </Route>
           </Route>
