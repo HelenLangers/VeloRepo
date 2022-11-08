@@ -1,3 +1,20 @@
+.datePickerAndSearch{
+    display: flex;
+    margin-left: 15%;
+    background-color: aqua;
+    padding-left: 2rem;
+    justify-content: space-between;
+}
+
+.datePickerLeft{
+    display: flex;
+}
+
+.SearchBarRight{
+    display: flex;
+
+}
+
 .browseSearchBar{
     display: flex;
     width: 100%;

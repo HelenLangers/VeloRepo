@@ -1,5 +1,6 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState } from 'react';
+import './searchbar.css'
 
 const SearchBar = ({ handleChange , searchTerm }) => {
   const changeSearchTerm = (e) => {
@@ -9,7 +10,7 @@ const SearchBar = ({ handleChange , searchTerm }) => {
 
 
   return (
-    <div className='search-bar'>
+    <>
       <form >
         <input
           onChange={changeSearchTerm}
@@ -17,9 +18,10 @@ const SearchBar = ({ handleChange , searchTerm }) => {
           type='text'
           name='searchTerm'
           placeholder='Filter items'
+          className='searchBar'
         />
       </form>
-    </div>
+    </>
   )
 }
 
