@@ -288,7 +288,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin-left: 0;
-    height: 100vh;
+    height: 100%;
   }
 
   .landingPageHeader, 
@@ -303,11 +303,12 @@ body {
     margin-top: 15vh;
   }
 
+
   .landingPageLinks:nth-child(2){
-    margin-left: 0;
+    margin-right: 2rem;
   }
   .landingPageLinks:nth-child(3){
-    margin-left: 0;
+    margin-left: 2rem;
   }
 
   .logo {
