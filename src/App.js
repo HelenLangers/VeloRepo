@@ -27,11 +27,15 @@ function App() {
   const {loggedIn, checkingStatus} = useAuthStatus()
   const [userData, setUserData] = useState({})
   const [items, setItems] = useState([])
+  const [filteredItems, setFilteredItems] = useState([])
 
   useEffect(() => {
     fetch('http://localhost:8080/items')
     .then((res) => res.json())
-    .then(results => setItems(results))
+    .then(results => {
+      setItems(results)
+      
+    })
   }, [])
 
   const fetchUserData = async() => {
