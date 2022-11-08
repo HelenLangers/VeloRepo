@@ -2,6 +2,7 @@
     background: var(--primary-dark);
     position: fixed;
     height: 100vh;
+    min-width: 170px;
     width: 15%;
     bottom: 0;
     top: 0px;
