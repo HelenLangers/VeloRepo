@@ -11,10 +11,6 @@ import { DateTime } from "luxon";
 import { ReactUTCDatepicker } from "react-utc-datepicker";
 
 
-
-
-
-
 const  BrowsePage =({
   items
  })=>{
@@ -30,28 +26,17 @@ const  BrowsePage =({
     // return item.booking.startDate
     })
 
-
-
-    
 const filteredDates = items.filter((item) => {
 console.log(item.bookings[0].startDate)
 console.log(searchStartDate)
   return item.bookings[0].startDate >= searchStartDate
-  
-})
-
-
-
-
+  })
 
 
     const updateSearchTerm= (searchTerm) => {
       setSearchTerm(searchTerm.toLowerCase())
     }
 
-
-  
-    
 
     const browserGridWithAllItems = <BrowserGrid
             items={items}
@@ -79,24 +64,28 @@ const pageInformation = {
   return (
     <>
       <BackEndHeader pageInformation={pageInformation} />
-      <main className="mainContainer">
-        <div className="browseSearchBar">
-          <div className="datePicker">
-            <h2>From</h2>
-            <ReactUTCDatepicker format="YYYY-MM-DDT00:00:00.000+00:00" selected={searchStartDate} onChange={(date) => setSearchStartDate(date)} />
-            <h2>To</h2>
-            <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
-            {filteredDates ? browserGridWithFilteredDates : browserGridWithAllItems}
-          </div>
-          <div>
-            
-          </div>
+      
+      <section className="datePickerAndSearch">
+        <div className="datePickerLeft">
+        <h2>From</h2>
+        <ReactUTCDatepicker format="YYYY-MM-DDT00:00:00.000+00:00" selected={searchStartDate} onChange={(date) => setSearchStartDate(date)} />
+        <h2>To</h2>
+        <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
+        </div>
 
-
-          <br></br>
-          <div className='SearchBar'>
+        <div className='SearchBarRight'>
             <SearchBar handleChange={updateSearchTerm} searchTerm={searchTerm} />
           </div>
+      </section>
+
+      <main className="mainContainer">
+      <div className="browserGrid">
+            {filteredDates ? browserGridWithFilteredDates : browserGridWithAllItems}
+          </div>
+          
+
+          <br></br>
+        <div className="browserGrid">
           {searchTerm ? browserGridWithFilteredItems  : browserGridWithAllItems}
         </div>
       </main>
