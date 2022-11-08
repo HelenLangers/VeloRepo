@@ -4,7 +4,7 @@ import {toast} from 'react-toastify';
 import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
 import "../Assets/index.css"
 import OAuth from "../Components/OAuth"
-import whitelogo from '../Assets/png/white-logo.png';
+import whitelogo from '../Assets/png/white-logo-small.png';
 import visibilityIcon from '../Assets/svg/visibilityIcon.svg';
 import {ReactComponent as ArrowRightIcon} from '../Assets/svg/keyboardArrowRightIcon.svg';
 
@@ -34,7 +34,7 @@ function SignIn() {
       const userCredential = await signInWithEmailAndPassword(auth, email, password)
 
       if(userCredential.user) {
-        navigate('/profile')
+        navigate('/kit')
       }
     } catch (error) {
       const errorCode = error.code;
@@ -59,9 +59,11 @@ function SignIn() {
     <header className='landingPageHeader'>
       <a href="/"><img src={whitelogo} alt="VeloRepo" className="logo"/></a>
       <div className="navLinks">
+      <Link className='landingPageLinks' to="/about">About</Link>
         <Link className='landingPageLinks' to="/sign-up">Sign up</Link>
         
         <Link className='landingPageLinks' to="/sign-in">Log in</Link>
+        
       </div>
     </header>
 

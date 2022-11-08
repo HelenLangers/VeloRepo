@@ -6,7 +6,7 @@ import {
 } from "firebase/auth";
 import "../Assets/index.css";
 import OAuth from "../Components/OAuth";
-import whitelogo from "../Assets/png/white-logo.png";
+import whitelogo from "../Assets/png/white-logo-small.png";
 import visibilityIcon from "../Assets/svg/visibilityIcon.svg";
 import { ReactComponent as ArrowRightIcon } from "../Assets/svg/keyboardArrowRightIcon.svg";
 import { toast } from "react-toastify";
@@ -58,7 +58,7 @@ function SignUp() {
 
       // redirect to the profile page 
       if (response.ok) {
-        navigate("/profile");
+        navigate("/kit");
       }
 
     } catch (error) {
@@ -78,6 +78,7 @@ function SignUp() {
           <img src={whitelogo} alt="VeloRepo" className="logo" />
         </a>
         <div className="navLinks">
+        <Link className='landingPageLinks' to="/about">About</Link>
           <Link className="landingPageLinks" to="/sign-up">
             Sign up
           </Link>
@@ -85,10 +86,11 @@ function SignUp() {
           <Link className="landingPageLinks" to="/sign-in">
             Log in
           </Link>
+          
         </div>
       </header>
 
-      <div className="mainContainer">
+      <div className="mainContainerFrontEnd">
       <div className="signInBlock">
         <div className="signInBox">
           <div className="flexAlignCentreColumn">

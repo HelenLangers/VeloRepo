@@ -8,31 +8,33 @@ import { FaSearch } from 'react-icons/fa';
 import { useAuthStatus } from '../Hooks/useAuthStatus';
 import Spinner from '../Components/Spinner';
 import OwnItemBlock from '../Components/OwnItemBlock';
-import BorrowedItemBlock from '../Components/BorrowedItemBlock';
 
 function HomePage({userData}) {
-
   const {loggedIn, checkingStatus} = useAuthStatus()
 
-  const {name, fire_base, email, myItems, borrowedItems} = userData
-
-  const userName = userData.name
-  const firstName = userName.split(" ").shift()
-
-  const pageInformation = {
-    pageTitle: "Home"
+  if(!userData){
+    return <Spinner/>
   }
 
   if(checkingStatus) {
     return <Spinner/>
   }
 
+  const {name, myItems, borrowedItems} = userData
+
+  const userName = name
+  const firstName = userName.split(" ").shift()
+
+  const pageInformation = {
+    pageTitle: "Home"
+  }
+  
   const myStuff = myItems.map((item, id) => {
     return (<OwnItemBlock key={id} item={item}/>)
   })
 
   const borrowedStuff = borrowedItems.map((item, id) => {
-    return (<BorrowedItemBlock key={id} item={item}/>)
+    return (<OwnItemBlock key={id} item={item}/>)
   })
 
 
@@ -42,12 +44,12 @@ function HomePage({userData}) {
       <main className="mainContainer">
       <h3 className="welcomeName">Hey {firstName}! Here's your kit:</h3>
         <div className="itemsForLoan">
-          <h3>Your Items For Loan</h3>
+          <h3>Your Kit For Loan</h3>
           <div className='itemGrid'>
           {myStuff.length !== 0 ? (
             <>{myStuff}</>
           )
-:
+          :
           <p className='explainerText'>
             The items you're loaning out to others will appear here. If you don't have any, click on the <FaRegPlusSquare/> to add kit. It'll only be available to people in your community group.
           </p>}
@@ -56,7 +58,7 @@ function HomePage({userData}) {
         <hr></hr>
 
         <div className="borrowedItems">
-          <h3>Items you are borrowing</h3>
+          <h3>Kit You Are Borrowing</h3>
           <div className='itemGrid'>
           {borrowedStuff.length !== 0 ? (
             <>{borrowedStuff}</>

@@ -20,6 +20,7 @@ import Spinner from './Components/Spinner';
 import {useAuthStatus} from './Hooks/useAuthStatus';
 import UserContext from './Context/userContext';
 import About from './Pages/About';
+import OneItemPage from './Pages/OneItemPage'
 
 function App() {
 
@@ -79,12 +80,14 @@ function App() {
 
           <Route element={<NavBar />}>
             <Route element={<PrivateRoute />}>
-              <Route path='/welcome' element={<HomePage userData={userData}/>} />
-              <Route path='/profile' element={<Profile userData={userData}/>} />
-              <Route path='/create-item' element={<CreateItem userData={userData}/>} />
-              <Route path='/browse' element={<BrowsePage items={items}/>} />
-              
-              <Route path='/information' element={<Information />}/>
+            <Route path='/profile' element={<Profile userData={userData}/>} />
+            <Route path='/information' element={<Information />}/>
+
+            <Route path='/kit' element={<HomePage userData={userData}/>} />
+            <Route path='/kit/new' element={<CreateItem userData={userData}/>} />
+            <Route path='/kit/browse' element={<BrowsePage items={items}/>} />
+            <Route path='/kit/browse/:id' element={<OneItemPage/>}/>
+
               {/* // all routes that need user information go here */}
             </Route>
           </Route>

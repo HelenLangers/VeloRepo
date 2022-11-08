@@ -20,15 +20,19 @@ function CreateItem({userData}) {
 
 
   const [loading, setLoading] = useState(false);
+  const [categoriesFromDB, setCategoriesFromDB] = useState([])
+  const [chosenCategoryId, setChosenCategoryId] = useState(1)
+  const [subCategories, setSubCategories] = useState([])
   const [formData, setFormData] = useState({
-    category_id: 1,
-    subcategory: "",
+    category_id: "",
+    sub_category_id: "",
     brand: "",
     name: "",
     images: {},
+    owner_id: userData.fireBaseId,
   });
 
-  const { category, subcategory, images, brand, name } = formData;
+  const { category_id, sub_category_id, images, brand, name } = formData;
 
   const auth = getAuth();
   const navigate = useNavigate();
@@ -39,7 +43,8 @@ function CreateItem({userData}) {
     if (isMounted) {
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          setFormData({ ...formData, owner_id: userData.fire_base});
+          fetchCategoriesFromDB()
+          setFormData({ ...formData, owner_id: userData.fireBaseId});
         } else {
           navigate("/sign-in");
         }
@@ -51,9 +56,34 @@ function CreateItem({userData}) {
     // eslint-disable-next-line
   }, [isMounted]);
 
-  if (loading) {
-    return <Spinner />;
+  const fetchCategoriesFromDB = async() => {
+    try {
+      const requestOptions = {
+        method: 'GET',
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        }
+      }
+
+      const response = await fetch('http://localhost:8080/categories', requestOptions)
+      const data = await response.json()
+      setCategoriesFromDB(data)
+    } catch (error) {
+      console.log('Error', error)}
+    }
+  
+  const onCategorySelect = (e) => {
+    setChosenCategoryId(e.target.value)
+
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+    const findSubcategories = categoriesFromDB.find((category) => category.id == +chosenCategoryId)
+    setSubCategories(findSubcategories.subCategorys)
   }
+
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -151,9 +181,8 @@ function CreateItem({userData}) {
 
     const response = await fetch("http://localhost:8080/items", requestOptions);
     if (response.ok) {
-      navigate("/welcome");
+      navigate("/kit");
     }
-
   };
 
   const onMutate = (e) => {
@@ -183,6 +212,11 @@ function CreateItem({userData}) {
     }
   };
 
+
+  if (loading) {
+    return <Spinner />;
+  }
+
   return (
     <>
       <BackEndHeader pageInformation={pageInformation} />
@@ -191,57 +225,54 @@ function CreateItem({userData}) {
         <div className="entryFormBlock">
           <form method="post" className="entryForm" onSubmit={onSubmit}>
             <div className="options">
-              <label htmlFor="category">Select a category:</label>
-              <select name="category" id="category" onChange={onMutate}>
-                <option value="">Please choose a category</option>
-                <option value="Camping">Camping</option>
-                <option value="Bikes">Bikes</option>
-                <option value="Bags">Bags</option>
-                <option value="Cooking">Cooking</option>
-                <option value="Electronics">Electronics</option>
-                <option value="Clothing">Clothing</option>
+              <label htmlFor="category_id">Select a category:</label>
+              <select name="category_id" id="category_id" onChange={onCategorySelect}>
+              <option value="">Please choose a category</option>
+              {categoriesFromDB.map((category, index) => (
+                <option key={index} value={category.id}>{category.categoryName}</option>
+              ))}
               </select>
             </div>
 
             <div className="options">
-              <label htmlFor="subcategory">Select a subcategory</label>
-              <select name="subcategory" id="subcategory" onChange={onMutate}>
+              <label htmlFor="sub_category_id">Select a subcategory</label>
+              <select name="sub_category_id" id="sub_category_id" onChange={onMutate}>
                 <option value="">Please choose a category</option>
-                {category === "Camping" && (
+                {category_id === "1" && (
                   <>
-                    <option value="Sleeping Bag">Sleeping Bag</option>
-                    <option value="Sleeping Mat">Sleeping Mat</option>
-                    <option value="Tent">Tent</option>
-                    <option value="Bivvy">Bivvy</option>
+                    <option value="3">Sleeping Bag</option>
+                    <option value="4">Sleeping Mat</option>
+                    <option value="1">Tent</option>
+                    <option value="2">Bivvy</option>
                   </>
                 )}
-                {category === "Bikes" && (
+                {category_id === "3" && (
                   <>
-                    <option value="Off Road">Off Road</option>
-                    <option value="Road">Road</option>
+                    <option value="6">Off Road</option>
+                    <option value="5">Road</option>
                   </>
                 )}
-                {category === "Cooking" && (
+                {category_id === "5" && (
                   <>
-                    <option value="Stove">Stove</option>
-                    <option value="Crockery">Pans, Bowls etc</option>
+                    <option value="10">Stove</option>
+                    <option value="9">Crockery</option>
                   </>
                 )}
-                {category === "Electronics" && (
+                {category_id === "6" && (
                   <>
-                    <option value="Lighting">Lighting</option>
-                    <option value="PowerBank">PowerBank</option>
+                    <option value="13">Lighting</option>
+                    <option value="12">PowerBank</option>
                   </>
                 )}
-                {category === "Clothing" && (
+                {category_id === "4" && (
                   <>
-                    <option value="Insulated">Insulated Items</option>
-                    <option value="Waterproof">Waterproof Items</option>
+                    <option value="7">Insulated</option>
+                    <option value="8">Waterproof</option>
                   </>
                 )}
-                {category === "Bags" && (
+                {category_id === "2" && (
                   <>
-                    <option value="">No subcategories needed</option>
+                    <option value="null">Bag</option>
                   </>
                 )}
               </select>
@@ -269,7 +300,7 @@ function CreateItem({userData}) {
               />
             </div>
 
-            {subcategory === "Bivvy" && (
+            {sub_category_id === "2" && (
               <>
                 <div className="options">
                   <label htmlFor="packSize">Packed Size:</label>
@@ -301,7 +332,7 @@ function CreateItem({userData}) {
               </>
             )}
 
-            {subcategory === "Tent" && (
+            {sub_category_id === "1" && (
               <>
                 <div className="options">
                   <label htmlFor="weight">Weight:</label>
@@ -345,7 +376,7 @@ function CreateItem({userData}) {
               </>
             )}
 
-            {subcategory === "Sleeping Bag" && (
+            {sub_category_id === "3" && (
               <>
                 <div className="options">
                   <label htmlFor="weight">Weight:</label>
@@ -381,7 +412,7 @@ function CreateItem({userData}) {
               </>
             )}
 
-            {subcategory === "Sleeping Mat" && (
+            {sub_category_id === "4" && (
               <>
                 <div className="options">
                   <label htmlFor="weight">Weight:</label>
@@ -417,7 +448,7 @@ function CreateItem({userData}) {
               </>
             )}
 
-            {subcategory === "Off Road" && (
+            {sub_category_id === "6" && (
               <>
                 <div className="options">
                   <label htmlFor="size">Size:</label>
@@ -432,7 +463,7 @@ function CreateItem({userData}) {
               </>
             )}
 
-            {subcategory === "Road" && (
+            {sub_category_id === "5" && (
               <>
                 <div className="options">
                   <label htmlFor="size">Size:</label>
@@ -447,7 +478,7 @@ function CreateItem({userData}) {
               </>
             )}
 
-            {subcategory === "Bags" && (
+            {sub_category_id === "null" && (
               <>
                 {/* add bag location here */}
 
@@ -463,7 +494,7 @@ function CreateItem({userData}) {
               </>
             )}
 
-            {subcategory === "Stove" && (
+            {sub_category_id === "10" && (
               <>
                 {/* add fuel type here */}
 
@@ -497,7 +528,7 @@ function CreateItem({userData}) {
               </>
             )}
 
-            {subcategory === "Crockery" && (
+            {sub_category_id === "9" && (
               <>
                 <div className="options">
                   <label htmlFor="weight">Weight:</label>
@@ -531,7 +562,7 @@ function CreateItem({userData}) {
               </>
             )}
 
-            {subcategory === "Lighting" && (
+            {sub_category_id === "13" && (
               <>
                 {/* add lighting type here */}
 
@@ -559,7 +590,7 @@ function CreateItem({userData}) {
               </>
             )}
 
-            {subcategory === "PowerBank" && (
+            {sub_category_id === "12" && (
               <>
                 <div className="options">
                   <label htmlFor="capacity">Capacity (mAh):</label>
@@ -595,7 +626,7 @@ function CreateItem({userData}) {
               </>
             )}
 
-            {subcategory === "Navigation" && (
+            {sub_category_id === "11" && (
               <>
                 <div className="options">
                   <label htmlFor="rechargeable">Rechargeable?</label>
@@ -611,7 +642,7 @@ function CreateItem({userData}) {
               </>
             )}
 
-            {subcategory === "Insulated" && (
+            {sub_category_id === "7" && (
               <>
                 <div className="options">
                   <label htmlFor="size">Size:</label>
@@ -626,7 +657,7 @@ function CreateItem({userData}) {
               </>
             )}
 
-            {subcategory === "Waterproof" && (
+            {sub_category_id === "8" && (
               <>
                 <div className="options">
                   <label htmlFor="size">Size:</label>
