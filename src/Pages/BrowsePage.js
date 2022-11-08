@@ -7,6 +7,11 @@ import "../Assets/browse.css";
 import BrowserGrid from "../Components/BrowserComponents/BrowserGrid";
 import BackEndHeader from "../Components/BackEndHeader";
 import DatePicker from "react-datepicker";
+import { DateTime } from "luxon";
+import { ReactUTCDatepicker } from "react-utc-datepicker";
+
+
+
 
 
 
@@ -25,10 +30,14 @@ const  BrowserPage =({
     // return item.booking.startDate
     })
 
-const filteredDates = filteredItems.filter((item) => {
+
+
+    
+const filteredDates = items.filter((item) => {
 console.log(item.bookings[0].startDate)
 console.log(searchStartDate)
-  return  item.bookings.startDate >= searchStartDate.getTime()
+  return item.bookings[0].startDate >= searchStartDate
+  
 })
 
 
@@ -74,12 +83,13 @@ const pageInformation = {
         <div className="browseSearchBar">
           <div className="datePicker">
             <h2>From</h2>
-            <DatePicker selected={searchStartDate} onChange={(date) => setSearchStartDate(date)} />
+            <ReactUTCDatepicker format="YYYY-MM-DDT00:00:00.000+00:00" selected={searchStartDate} onChange={(date) => setSearchStartDate(date)} />
             <h2>To</h2>
             <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
+            {filteredDates ? browserGridWithFilteredDates : browserGridWithAllItems}
           </div>
           <div>
-            {searchStartDate ? browserGridWithFilteredDates : browserGridWithAllItems}
+            
           </div>
 
 
