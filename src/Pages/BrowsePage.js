@@ -17,20 +17,32 @@ const BrowsePage = ({items}) => {
   const [searchStartDate, setSearchStartDate] = useState('')
   const [searchEndDate, setSearchEndDate] = useState('')
 
+
+  const checkIfIsBookedDuringSearchParamas = (item) => {
+
+    for (let booking in item.bookings){
+      if (booking.startDate >= searchStartDate &&  booking.endDate <= searchEndDate) {
+        return false  
+      }
+    }
+    return true 
+
+  }
+
   const filteredItems = items.filter((item) => {
 
-    if (searchTerm && searchStartDate && searchEndDate) {
-      return item.name.toLowerCase().includes(searchTerm) && item.bookings[0].startDate >= searchStartDate && item.bookings[0].endDate <= searchEndDate
+    if (searchTerm && searchStartDate && searchEndDate ) {
+      return item.name.toLowerCase().includes(searchTerm) && checkIfIsBookedDuringSearchParamas(item)
     }
-    if (searchTerm && searchStartDate) {
+    if (searchTerm && searchStartDate && item.bookings.length > 0) {
       return item.name.toLowerCase().includes(searchTerm) && item.bookings[0].startDate >= searchStartDate
     }
 
-    if (searchTerm && searchEndDate) {
+    if (searchTerm && searchEndDate && item.bookings.length > 0) {
       return item.name.toLowerCase().includes(searchTerm) && item.bookings[0].endDate <= searchEndDate
     }
 
-    if (searchStartDate && searchEndDate) {
+    if (searchStartDate && searchEndDate && item.bookings.length > 0) {
       return item.bookings[0].endDate <= searchEndDate && item.bookings[0].startDate >= searchStartDate
     }
 
@@ -38,27 +50,28 @@ const BrowsePage = ({items}) => {
       return item.name.toLowerCase().includes(searchTerm)
     }
 
-    if (searchStartDate) {
+    if (searchStartDate && item.bookings.length > 0) {
       return item.bookings[0].startDate >= searchStartDate
     }
 
-    if (searchEndDate) {
+    if (searchEndDate && item.bookings.length > 0) {
       return item.bookings[0].endDate <= searchEndDate
     }
-    // comment this 
+
+    // Adds the item to the list if no filters are in place 
     return true
   })
 
 
 
 
-  const filteredStartDates = items.filter((item) => {
-    return item.bookings[0].startDate >= searchStartDate
-  })
+  // const filteredStartDates = items.filter((item) => {
+  //   return item.bookings[0].startDate >= searchStartDate
+  // })
 
-  const filteredEndDates = items.filter((item) => {
-    return item.bookings[0].endDate <= searchEndDate
-  })
+  // const filteredEndDates = items.filter((item) => {
+  //   return item.bookings[0].endDate <= searchEndDate
+  // })
 
 
   const updateSearchTerm = (searchTerm) => {

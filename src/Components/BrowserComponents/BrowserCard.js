@@ -19,8 +19,8 @@ const BrowserCard = ({item})=> {
         <>
         <div className='itemCard'>
             <p>{item.name}</p>
-            <p>{item.bookings[0].startDate}</p>
-            <p>{item.bookings[0].endDate}</p>
+            {/* <p>{item.bookings[0].startDate}</p>
+            <p>{item.bookings[0].endDate}</p> */}
             
         </div>
         </>
