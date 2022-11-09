@@ -33,7 +33,6 @@ function OneItemPage() {
     }
   ]
 
-  console.log(item)
 
   return (
     <>
