@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useParams} from 'react-router-dom'
 import { useLocation } from "react-router-dom";
 import ImageSlider from '../Components/ImageSlider/ImageSlider';
@@ -14,6 +14,8 @@ function OneItemPage() {
   const {searchEndDate} = location.state;
   const { id } = useParams()
 
+  // const [selectedStartDate, setSelectedStartDate] = useState(searchStartDate)
+  // const [selectedEndDate, setSelectedEndDate] = useState(selectedEndDate)
 
   const pageInformation = {
     pageTitle: "Kit View"
@@ -46,7 +48,7 @@ function OneItemPage() {
 
       <div className='leftColumn'>
       <h3>Book this item</h3>
-      
+
       </div>
       </div>
     </>
