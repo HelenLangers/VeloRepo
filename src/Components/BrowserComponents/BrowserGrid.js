@@ -1,12 +1,15 @@
 import React from 'react'
 import BrowserCard from './BrowserCard'
+import OwnItemBlock from '../OwnItemBlock';
 
-const BrowserGrid = ({items })=> {
+const BrowserGrid = ({items, searchStartDate, searchEndDate })=> {
   const mappedItems = items.map((item, index) => {
   return (
-    <BrowserCard
+    <OwnItemBlock
     item = {item}
     key = {index}
+    searchEndDate={searchEndDate}
+    searchStartDate={searchStartDate}
      />
   )
 })

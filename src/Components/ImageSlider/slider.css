@@ -67,6 +67,10 @@
     margin: 0 2rem;
 }
 
+.leftColumn{
+    width: 50%;
+}
+
 @media screen and (max-width: 1024px) {
     .mainContainerNoHeader{
         margin-top: 15vh;

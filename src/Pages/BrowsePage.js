@@ -82,6 +82,8 @@ const BrowsePage = ({items}) => {
   const browserGrid = <BrowserGrid
 
     items={filteredItems}
+    searchStartDate={searchStartDate}
+    searchEndDate={searchEndDate}
     className='BrowserGrid'
   />
 

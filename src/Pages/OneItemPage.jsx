@@ -1,10 +1,8 @@
 import React from 'react'
-import BackEndHeader from '../Components/BackEndHeader';
 import {useParams} from 'react-router-dom'
 import { useLocation } from "react-router-dom";
 import ImageSlider from '../Components/ImageSlider/ImageSlider';
 import '../Components/ImageSlider/slider.css'
-import { ReactUTCDatepicker } from "react-utc-datepicker";
 
 
 
@@ -12,7 +10,10 @@ function OneItemPage() {
 
   const location = useLocation()
   const {item} = location.state;
+  const {searchStartDate} = location.state;
+  const {searchEndDate} = location.state;
   const { id } = useParams()
+
 
   const pageInformation = {
     pageTitle: "Kit View"
@@ -43,7 +44,8 @@ function OneItemPage() {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget faucibus arcu. Vivamus volutpat vitae augue ut euismod. Nulla arcu neque, maximus eget nulla non, auctor gravida velit. Nunc at molestie massa. Sed a bibendum ex. Fusce suscipit ex nec metus varius, non rhoncus purus ullamcorper. Ut tempus velit consectetur arcu mattis dictum. Sed sed ullamcorper ligula. Aliquam eget ultrices tortor. Integer eleifend sagittis ligula. Aenean convallis quis tellus ut consequat. Proin erat ligula, pharetra at odio ut, pretium fermentum purus. Suspendisse potenti. </p>
         </div>
 
-      <div>
+      <div className='leftColumn'>
+      <h3>Book this item</h3>
       
       </div>
       </div>

@@ -58,7 +58,7 @@ function SignUp() {
 
       // redirect to the profile page 
       if (response.ok) {
-        navigate("/kit");
+        navigate("/profile");
       }
 
     } catch (error) {
