@@ -1,13 +1,14 @@
 import React, {useState} from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 import { useLocation } from "react-router-dom";
 import ImageSlider from '../Components/ImageSlider/ImageSlider';
 import '../Components/ImageSlider/slider.css'
 import { ReactUTCDatepicker } from "react-utc-datepicker";
 
 
-function OneItemPage({userData} ) {
+function OneItemPage({userData, setUserData}) {
   
+  const navigate = useNavigate();
   const location = useLocation()
   const {item} = location.state;
   // const {searchStartDate} = location.state;
@@ -19,9 +20,7 @@ function OneItemPage({userData} ) {
   // const [selectedStartDate, setSelectedStartDate] = useState(searchStartDate)
   // const [selectedEndDate, setSelectedEndDate] = useState(selectedEndDate)
 
-  const pageInformation = {
-    pageTitle: "Kit View"
-  }
+
 
   const SliderData = [
     {
@@ -35,12 +34,34 @@ function OneItemPage({userData} ) {
     }
   ]
 
-  const onSubmit = (e) => {
+  const onSubmit = async(e) => {
+
     const dataToSubmit = {
       startDate : searchStartDate,
       endDate : searchEndDate,
-      user : userData.id,
-      item : id
+      fireBaseId : userData.fireBaseId,
+      itemId : parseInt(id)
+    }
+
+
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataToSubmit)
+    }
+
+    const response = await fetch("http://localhost:8080/bookings", requestOptions);
+
+    if(response.ok) {
+      const responseJson = await response.json()
+      const copyOfUserData = {...userData}
+      copyOfUserData.borrowedItems.push(responseJson)
+      console.log(copyOfUserData)
+      await setUserData(copyOfUserData) 
+      navigate("/kit")
     }
   }
 

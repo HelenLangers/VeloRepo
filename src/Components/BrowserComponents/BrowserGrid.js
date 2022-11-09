@@ -1,7 +1,7 @@
 import React from "react";
 import OwnItemBlock from "../OwnItemBlock";
 
-const BrowserGrid = ({ items, searchStartDate, searchEndDate }) => {
+const BrowserGrid = ({ items, searchStartDate, searchEndDate}) => {
   const mappedItems = items.map((item, index) => {
     return (
       <OwnItemBlock
