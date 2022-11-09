@@ -6,7 +6,7 @@ import { FaRegPlusSquare } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
 import Spinner from '../Components/Spinner';
 import OwnItemBlock from '../Components/OwnItemBlock';
-import OwnItemBlockNoDate from '../Components/OwnItemBlockNoDate';
+import ItemBlockNoDate from '../Components/ItemBlockNoDate';
 
 function HomePage({userData}) {
 
@@ -23,7 +23,7 @@ function HomePage({userData}) {
   }
   
   const myStuff = myItems.map((item, id) => {
-    return (<OwnItemBlockNoDate key={id} item={item}/>)
+    return (<ItemBlockNoDate key={id} item={item}/>)
   })
 
   const borrowedStuff = borrowedItems.map((item, id) => {

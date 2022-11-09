@@ -2,7 +2,7 @@ import React from 'react'
 import '../Assets/homePage.css'
 import {Link} from 'react-router-dom'
 
-function OwnItemBlockNoDate({item}) {
+function ItemBlockNoDate({item}) {
 
   return (
     <>
@@ -17,4 +17,4 @@ function OwnItemBlockNoDate({item}) {
   )
 }
 
-export default OwnItemBlockNoDate
+export default ItemBlockNoDate

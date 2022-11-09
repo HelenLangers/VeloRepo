@@ -26,16 +26,21 @@ function Profile({userData}) {
     navigate("/");
   };
 
-  const onSubmit = async () => {
-    // try {
-    //   if (userData.name !== name) 
+  if(Object.keys(userData).length === 0){
+    return <Spinner/>
+  }
 
-    //     // need to also update in db with a 'put' once the http request route is made
-    //   }
-    // } catch (error) {
-    //   toast.error("Could not update profile details");
-    // }
-  };
+  const onSubmit = () => {}
+  // const onSubmit = async () => {
+  //   try {
+  //     if (userData.name !== name) 
+
+  //       // need to also update in db with a 'put' once the http request route is made
+  //     }
+  //   } catch (error) {
+  //     toast.error("Could not update profile details");
+  //   }
+  // };
 
   const onChange = (e) => {
     setFormData((prevState) => ({
