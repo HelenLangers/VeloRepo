@@ -38,8 +38,15 @@
     padding: 1rem;
     width: 200px;
     height: 200px;
-    margin-bottom: 1rem;
+    margin: 1rem;
     border: solid 2px var(--neutral-light);
+    box-shadow: 0 0 5px 2px rgba(233, 196, 106, .3);
+    transform: translateY(var(--translate-y,0));
+}
+
+.itemBlock:hover{
+    box-shadow: 0 0 5px 2px rgba(233, 196, 106, .6);
+    --translate-y: -2px;
 }
 
 .itemBlock:before{
@@ -53,6 +60,10 @@
     bottom: 0px;
     left: 0px;
     opacity: 0.75;
+}
+
+.itemBlock{
+
 }
 
 .blockText,

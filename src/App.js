@@ -26,7 +26,6 @@ function App() {
   const { loggedIn, checkingStatus } = useAuthStatus();
   const [userData, setUserData] = useState({});
   const [items, setItems] = useState([]);
-  const [filteredItems, setFilteredItems] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:8080/items")
@@ -38,7 +37,7 @@ function App() {
 
   const fetchUserData = async () => {
     try {
-      const auth =  getAuth();
+      const auth = getAuth();
       const id = auth.currentUser.uid;
       const requestOptions = {
         method: "GET",
@@ -53,30 +52,13 @@ function App() {
         requestOptions
       );
       const data = await response.json();
-      if(data){
+      if (data) {
         setUserData(data);
-      } 
+      }
     } catch (error) {
       console.log("Error", error);
     }
   };
-
-  
-// fireBaseId
-// :
-// "hxuU9J1EUecJAxHq4MhSE5H9Mv83"
-// name
-// :
-// "poo"
-// email
-// :
-// "poo@poo.com"
-// myItems
-// :
-// []
-// borrowedItems
-// :
-// []
 
   useEffect(() => {
     fetchUserData();
@@ -98,34 +80,29 @@ function App() {
     return <Spinner />;
   }
 
-  const userCompoents = (
-    <>
-      <Route
-        path="/profile"
-        element={
-          <Profile userData={userData} logOutClearState={logOutClearState} />
-        }
-      />
-      <Route path="/kit" element={<HomePage userData={userData} />} />
-      <Route
-        path="/kit/new"
-        element={<CreateItem setUserData={setUserData} userData={userData} />}
-      />
-      <Route
-        path="/kit/browse"
-        element={<BrowsePage items={items} userData={userData} />}
-      />
-      <Route
-        path="/kit/browse/:id"
-        element={<OneItemPage userData={userData} setUserData={setUserData} />}
-      />
-    </>
-  );
-
-  // const findItembyID = function(itemID) {
-  //   const itemByID = items.filter((item) => item._id == itemID)
-  //   return itemByID
-  // }
+  // const userCompoents = (
+  //   <>
+  //     <Route
+  //       path="/profile"
+  //       element={
+  //         <Profile userData={userData} logOutClearState={logOutClearState} />
+  //       }
+  //     />
+  //     <Route path="/kit" element={<HomePage userData={userData} />} />
+  //     <Route
+  //       path="/kit/new"
+  //       element={<CreateItem setUserData={setUserData} userData={userData} />}
+  //     />
+  //     <Route
+  //       path="/kit/browse"
+  //       element={<BrowsePage items={items} userData={userData} />}
+  //     />
+  //     <Route
+  //       path="/kit/browse/:id"
+  //       element={<OneItemPage userData={userData} setUserData={setUserData} />}
+  //     />
+  //   </>
+  // );
 
   return (
     <>
@@ -140,7 +117,12 @@ function App() {
         <Route element={<NavBar />}>
           <Route element={<PrivateRoute />}>
             <Route path="/information" element={<Information />} />
-            {validateUserData() ? userCompoents : null}
+            <Route path="/profile" element={<Profile userData={userData} logOutClearState={logOutClearState}/>}/>
+            <Route path="/kit" element={<HomePage userData={userData} />} />
+            <Route path="/kit/new" element={<CreateItem setUserData={setUserData} userData={userData} />}/>
+            <Route path="/kit/browse" element={<BrowsePage items={items} userData={userData} />}/>
+            <Route path="/kit/browse/:id" element={<OneItemPage userData={userData} setUserData={setUserData} />}/>
+            {/* {validateUserData() ? userCompoents : null} */}
             {/* // all routes that need user information go here */}
           </Route>
         </Route>

@@ -1,5 +1,5 @@
 import React from "react";
-import OwnItemBlock from "../OwnItemBlock";
+import OwnItemBlock from "./OwnItemBlock";
 
 const BrowserGrid = ({ items, searchStartDate, searchEndDate}) => {
   const mappedItems = items.map((item, index) => {
@@ -15,7 +15,6 @@ const BrowserGrid = ({ items, searchStartDate, searchEndDate}) => {
 
   return (
     <>
-      <h2>Items:</h2>
       <div className="itemGrid">{mappedItems}</div>
     </>
   );

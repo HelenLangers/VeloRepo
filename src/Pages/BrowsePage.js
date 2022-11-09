@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import SearchBar from "../Components/BrowserComponents/SearchBar";
+import SearchBar from "../Components/SearchBar";
 import "react-datepicker/dist/react-datepicker.css";
 import "../Assets/browse.css";
-import BrowserGrid from "../Components/BrowserComponents/BrowserGrid";
+import BrowserGrid from "../Components/BrowserGrid";
 import BackEndHeader from "../Components/BackEndHeader";
 import { ReactUTCDatepicker } from "react-utc-datepicker";
 import Spinner from "../Components/Spinner";
@@ -83,14 +83,17 @@ const BrowsePage = ({ items, userData }) => {
     setSearchTerm(searchTerm.toLowerCase());
   };
 
-  const browserGrid = (
-    <BrowserGrid
-      items={filteredItems}
-      searchStartDate={searchStartDate}
-      searchEndDate={searchEndDate}
-      className="BrowserGrid"
-    />
-  );
+
+  const handleStartDateSelect = (e) => {
+    const formatStartDate = e + 'T00:00:00.000+00:00'
+    setSearchStartDate(formatStartDate)
+  }
+
+  const handleEndDateSelect = (e) => {
+    const formatEndDate = e + 'T00:00:00.000+00:00'
+    setSearchEndDate(formatEndDate)
+  }
+
 
   const pageInformation = {
     pageTitle: "Browse",
@@ -102,27 +105,41 @@ const BrowsePage = ({ items, userData }) => {
 
       <section className="datePickerAndSearch">
         <div className="datePickerLeft">
-          <h2>From</h2>
+        <h3 className="datePickerTitle">I want to rent from...</h3>
+          <div className="dateSelectors">
+          <div className="startDate">
+          <p>Start Date:</p>
           <ReactUTCDatepicker
-            format="YYYY-MM-DDT00:00:00.000+00:00"
+            format="YYYY-MM-DD"
             selected={searchStartDate}
-            onChange={(date) => setSearchStartDate(date)}
+            buttonPosition="before"
+            onChange={handleStartDateSelect}
           />
-          <h2>To</h2>
+          </div>
+          <div className="endDate">
+          <p>End Date:</p>
           <ReactUTCDatepicker
-            format="YYYY-MM-DDT00:00:00.000+00:00"
+            format="YYYY-MM-DD"
             selected={searchEndDate}
-            onChange={(date) => setSearchEndDate(date)}
+            buttonPosition="before"
+            onChange={handleEndDateSelect}
           />
+          </div>
         </div>
-
+        </div>
         <div className="SearchBarRight">
+        <h3 className="searchTitle">Anything specific?</h3>
           <SearchBar handleChange={updateSearchTerm} searchTerm={searchTerm} />
         </div>
       </section>
 
       <main className="mainContainer">
-        <div className="browserGrid">{browserGrid}</div>
+        <BrowserGrid
+          items={filteredItems}
+          searchStartDate={searchStartDate}
+          searchEndDate={searchEndDate}
+          className="BrowserGrid"
+        />
       </main>
     </>
   );

@@ -50,7 +50,7 @@ function HomePage({userData}) {
         </div>
         <hr></hr>
 
-        <div className="borrowedItems">
+        {/* <div className="borrowedItems">
           <h3>Kit You Are Borrowing</h3>
           <div className='itemGrid'>
           {borrowedStuff.length !== 0 ? (
@@ -60,7 +60,7 @@ function HomePage({userData}) {
           <p className='explainerText'>Do you need to borrow something for your next adventure? Click on the <FaSearch/> to search your community's shared library for what you need.</p>}
           </div>
         </div>
-        <hr></hr>
+        <hr></hr> */}
       </main>
     </>
   )
