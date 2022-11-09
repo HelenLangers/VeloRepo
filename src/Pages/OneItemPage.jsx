@@ -3,16 +3,18 @@ import {useParams} from 'react-router-dom'
 import { useLocation } from "react-router-dom";
 import ImageSlider from '../Components/ImageSlider/ImageSlider';
 import '../Components/ImageSlider/slider.css'
+import { ReactUTCDatepicker } from "react-utc-datepicker";
 
 
-
-function OneItemPage() {
-
+function OneItemPage({userData} ) {
+  
   const location = useLocation()
   const {item} = location.state;
-  const {searchStartDate} = location.state;
-  const {searchEndDate} = location.state;
+  // const {searchStartDate} = location.state;
+  // const {searchEndDate} = location.state;
   const { id } = useParams()
+  const [searchStartDate, setSearchStartDate] = useState('')
+  const [searchEndDate, setSearchEndDate] = useState('')
 
   // const [selectedStartDate, setSelectedStartDate] = useState(searchStartDate)
   // const [selectedEndDate, setSelectedEndDate] = useState(selectedEndDate)
@@ -33,7 +35,19 @@ function OneItemPage() {
     }
   ]
 
+  const onSubmit = (e) => {
+    console.log("button click", e)
+    const dataToSubmit = {
+      startDate : searchStartDate,
+      endDate : searchEndDate,
+      user : userData.id,
+      item : id
+    }
+  }
+
   console.log(item)
+  console.log(searchStartDate)
+
 
   return (
     <>
@@ -48,8 +62,14 @@ function OneItemPage() {
 
       <div className='leftColumn'>
       <h3>Book this item</h3>
+      <ReactUTCDatepicker format="YYYY-MM-DDT00:00:00.000+00:00" selected={searchStartDate} onChange={(date) => setSearchStartDate(date)} />
+      <ReactUTCDatepicker format="YYYY-MM-DDT00:00:00.000+00:00" selected={searchEndDate} onChange={(date) => setSearchEndDate(date)} />
+      
 
-      </div>
+      <button type="submit" className="submitButton" onClick={onSubmit}>
+                Book Item
+              </button>
+      </div> 
       </div>
     </>
   )

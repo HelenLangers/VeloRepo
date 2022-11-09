@@ -90,7 +90,8 @@ function App() {
             <Route path='/kit' element={<HomePage userData={userData}/>} />
             <Route path='/kit/new' element={<CreateItem userData={userData}/>} />
             <Route path='/kit/browse' element={<BrowsePage items={items}/>} />
-            <Route path='/kit/browse/:id' element={<OneItemPage/>}/>
+            <Route path='/kit/browse/:id' element={<OneItemPage userData={userData}/>}/>
+            
 
               {/* // all routes that need user information go here */}
             </Route>
