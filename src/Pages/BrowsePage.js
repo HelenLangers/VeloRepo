@@ -5,11 +5,15 @@ import "../Assets/browse.css";
 import BrowserGrid from "../Components/BrowserComponents/BrowserGrid";
 import BackEndHeader from "../Components/BackEndHeader";
 import { ReactUTCDatepicker } from "react-utc-datepicker";
+import Spinner from "../Components/Spinner";
 
 const BrowsePage = ({ items, userData }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchStartDate, setSearchStartDate] = useState("");
   const [searchEndDate, setSearchEndDate] = useState("");
+   if(Object.keys(userData).length === 0){
+    return <Spinner/>
+  }
 
   const checkIfIsBookedDuringSearchParamas = (item) => {
     for (let booking in item.bookings) {

@@ -8,11 +8,10 @@ import BackEndHeader from "../Components/BackEndHeader";
 import { useAuthStatus } from "../Hooks/useAuthStatus";
 import Spinner from "../Components/Spinner";
 
-function Profile({userData}) {
-
-  const auth = getAuth()
+function Profile({ userData, logOutClearState }) {
+  const auth = getAuth();
   const navigate = useNavigate();
-  const {loggedIn, checkingStatus} = useAuthStatus()
+  const { loggedIn, checkingStatus } = useAuthStatus();
 
   const [changeDetails, setChangeDetails] = useState(false);
   const [formData, setFormData] = useState({
@@ -21,19 +20,18 @@ function Profile({userData}) {
   });
   const { name, email } = formData;
 
-  const onLogout = () => {
+  const onLogout = async () => {
+    await logOutClearState();
+
     auth.signOut();
+
     navigate("/");
   };
 
-  if(Object.keys(userData).length === 0){
-    return <Spinner/>
-  }
-
-  const onSubmit = () => {}
+  const onSubmit = () => {};
   // const onSubmit = async () => {
   //   try {
-  //     if (userData.name !== name) 
+  //     if (userData.name !== name)
 
   //       // need to also update in db with a 'put' once the http request route is made
   //     }
@@ -61,17 +59,17 @@ function Profile({userData}) {
   };
 
   const pageInformation = {
-    pageTitle: "Account Details"
-  }
+    pageTitle: "Account Details",
+  };
 
-  if(checkingStatus) {
-    return <Spinner/>
+  if (checkingStatus) {
+    return <Spinner />;
   }
 
   return (
     <>
       <div className="loggedInBackground">
-        <BackEndHeader pageInformation={pageInformation}/>
+        <BackEndHeader pageInformation={pageInformation} />
 
         <main className="mainContainer">
           <div className="personalDetailsHeader">
@@ -118,18 +116,25 @@ function Profile({userData}) {
               </button>
             </div>
           </div>
-          <hr/>
+          <hr />
 
           <div className="locationHeader">
             <h3>Your Address</h3>
-            <p className="addressParagraph">Your address will only be used to determine your distance from other users.</p>
+            <p className="addressParagraph">
+              Your address will only be used to determine your distance from
+              other users.
+            </p>
           </div>
-            <div className="profileCard">
-              <form>
-                <input type="text" className="profileAddress" placeholder="Please enter your address"/>
-              </form>
+          <div className="profileCard">
+            <form>
+              <input
+                type="text"
+                className="profileAddress"
+                placeholder="Please enter your address"
+              />
+            </form>
           </div>
-          <hr/>
+          <hr />
           <div className="logOutBlock">
             <button type="button" className="logoutButton" onClick={onLogout}>
               Logout
