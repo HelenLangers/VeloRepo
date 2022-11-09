@@ -1,5 +1,4 @@
-import React, {useState} from 'react'
-import {getAuth} from 'firebase/auth';
+import React from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import BackEndHeader from '../Components/BackEndHeader'
 import '../Assets/homePage.css';

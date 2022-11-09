@@ -172,6 +172,7 @@ function CreateItem({userData, setUserData}) {
       fuelType: itemFuelType,
       footprint: itemFootprintBoolean,
       poleType: itemPoleType,
+      badLocationType: itemBagLocation
       // images: {},
     }
 
@@ -390,8 +391,6 @@ function CreateItem({userData, setUserData}) {
   if (loading) {
     return <Spinner />;
   }
-
-
 
   return (
     <>
