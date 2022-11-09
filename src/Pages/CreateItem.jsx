@@ -967,7 +967,7 @@ function CreateItem({userData, setUserData}) {
             </div> */}
 
             <div className="flexAlignCenter">
-              <button type="submit" className="submitButton">
+              <button type="submit" className="submitButton" >
                 Create Item
               </button>
             </div>
