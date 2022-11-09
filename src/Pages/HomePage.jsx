@@ -5,26 +5,19 @@ import BackEndHeader from '../Components/BackEndHeader'
 import '../Assets/homePage.css';
 import { FaRegPlusSquare } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
-import { useAuthStatus } from '../Hooks/useAuthStatus';
 import Spinner from '../Components/Spinner';
 import OwnItemBlock from '../Components/OwnItemBlock';
 import OwnItemBlockNoDate from '../Components/OwnItemBlockNoDate';
 
 function HomePage({userData}) {
-  const {loggedIn, checkingStatus} = useAuthStatus()
 
-  if(!userData){
-    return <Spinner/>
-  }
-
-  if(checkingStatus) {
+  if(Object.keys(userData).length === 0){
     return <Spinner/>
   }
 
   const {name, myItems, borrowedItems} = userData
 
-  const userName = name
-  const firstName = userName.split(" ").shift()
+  const firstName = name.split(" ").shift()
 
   const pageInformation = {
     pageTitle: "Home"

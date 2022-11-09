@@ -36,7 +36,6 @@ function OneItemPage({userData} ) {
   ]
 
   const onSubmit = (e) => {
-    console.log("button click", e)
     const dataToSubmit = {
       startDate : searchStartDate,
       endDate : searchEndDate,
@@ -44,9 +43,6 @@ function OneItemPage({userData} ) {
       item : id
     }
   }
-
-  console.log(item)
-  console.log(searchStartDate)
 
 
   return (

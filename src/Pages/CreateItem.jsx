@@ -13,7 +13,7 @@ import BackEndHeader from "../Components/BackEndHeader";
 import "../Assets/addItem.css";
 import { toast } from "react-toastify";
 
-function CreateItem({userData}) {
+function CreateItem({userData, setUserData}) {
   const pageInformation = {
     pageTitle: "Add Kit",
   };
@@ -268,9 +268,13 @@ function CreateItem({userData}) {
 
     const response = await fetch("http://localhost:8080/items", requestOptions);
     if (response.ok) {
+      const responseJson = await response.json()
+      const copyOfUserData = {... userData}
+      copyOfUserData.myItems.push(responseJson)
+      console.log(copyOfUserData)
+      await setUserData(copyOfUserData) 
       navigate("/kit");
     }
-    console.log(dataToSubmit)
   };
 
   const handleDimensionsChange = (e) => {
