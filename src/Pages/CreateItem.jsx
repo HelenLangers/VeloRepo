@@ -396,7 +396,7 @@ function CreateItem({userData, setUserData}) {
     <>
       <BackEndHeader pageInformation={pageInformation} />
 
-      <main className="mainContainer">
+      <main className="mainContainerProfile">
         <div className="entryFormBlock">
           <form method="post" className="entryForm" onSubmit={onSubmit}>
             <div className="options">

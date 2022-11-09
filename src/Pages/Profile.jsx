@@ -71,7 +71,7 @@ function Profile({ userData, logOutClearState }) {
       <div className="loggedInBackground">
         <BackEndHeader pageInformation={pageInformation} />
 
-        <main className="mainContainer">
+        <main className="mainContainerProfile">
           <div className="personalDetailsHeader">
             <h3>Login Information</h3>
             <p

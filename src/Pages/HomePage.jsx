@@ -19,7 +19,7 @@ function HomePage({userData}) {
   const firstName = name.split(" ").shift()
 
   const pageInformation = {
-    pageTitle: "Home"
+    pageTitle: "Kit Shed"
   }
   
   const myStuff = myItems.map((item, id) => {
@@ -35,9 +35,9 @@ function HomePage({userData}) {
     <>
       <BackEndHeader pageInformation={pageInformation}/>
       <main className="mainContainer">
-      <h3 className="welcomeName">Hey {firstName}! Here's your kit:</h3>
+      <h3 className="welcomeName">Hey {firstName}! Welcome to your kit shed:</h3>
         <div className="itemsForLoan">
-          <h3>Your Kit For Loan</h3>
+          <h3>The kit you're happy for others to borrow:</h3>
           <div className='itemGrid'>
           {myStuff.length !== 0 ? (
             <>{myStuff}</>
@@ -50,17 +50,17 @@ function HomePage({userData}) {
         </div>
         <hr></hr>
 
-        {/* <div className="borrowedItems">
-          <h3>Kit You Are Borrowing</h3>
-          <div className='itemGrid'>
+        <div className="borrowedItems">
+          <h3>Kit You Are Borrowing:</h3>
+          {/* <div className='itemGrid'>
           {borrowedStuff.length !== 0 ? (
             <>{borrowedStuff}</>
           )
-          :
-          <p className='explainerText'>Do you need to borrow something for your next adventure? Click on the <FaSearch/> to search your community's shared library for what you need.</p>}
+          : */}
+          <p className='explainerText'>Do you need to borrow something for your next adventure? Click on the <FaSearch/> to search your community's shared library for what you need.</p>
           </div>
-        </div>
-        <hr></hr> */}
+        {/* </div> */}
+        <hr></hr>
       </main>
     </>
   )

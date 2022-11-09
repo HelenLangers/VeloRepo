@@ -63,21 +63,42 @@
     transform: scale(1.08)
 }
 
-.itemDescription{
-    margin: 0 2rem;
+.twoColumns{
+    display: flex;
+    margin: 0 4rem;
 }
 
-.leftColumn{
+.itemDescription{
     width: 50%;
+    margin-top: 2rem;
+    margin-left: 5rem;
 }
+
+.rightColumn{
+    width: 50%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 
 @media screen and (max-width: 1024px) {
     .mainContainerNoHeader{
         margin-top: 15vh;
         margin-left: 0;
     }
-}
 
-@media (min-width: 1024px) and (max-width: 1178px) {
+    .rightArrow{
+        right: 0;
+    }
 
+    .leftArrow{
+        left: 0;
+    }
+
+    .itemDescription{
+        text-align: justify;
+    }
 }

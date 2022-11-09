@@ -2,8 +2,12 @@
     display: flex;
     margin-left: 18rem;
     padding-left: 2rem;
-    justify-content: space-between;
 }
+
+.datePickerAndSearch:nth-of-type(1){
+    justify-content: center;
+}
+
 
 .datePickerLeft{
     display: flex;
